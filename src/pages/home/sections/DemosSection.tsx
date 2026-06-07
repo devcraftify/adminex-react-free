@@ -9,7 +9,7 @@ const demos = [
     descriptionKey: 'landing.demos.items.overview_light.desc',
     to: '/dashboard',
     image: '/assets/landing/demos/main-light.png',
-    mode: 'light',
+    mode: 'light' as const,
     icon: Icons.dashboard,
     color: 'text-blue-500',
     bg: 'bg-blue-500/10',
@@ -19,47 +19,17 @@ const demos = [
     descriptionKey: 'landing.demos.items.overview_dark.desc',
     to: '/dashboard',
     image: '/assets/landing/demos/main-dark.png',
-    mode: 'dark',
+    mode: 'dark' as const,
     icon: Icons.dashboard,
     color: 'text-blue-500',
     bg: 'bg-blue-500/10',
-  },
-  {
-    titleKey: 'landing.demos.items.analytics.title',
-    descriptionKey: 'landing.demos.items.analytics.desc',
-    to: '/dashboard/analytics',
-    image: '/assets/landing/demos/analytics.png',
-    mode: 'light',
-    icon: Icons.chartBar,
-    color: 'text-cyan-500',
-    bg: 'bg-cyan-500/10',
-  },
-  {
-    titleKey: 'landing.demos.items.ecommerce.title',
-    descriptionKey: 'landing.demos.items.ecommerce.desc',
-    to: '/dashboard/ecommerce',
-    image: '/assets/landing/demos/e-commerce.png',
-    mode: 'light',
-    icon: Icons.shopping,
-    color: 'text-purple-500',
-    bg: 'bg-purple-500/10',
-  },
-  {
-    titleKey: 'landing.demos.items.crm.title',
-    descriptionKey: 'landing.demos.items.crm.desc',
-    to: '/dashboard/crm',
-    image: '/assets/landing/demos/crm.png',
-    mode: 'light',
-    icon: Icons.users,
-    color: 'text-orange-500',
-    bg: 'bg-orange-500/10',
   },
   {
     titleKey: 'landing.demos.items.calendar.title',
     descriptionKey: 'landing.demos.items.calendar.desc',
     to: '/app/calendar',
     image: '/assets/landing/demos/calendar.png',
-    mode: 'light',
+    mode: 'light' as const,
     icon: Icons.calendar,
     color: 'text-pink-500',
     bg: 'bg-pink-500/10',
@@ -72,7 +42,6 @@ export function DemosSection() {
 
   return (
     <section id="demos" className="py-24 px-4 bg-surface-50 dark:bg-surface-950 scroll-mt-24 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-theme-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -109,9 +78,7 @@ export function DemosSection() {
               onClick={() => setMode(d.mode)}
               className="group relative rounded-[1rem] overflow-hidden border border-surface-200 dark:border-surface-800 bg-white dark:bg-surface-900 hover:shadow-xl hover:shadow-theme-primary/10 transition-all duration-500 hover:-translate-y-1"
             >
-              {/* Image Container */}
               <div className="relative overflow-hidden bg-surface-100 dark:bg-surface-900 group-hover:opacity-100 transition-opacity h-[310px]">
-                {/* Placeholder or Image */}
                 <div className="absolute inset-0 bg-gradient-to-br from-surface-50 to-surface-100 dark:from-surface-800 dark:to-surface-900 flex items-center justify-center text-secondary-300 dark:text-secondary-700">
                   <Icon icon={d.icon} className="w-12 h-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500 transform group-hover:scale-110" />
                 </div>
@@ -121,8 +88,6 @@ export function DemosSection() {
                   className="absolute inset-0 w-full h-full object-cover object-top"
                   loading="lazy"
                 />
-
-                {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-secondary-900/0 group-hover:bg-secondary-900/5 transition-colors duration-300" />
               </div>
 

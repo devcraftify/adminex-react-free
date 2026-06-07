@@ -1,46 +1,32 @@
-/**
- * Chart.js Configuration
- * Register all required Chart.js components
- */
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  RadialLinearScale,
   PointElement,
   LineElement,
   BarElement,
   ArcElement,
-  RadarController,
   Title,
   Tooltip,
   Legend,
   Filler,
 } from 'chart.js'
-import { CandlestickController, CandlestickElement, OhlcController, OhlcElement } from 'chartjs-chart-financial'
 
 export function registerCharts() {
   ChartJS.register(
     CategoryScale,
     LinearScale,
-    RadialLinearScale,
     PointElement,
     LineElement,
     BarElement,
     ArcElement,
-    RadarController,
-    CandlestickController,
-    CandlestickElement,
-    OhlcController,
-    OhlcElement,
     Title,
     Tooltip,
     Legend,
-    Filler
+    Filler,
   )
 }
 
-// Default chart options
 export const defaultOptions = {
   responsive: true,
   maintainAspectRatio: false,
@@ -51,12 +37,11 @@ export const defaultOptions = {
   },
 }
 
-// Get theme colors from CSS variables
 export function getThemeColors() {
   const root = document.documentElement
   const primary = getComputedStyle(root).getPropertyValue('--theme-primary').trim() || '59, 130, 246'
   const accent = getComputedStyle(root).getPropertyValue('--theme-accent').trim() || '99, 102, 241'
-  
+
   return {
     primary: `rgb(${primary})`,
     primaryLight: `rgba(${primary}, 0.1)`,
@@ -66,7 +51,6 @@ export function getThemeColors() {
   }
 }
 
-// Color palette for charts
 export const chartColors = {
   blue: { solid: '#3b82f6', light: 'rgba(59, 130, 246, 0.1)' },
   purple: { solid: '#8b5cf6', light: 'rgba(139, 92, 246, 0.1)' },

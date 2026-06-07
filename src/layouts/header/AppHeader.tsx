@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Icon, Icons, LanguageSwitcher, Logo } from '@/components/common'
+import { Icon, Icons, Logo } from '@/components/common'
 import { useLocale } from '@/i18n'
 import { useTheme } from '@/hooks/useTheme'
 
@@ -110,13 +110,8 @@ export function AppHeader({ sidebarWidth, isHorizontal, isCollapsed, onToggleSid
         id: 'apps',
         label: t('header.menu.apps'),
         items: [
-          { to: '/app/email', title: t('nav.email'), description: t('header.apps.email_desc'), icon: Icons.mail, badge: '3' },
-          { to: '/app/chat', title: t('nav.chat'), description: t('header.apps.chat_desc'), icon: Icons.message, badge: '5' },
-          { to: '/app/notes', title: t('nav.notes'), description: t('header.apps.notes_desc'), icon: Icons.note },
-          { to: '/app/kanban', title: t('nav.kanban_board'), description: t('header.apps.kanban_desc'), icon: Icons.kanban },
           { to: '/app/calendar', title: t('nav.calendar'), description: t('header.apps.calendar_desc'), icon: Icons.calendar },
-          { to: '/app/ecommerce/products', title: t('nav.ecommerce_title'), description: t('header.apps.ecommerce_desc'), icon: Icons.shopping },
-          { to: '/app/blog', title: t('nav.blog'), description: t('header.apps.blog_desc'), icon: Icons.article },
+          { to: '/app/contacts', title: t('nav.contacts'), description: t('header.apps.contacts_desc'), icon: Icons.contacts },
         ],
         footer: { label: t('header.footer.all_apps'), to: '/dashboard' },
       },
@@ -129,7 +124,7 @@ export function AppHeader({ sidebarWidth, isHorizontal, isCollapsed, onToggleSid
           { to: '/charts/line', title: t('header.components.charts'), description: t('header.components.charts_desc'), icon: Icons.chartLine },
           { to: '/pages/account-settings', title: t('header.components.settings_pages'), description: t('header.components.settings_pages_desc'), icon: Icons.settings },
         ],
-        footer: { label: t('header.footer.explore_pages'), to: '/pages/pricing' },
+        footer: { label: t('header.footer.explore_pages'), to: '/pages/typography' },
       },
     ],
     [t],
@@ -190,7 +185,7 @@ export function AppHeader({ sidebarWidth, isHorizontal, isCollapsed, onToggleSid
 
           <div className="hidden xl:flex items-center gap-1" ref={megaRef}>
             <TopLink to="/dashboard" label={t('header.top.dashboard')} />
-            <TopLink to="/pages/pricing" label={t('header.top.pages')} />
+            <TopLink to="/pages/account-settings" label={t('header.top.pages')} />
 
             {menus.map((m) => (
               <div key={m.id} className="relative">
@@ -334,18 +329,6 @@ export function AppHeader({ sidebarWidth, isHorizontal, isCollapsed, onToggleSid
             <Icon icon={Icons.search} className="w-5 h-5 text-secondary-600 dark:text-secondary-400" />
           </button>
           
-          <Link
-            to="/app/blog/create"
-            className="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-theme-primary text-white text-sm font-medium hover:bg-theme-primary-dark transition-colors"
-          >
-            <Icon icon={Icons.plus} className="w-4 h-4" />
-            <span className="hidden lg:inline">{t('create')}</span>
-          </Link>
-
-          <div className="hidden sm:block">
-            <LanguageSwitcher />
-          </div>
-
           <div className="relative" ref={notifRef}>
             <button
               className="relative p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg transition-colors"
@@ -418,12 +401,12 @@ export function AppHeader({ sidebarWidth, isHorizontal, isCollapsed, onToggleSid
                   {t('common.settings')}
                 </Link>
                 <Link
-                  to="/pages/faq"
+                  to="/pages/typography"
                   className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-secondary-700 dark:text-secondary-200 hover:bg-surface-50 dark:hover:bg-surface-800"
                   onClick={() => setUserOpen(false)}
                 >
                   <Icon icon={Icons.help} className="w-5 h-5" />
-                  {t('common.help')}
+                  {t('nav.typography')}
                 </Link>
                 <div className="my-2 border-t border-surface-200 dark:border-surface-700" />
                 <Link

@@ -19,8 +19,8 @@ const THEME_COLORS: { value: ThemeColor; label: string; class: string }[] = [
 export function ThemeCustomizer() {
   const [isOpen, setIsOpen] = useState(false)
   const { config, setMode, setDirection, setColor, setSidebarLayout, setContainer, setCardStyle, setSidebarCollapsed, resetTheme } = useTheme()
-  const { t, locale } = useLocale()
-  const isDirectionLocked = locale === 'ar' || locale === 'ur'
+  const { t } = useLocale()
+  const isDirectionLocked = false
   const isRtl = config.direction === 'rtl'
 
   return (

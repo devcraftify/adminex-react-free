@@ -7,7 +7,7 @@ const NAV_GROUP_KEY_BY_TITLE: Record<string, string> = {
   Apps: 'nav.apps',
   Authentication: 'nav.authentication',
   Pages: 'nav.pages',
-  From: 'nav.forms',
+  Forms: 'nav.forms',
   Table: 'nav.table',
   Charts: 'nav.charts',
 }

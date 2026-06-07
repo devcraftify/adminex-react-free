@@ -38,14 +38,11 @@ export function LandingFooter() {
             <div>
               <p className="text-sm font-semibold text-secondary-900 dark:text-white">{t('landing.footer.pages')}</p>
               <div className="mt-3 space-y-2 text-sm">
-                <Link className="block text-secondary-600 dark:text-secondary-400 hover:text-secondary-900 dark:hover:text-white" to="/pages/pricing">
-                  {t('pages.pricing')}
-                </Link>
                 <Link className="block text-secondary-600 dark:text-secondary-400 hover:text-secondary-900 dark:hover:text-white" to="/pages/account-settings">
                   {t('pages.account_settings')}
                 </Link>
-                <Link className="block text-secondary-600 dark:text-secondary-400 hover:text-secondary-900 dark:hover:text-white" to="/pages/faq">
-                  {t('pages.faq')}
+                <Link className="block text-secondary-600 dark:text-secondary-400 hover:text-secondary-900 dark:hover:text-white" to="/pages/typography">
+                  {t('nav.typography')}
                 </Link>
               </div>
             </div>

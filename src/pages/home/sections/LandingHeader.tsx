@@ -15,10 +15,10 @@ export function LandingHeader() {
 
   const dashboards = [
     {
-      title: t('nav.analytics'),
-      description: t('landing.header.dashboards.analytics.desc'),
-      to: '/dashboard/analytics',
-      icon: Icons.chartLine,
+      title: t('nav.overview'),
+      description: t('landing.demos.items.overview_light.desc'),
+      to: '/dashboard',
+      icon: Icons.dashboard,
       accent: 'from-blue-500/20 to-indigo-500/20',
       iconColor: 'text-blue-600 dark:text-blue-400',
       badge: t('landing.header.badge.popular'),
@@ -26,26 +26,26 @@ export function LandingHeader() {
       bg: 'bg-blue-50 dark:bg-blue-900/10',
     },
     {
-      title: t('nav.ecommerce_title'),
-      description: t('landing.header.dashboards.ecommerce.desc'),
-      to: '/dashboard/ecommerce',
-      icon: Icons.shoppingBag,
-      accent: 'from-emerald-500/20 to-teal-500/20',
-      iconColor: 'text-emerald-600 dark:text-emerald-400',
+      title: t('nav.calendar'),
+      description: t('landing.demos.items.calendar.desc'),
+      to: '/app/calendar',
+      icon: Icons.calendar,
+      accent: 'from-pink-500/20 to-rose-500/20',
+      iconColor: 'text-pink-600 dark:text-pink-400',
       badge: t('landing.header.badge.new'),
       badgeKind: 'new',
-      bg: 'bg-emerald-50 dark:bg-emerald-900/10',
+      bg: 'bg-pink-50 dark:bg-pink-900/10',
     },
     {
-      title: t('nav.crm'),
-      description: t('landing.header.dashboards.crm.desc'),
-      to: '/dashboard/crm',
-      icon: Icons.users,
-      accent: 'from-orange-500/20 to-red-500/20',
-      iconColor: 'text-orange-600 dark:text-orange-400',
-      badge: t('landing.header.badge.pro'),
-      badgeKind: 'pro',
-      bg: 'bg-orange-50 dark:bg-orange-900/10',
+      title: t('nav.contacts'),
+      description: t('header.apps.contacts_desc'),
+      to: '/app/contacts',
+      icon: Icons.contacts,
+      accent: 'from-emerald-500/20 to-teal-500/20',
+      iconColor: 'text-emerald-600 dark:text-emerald-400',
+      badge: undefined,
+      badgeKind: undefined,
+      bg: 'bg-emerald-50 dark:bg-emerald-900/10',
     },
   ] as const
 
@@ -245,9 +245,9 @@ export function LandingHeader() {
                         </h3>
                         <div className="space-y-1">
                           {[
-                            { label: t('landing.header.quick_links.chat_app'), to: '/app/chat', icon: Icons.message },
-                            { label: t('landing.header.quick_links.kanban_board'), to: '/app/kanban', icon: Icons.kanban },
-                            { label: t('landing.header.quick_links.file_manager'), to: '/app/files', icon: Icons.briefcase },
+                            { label: t('nav.calendar'), to: '/app/calendar', icon: Icons.calendar },
+                            { label: t('nav.contacts'), to: '/app/contacts', icon: Icons.contacts },
+                            { label: t('nav.form_layout'), to: '/forms/layout', icon: Icons.layoutGrid },
                             { label: t('landing.header.quick_links.user_profile'), to: '/pages/account-settings', icon: Icons.user },
                           ].map((l) => (
                             <Link
