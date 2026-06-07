@@ -38,18 +38,18 @@ export function AuthLayout() {
           </p>
           
           {/* Feature List */}
-          <div className="flex gap-4 pt-4">
+          <div className="flex flex-wrap gap-4 pt-4">
             <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
               <div className="w-2 h-2 rounded-full bg-theme-primary" />
-              <span className="text-sm text-white font-medium">{t('nav.analytics')}</span>
+              <span className="text-sm text-white font-medium">{t('nav.overview')}</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
               <div className="w-2 h-2 rounded-full bg-theme-accent" />
-              <span className="text-sm text-white font-medium">{t('nav.crm')}</span>
+              <span className="text-sm text-white font-medium">{t('nav.calendar')}</span>
             </div>
             <div className="flex items-center gap-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
               <div className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-sm text-white font-medium">{t('nav.ecommerce_title')}</span>
+              <span className="text-sm text-white font-medium">{t('nav.contacts')}</span>
             </div>
           </div>
         </div>

@@ -153,18 +153,6 @@ export const Icons = {
   activity: 'solar:graph-new-linear',
   trendingUp: 'solar:graph-up-linear',
 
-  // Features (Complex Logic)
-  ruleEngine: 'solar:tuning-2-linear',
-  queryBuilder: 'solar:filter-linear',
-  simulation: 'solar:pulse-2-linear',
-  insights: 'solar:lightbulb-bolt-linear',
-  logic: 'solar:programming-linear',
-  cpu: 'solar:cpu-linear',
-  workflowBuilder: 'solar:diagram-up-linear',
-  approvalEngine: 'solar:clipboard-check-linear',
-  taskScheduler: 'solar:calendar-date-linear',
-  notificationPipeline: 'solar:bell-bing-linear',
-  
   // Brands / Social
   brandTwitter: 'solar:twitter-linear',
   brandFacebook: 'solar:facebook-linear',

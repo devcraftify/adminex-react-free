@@ -4,29 +4,29 @@ import { useLocale } from '@/i18n'
 
 const ORBIT_ICONS = {
   ring1: [
-    { icon: Icons.chartBar, color: 'text-blue-500', bg: 'bg-blue-500/10' },
-    { icon: Icons.users, color: 'text-indigo-500', bg: 'bg-indigo-500/10' },
-    { icon: Icons.settings, color: 'text-purple-500', bg: 'bg-purple-500/10' },
-    { icon: Icons.shopping, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+    { icon: Icons.dashboard, color: 'text-blue-500', bg: 'bg-blue-500/10' },
+    { icon: Icons.calendar, color: 'text-indigo-500', bg: 'bg-indigo-500/10' },
+    { icon: Icons.contacts, color: 'text-purple-500', bg: 'bg-purple-500/10' },
+    { icon: Icons.chartBar, color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
   ],
   ring2: [
-    { icon: Icons.mail, color: 'text-pink-500', bg: 'bg-pink-500/10' },
-    { icon: Icons.calendar, color: 'text-orange-500', bg: 'bg-orange-500/10' },
+    { icon: Icons.table, color: 'text-pink-500', bg: 'bg-pink-500/10' },
+    { icon: Icons.layoutGrid, color: 'text-orange-500', bg: 'bg-orange-500/10' },
     { icon: Icons.lock, color: 'text-cyan-500', bg: 'bg-cyan-500/10' },
-    { icon: Icons.file, color: 'text-red-500', bg: 'bg-red-500/10' },
-    { icon: Icons.dashboard, color: 'text-teal-500', bg: 'bg-teal-500/10' },
-    { icon: Icons.video, color: 'text-violet-500', bg: 'bg-violet-500/10' },
+    { icon: Icons.chartLine, color: 'text-red-500', bg: 'bg-red-500/10' },
+    { icon: Icons.settings, color: 'text-teal-500', bg: 'bg-teal-500/10' },
+    { icon: Icons.checklist, color: 'text-violet-500', bg: 'bg-violet-500/10' },
   ],
   ring3: [
-    { icon: Icons.kanban, color: 'text-amber-500', bg: 'bg-amber-500/10' },
-    { icon: Icons.camera, color: 'text-rose-500', bg: 'bg-rose-500/10' },
-    { icon: Icons.article, color: 'text-lime-500', bg: 'bg-lime-500/10' },
-    { icon: Icons.microphone, color: 'text-fuchsia-500', bg: 'bg-fuchsia-500/10' },
-    { icon: Icons.creditCard, color: 'text-sky-500', bg: 'bg-sky-500/10' },
-    { icon: Icons.chartPie, color: 'text-green-500', bg: 'bg-green-500/10' },
-    { icon: Icons.message, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
-    { icon: Icons.phone, color: 'text-slate-500', bg: 'bg-slate-500/10' },
-  ]
+    { icon: Icons.chartPie, color: 'text-amber-500', bg: 'bg-amber-500/10' },
+    { icon: Icons.chartArea, color: 'text-rose-500', bg: 'bg-rose-500/10' },
+    { icon: Icons.heading, color: 'text-lime-500', bg: 'bg-lime-500/10' },
+    { icon: Icons.user, color: 'text-fuchsia-500', bg: 'bg-fuchsia-500/10' },
+    { icon: Icons.database, color: 'text-sky-500', bg: 'bg-sky-500/10' },
+    { icon: Icons.palette, color: 'text-green-500', bg: 'bg-green-500/10' },
+    { icon: Icons.moon, color: 'text-yellow-500', bg: 'bg-yellow-500/10' },
+    { icon: Icons.bolt, color: 'text-slate-500', bg: 'bg-slate-500/10' },
+  ],
 }
 
 export function HeroSection() {
@@ -34,17 +34,13 @@ export function HeroSection() {
 
   return (
     <section id="top" className="relative min-h-screen overflow-hidden flex items-center justify-center pt-20">
-      {/* Background Gradient */}
       <div className="absolute inset-0 bg-surface-50 dark:bg-surface-950 transition-colors duration-300" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-theme-primary/10 via-transparent to-transparent opacity-50 dark:opacity-30" />
 
-      {/* Orbit Container - Centered */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-
-        {/* Ring 1 - Diameter 650px (Radius 325px) */}
         <div className="absolute w-[650px] h-[650px] rounded-full border border-surface-200 dark:border-surface-800 animate-orbit" style={{ '--duration-orbit': '40s' } as React.CSSProperties}>
           {ORBIT_ICONS.ring1.map((item, i, arr) => {
-            const angle = (i / arr.length) * 360;
+            const angle = (i / arr.length) * 360
             return (
               <div
                 key={i}
@@ -61,19 +57,18 @@ export function HeroSection() {
           })}
         </div>
 
-        {/* Ring 2 - Diameter 950px (Radius 475px) */}
-        <div className="absolute w-[950px] h-[950px] rounded-full border border-surface-200 dark:border-surface-800 animate-orbit-reverse opacity-90 hidden sm:block" style={{ '--duration-orbit': '60s' } as React.CSSProperties}>
+        <div className="absolute w-[850px] h-[850px] rounded-full border border-surface-200/50 dark:border-surface-800/50 animate-orbit" style={{ '--duration-orbit': '55s' } as React.CSSProperties}>
           {ORBIT_ICONS.ring2.map((item, i, arr) => {
-            const angle = (i / arr.length) * 360;
+            const angle = (i / arr.length) * 360
             return (
               <div
                 key={i}
-                className="absolute top-1/2 left-1/2 -ml-6 -mt-6 pointer-events-auto"
-                style={{ transform: `rotate(${angle}deg) translateY(-475px) rotate(-${angle}deg)` }}
+                className="absolute top-1/2 left-1/2 -ml-5 -mt-5 pointer-events-auto"
+                style={{ transform: `rotate(${angle}deg) translateY(-425px) rotate(-${angle}deg)` }}
               >
-                <div className="animate-orbit" style={{ '--duration-orbit': '60s' } as React.CSSProperties}>
-                  <div className={`w-12 h-12 rounded-2xl ${item.bg} border border-surface-200 dark:border-surface-700 backdrop-blur-sm flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-125 cursor-default`}>
-                    <Icon icon={item.icon} className={`w-6 h-6 ${item.color}`} />
+                <div className="animate-orbit-reverse" style={{ '--duration-orbit': '55s' } as React.CSSProperties}>
+                  <div className={`w-10 h-10 rounded-xl ${item.bg} border border-surface-200 dark:border-surface-700 backdrop-blur-sm flex items-center justify-center shadow-md`}>
+                    <Icon icon={item.icon} className={`w-5 h-5 ${item.color}`} />
                   </div>
                 </div>
               </div>
@@ -81,32 +76,28 @@ export function HeroSection() {
           })}
         </div>
 
-        {/* Ring 3 - Diameter 1250px (Radius 625px) */}
-        <div className="absolute w-[1250px] h-[1250px] rounded-full border border-surface-200 dark:border-surface-800 animate-orbit opacity-70 hidden md:block" style={{ '--duration-orbit': '80s' } as React.CSSProperties}>
+        <div className="absolute w-[1050px] h-[1050px] rounded-full border border-surface-200/30 dark:border-surface-800/30 animate-orbit" style={{ '--duration-orbit': '70s' } as React.CSSProperties}>
           {ORBIT_ICONS.ring3.map((item, i, arr) => {
-            const angle = (i / arr.length) * 360;
+            const angle = (i / arr.length) * 360
             return (
               <div
                 key={i}
-                className="absolute top-1/2 left-1/2 -ml-6 -mt-6 pointer-events-auto"
-                style={{ transform: `rotate(${angle}deg) translateY(-625px) rotate(-${angle}deg)` }}
+                className="absolute top-1/2 left-1/2 -ml-4 -mt-4 pointer-events-auto"
+                style={{ transform: `rotate(${angle}deg) translateY(-525px) rotate(-${angle}deg)` }}
               >
-                <div className="animate-orbit-reverse" style={{ '--duration-orbit': '80s' } as React.CSSProperties}>
-                  <div className={`w-12 h-12 rounded-2xl ${item.bg} border border-surface-200 dark:border-surface-700 backdrop-blur-sm flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-125 cursor-default`}>
-                    <Icon icon={item.icon} className={`w-6 h-6 ${item.color}`} />
+                <div className="animate-orbit-reverse" style={{ '--duration-orbit': '70s' } as React.CSSProperties}>
+                  <div className={`w-8 h-8 rounded-lg ${item.bg} border border-surface-200 dark:border-surface-700 backdrop-blur-sm flex items-center justify-center shadow-sm`}>
+                    <Icon icon={item.icon} className={`w-4 h-4 ${item.color}`} />
                   </div>
                 </div>
               </div>
             )
           })}
         </div>
-
       </div>
 
-      {/* Main Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20">
         <div className="animate-fade-in flex flex-col items-center">
-
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/50 dark:bg-surface-900/50 border border-surface-200 dark:border-surface-800 text-sm text-secondary-700 dark:text-secondary-200 backdrop-blur-xl mb-8 shadow-sm">
             <Icon icon={Icons.sparkles} className="w-4 h-4 text-theme-primary" />
             <span className="font-medium">{t('landing.hero.badge')}</span>
@@ -142,11 +133,10 @@ export function HeroSection() {
             </Link>
           </div>
 
-          {/* Stats */}
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 w-full max-w-4xl">
             {[
-              { k: '50+', v: t('landing.hero.stats.pages') },
-              { k: '12+', v: t('landing.hero.stats.apps') },
+              { k: '20+', v: t('landing.hero.stats.pages') },
+              { k: '2', v: t('landing.hero.stats.apps') },
               { k: '100%', v: t('landing.hero.stats.typescript') },
               { k: t('landing.hero.stats.dark'), v: t('landing.hero.stats.mode') },
             ].map((s) => (
@@ -156,10 +146,8 @@ export function HeroSection() {
               </div>
             ))}
           </div>
-
         </div>
       </div>
     </section>
   )
 }
-

@@ -34,12 +34,14 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ## Tech Stack
 
-- React 19
-- TypeScript 5.9
-- Vite 7
-- Tailwind CSS 4
-- React Router 7
-- Chart.js
+- React 19.2
+- TypeScript 6.0
+- Vite 8
+- Tailwind CSS 4.3
+- React Router 7.17
+- Chart.js 4.5
+
+Requires Node.js 20.19+ or 22.12+.
 
 ## License
 

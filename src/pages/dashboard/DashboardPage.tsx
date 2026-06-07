@@ -78,10 +78,10 @@ export function DashboardPage() {
   ]
 
   const topProducts = [
-    { name: 'Premium Plan', sales: 2453, revenue: '$12,450', progress: 85 },
-    { name: 'Basic Plan', sales: 1832, revenue: '$8,200', progress: 65 },
-    { name: 'Enterprise', sales: 945, revenue: '$24,500', progress: 45 },
-    { name: 'Starter Kit', sales: 632, revenue: '$3,150', progress: 30 },
+    { name: 'Widget Kit', sales: 2453, revenue: '$12,450', progress: 85 },
+    { name: 'Starter Bundle', sales: 1832, revenue: '$8,200', progress: 65 },
+    { name: 'Growth Pack', sales: 945, revenue: '$6,500', progress: 45 },
+    { name: 'Essentials', sales: 632, revenue: '$3,150', progress: 30 },
   ]
 
   return (

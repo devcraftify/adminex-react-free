@@ -211,20 +211,17 @@ function BillingTab() {
         <div className="flex items-start justify-between">
           <div>
             <h3 className="heading-4 text-secondary-900 dark:text-white mb-1">
-              {t('account.professional_plan')}
+              {t('account.free_plan')}
             </h3>
             <p className="text-sm text-secondary-500 dark:text-secondary-400">
-              {t('account.next_billing_date')}
+              {t('account.free_plan_desc')}
             </p>
           </div>
           <div className="text-right">
-            <div className="heading-3 text-secondary-900 dark:text-white">$29</div>
+            <div className="heading-3 text-secondary-900 dark:text-white">$0</div>
             <div className="text-sm text-secondary-500 dark:text-secondary-400">{t('account.per_month')}</div>
           </div>
         </div>
-        <button className="mt-4 px-4 py-2 bg-white dark:bg-surface-800 hover:bg-surface-50 dark:hover:bg-surface-700 text-theme-primary rounded-lg font-medium transition-colors">
-          {t('account.upgrade_plan')}
-        </button>
       </div>
 
       {/* Payment Method */}
@@ -273,24 +270,24 @@ function BillingTab() {
               <tr>
                 <td className="px-4 py-3 text-sm text-secondary-900 dark:text-white">Dec 14, 2025</td>
                 <td className="px-4 py-3 text-sm text-secondary-600 dark:text-secondary-400">
-                  Professional Plan
+                  {t('account.free_plan')}
                 </td>
                 <td className="px-4 py-3 text-sm text-secondary-900 dark:text-white text-right">
-                  $29.00
+                  $0.00
                 </td>
                 <td className="px-4 py-3 text-right">
                   <span className="px-2 py-1 bg-success-100 dark:bg-success-900/30 text-success-700 dark:text-success-400 text-xs rounded-full">
-                    {t('account.paid')}
+                    {t('account.active')}
                   </span>
                 </td>
               </tr>
               <tr>
                 <td className="px-4 py-3 text-sm text-secondary-900 dark:text-white">Nov 14, 2025</td>
                 <td className="px-4 py-3 text-sm text-secondary-600 dark:text-secondary-400">
-                  Professional Plan
+                  {t('account.free_plan')}
                 </td>
                 <td className="px-4 py-3 text-sm text-secondary-900 dark:text-white text-right">
-                  $29.00
+                  $0.00
                 </td>
                 <td className="px-4 py-3 text-right">
                   <span className="px-2 py-1 bg-success-100 dark:bg-success-900/30 text-success-700 dark:text-success-400 text-xs rounded-full">

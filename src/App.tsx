@@ -11,7 +11,7 @@ function App() {
             Adminex
           </h1>
           <p className="text-body text-secondary-600 dark:text-secondary-400">
-            Premium React Admin Dashboard Template
+            Free React Admin Dashboard Template
           </p>
         </div>
 
