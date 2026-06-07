@@ -1,0 +1,114 @@
+/* ========================================
+   Adminex - Layout Styles
+   Styles for different layout configurations
+   ======================================== */
+
+@layer utilities {
+  /* --------------------------------
+     Container Options
+     -------------------------------- */
+  
+  /* Full width container (default) */
+  .layout-container {
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Boxed container */
+  [data-container="boxed"] .layout-container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --------------------------------
+     Vertical Sidebar Layout (Full Layout)
+     -------------------------------- */
+  
+  [data-sidebar-layout="vertical"] .layout-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--sidebar-width);
+    z-index: var(--z-fixed);
+  }
+
+  [data-sidebar-layout="vertical"] .layout-main {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+  }
+
+  /* --------------------------------
+     Horizontal Sidebar Layout (Full Layout)
+     -------------------------------- */
+  
+  [data-sidebar-layout="horizontal"] .layout-sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    z-index: var(--z-sticky);
+  }
+
+  [data-sidebar-layout="horizontal"] .layout-main {
+    margin-left: 0;
+    margin-top: calc(var(--header-height) + 60px);
+    min-height: calc(100vh - var(--header-height) - 60px);
+  }
+
+  [data-sidebar-layout="horizontal"] .layout-header {
+    left: 0 !important;
+  }
+
+  /* --------------------------------
+     RTL Support
+     -------------------------------- */
+  
+  [dir="rtl"] [data-sidebar-layout="vertical"] .layout-sidebar {
+    left: auto;
+    right: 0;
+  }
+
+  [dir="rtl"] [data-sidebar-layout="vertical"] .layout-main {
+    margin-left: 0;
+    margin-right: var(--sidebar-width);
+  }
+
+  [dir="rtl"] .rtl-flip {
+    transform: scaleX(-1);
+  }
+
+  /* --------------------------------
+     Responsive Layout
+     -------------------------------- */
+  
+  @media (max-width: 1024px) {
+    [data-sidebar-layout="vertical"] .layout-sidebar {
+      transform: translateX(-100%);
+    }
+
+    [data-sidebar-layout="vertical"] .layout-sidebar.open {
+      transform: translateX(0);
+    }
+
+    [data-sidebar-layout="vertical"] .layout-main {
+      margin-left: 0;
+    }
+
+    [dir="rtl"] [data-sidebar-layout="vertical"] .layout-sidebar {
+      transform: translateX(100%);
+    }
+
+    [dir="rtl"] [data-sidebar-layout="vertical"] .layout-sidebar.open {
+      transform: translateX(0);
+    }
+
+    [dir="rtl"] [data-sidebar-layout="vertical"] .layout-main {
+      margin-right: 0;
+    }
+  }
+}

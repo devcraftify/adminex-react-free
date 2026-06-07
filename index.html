@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo/logomark.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adminex - Premium Admin Dashboard</title>
+    
+    <!-- Prevent flash of wrong theme -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('adminex-theme')
+          if (!saved) return
+
+          var config = JSON.parse(saved)
+          var root = document.documentElement
+
+          if (config && config.mode === 'dark') root.classList.add('dark')
+          if (config && config.direction === 'rtl') root.dir = 'rtl'
+
+          // Apply color quickly (kept tiny + dependency-free)
+          var presets = {
+            blue: ['#3b82f6', '#2563eb'],
+            purple: ['#a855f7', '#9333ea'],
+            green: ['#10b981', '#059669'],
+            orange: ['#f97316', '#ea580c'],
+            red: ['#ef4444', '#dc2626'],
+            cyan: ['#06b6d4', '#0891b2'],
+          }
+          if (config && config.color && presets[config.color]) {
+            root.style.setProperty('--theme-primary', presets[config.color][0])
+            root.style.setProperty('--theme-accent', presets[config.color][1])
+          }
+
+          if (config && config.sidebarLayout) root.dataset.sidebarLayout = config.sidebarLayout
+          if (config && config.container) root.dataset.container = config.container
+          if (config && config.cardStyle) root.dataset.cardStyle = config.cardStyle
+        } catch (e) {
+          // ignore
+        }
+      })()
+    </script>
+    
+    <!-- Google Fonts: Rethink Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" 
+      rel="stylesheet" 
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
