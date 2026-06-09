@@ -43,7 +43,7 @@ export function Sidebar({ navGroups, isCollapsed, width, isMobileOpen = false, o
       )}
       
       <aside 
-        className={`fixed top-0 bottom-0 bg-white dark:bg-surface-900 border-e border-surface-200 dark:border-surface-800 flex flex-col z-[1030] transition-all duration-300 ${
+        className={`fixed top-[var(--pro-banner-height)] bottom-0 bg-white dark:bg-surface-900 border-e border-surface-200 dark:border-surface-800 flex flex-col z-[1030] transition-all duration-300 ${
           isRtl ? 'right-0' : 'left-0'
         } ${
           isMobileOpen ? 'translate-x-0' : (isRtl ? 'translate-x-full lg:translate-x-0' : '-translate-x-full lg:translate-x-0')

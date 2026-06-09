@@ -48,7 +48,7 @@ export function FullLayout() {
         className="transition-all duration-300 lg:ms-0" 
         style={{ 
           marginLeft: undefined,
-          paddingTop: isHorizontal ? 112 : 64 
+          paddingTop: isHorizontal ? 'calc(7rem + var(--pro-banner-height))' : 'calc(4rem + var(--pro-banner-height))'
         }}
       >
         <style>{`

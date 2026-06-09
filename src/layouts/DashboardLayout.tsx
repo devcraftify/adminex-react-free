@@ -35,7 +35,7 @@ export function DashboardLayout() {
     <div className="min-h-screen bg-surface-100 dark:bg-surface-950">
       {/* Header - Always on top */}
       <header
-        className="layout-header fixed top-0 right-0 h-[70px] bg-white dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 flex items-center justify-between px-6 z-[1020]"
+        className="layout-header fixed top-[var(--pro-banner-height)] right-0 h-[70px] bg-white dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 flex items-center justify-between px-6 z-[1020]"
         style={
           isHorizontal
             ? { left: 0, right: 0 }
@@ -112,7 +112,7 @@ export function DashboardLayout() {
 
       {/* Main Content */}
       <main
-        className={`layout-main transition-all duration-300 ${isHorizontal ? 'pt-[130px]' : 'pt-[70px]'}`}
+        className={`layout-main transition-all duration-300 ${isHorizontal ? 'pt-[calc(130px+var(--pro-banner-height))]' : 'pt-[calc(70px+var(--pro-banner-height))]'}`}
         style={
           isHorizontal
             ? { marginLeft: 0, marginRight: 0 }

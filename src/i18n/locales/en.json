@@ -1400,6 +1400,8 @@
     "landing.faq.items.typescript_required.answer": "The project is written in TypeScript for better type safety and developer experience, but you can also use JavaScript if you prefer.",
     "landing.faq.items.updates.question": "How do I get updates?",
     "landing.faq.items.updates.answer": "We release updates regularly. If you purchased the Pro version, you'll receive an email with a download link for the latest version.",
+    "pro_banner.message": "You're viewing the free version of Adminex — unlock 70+ pages, advanced charts, widgets, and more.",
+    "pro_banner.cta": "Buy Pro Version",
     "landing.cta.title": "Ready to launch your admin?",
     "landing.cta.subtitle": "Start with a clean foundation: dashboards, apps, charts, tables, and a consistent design system.",
     "landing.cta.primary": "Get Started",

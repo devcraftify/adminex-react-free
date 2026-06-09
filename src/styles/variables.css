@@ -134,6 +134,7 @@
   --shadow-2xl: 0 32px 64px -12px rgb(0 0 0 / 0.2);
 
   /* Layout Dimensions */
+  --pro-banner-height: 2.5rem;
   --sidebar-width: 260px;
   --sidebar-collapsed-width: 80px;
   --header-height: 70px;

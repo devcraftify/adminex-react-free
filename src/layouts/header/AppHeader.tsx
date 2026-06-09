@@ -134,7 +134,7 @@ export function AppHeader({ sidebarWidth, isHorizontal, isCollapsed, onToggleSid
 
   return (
     <header
-      className="layout-header fixed top-0 left-0 right-0 h-16 bg-white/95 dark:bg-surface-900/95 backdrop-blur border-b border-surface-200 dark:border-surface-800 z-[1020] transition-all duration-300"
+      className="layout-header fixed top-[var(--pro-banner-height)] left-0 right-0 h-16 bg-white/95 dark:bg-surface-900/95 backdrop-blur border-b border-surface-200 dark:border-surface-800 z-[1020] transition-all duration-300"
       style={{ left: isHorizontal ? 0 : undefined }}
     >
       <style>{`

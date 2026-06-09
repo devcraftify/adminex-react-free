@@ -82,7 +82,7 @@ export function HorizontalNav({ navGroups }: HorizontalNavProps) {
   return (
     <nav
       ref={rootRef}
-      className="fixed top-16 left-0 right-0 h-12 bg-white dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 z-[1010]"
+      className="fixed top-[calc(var(--pro-banner-height)+4rem)] left-0 right-0 h-12 bg-white dark:bg-surface-900 border-b border-surface-200 dark:border-surface-800 z-[1010]"
     >
       <div className="layout-container h-full">
         <div className="relative h-full" onMouseLeave={scheduleClose} onMouseEnter={clearCloseTimer}>

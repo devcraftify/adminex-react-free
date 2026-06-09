@@ -117,7 +117,7 @@ export function LandingHeader() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
+      className={`fixed top-[var(--pro-banner-height)] inset-x-0 z-50 transition-all duration-300 ${scrolled
           ? 'bg-white/80 dark:bg-surface-950/80 backdrop-blur-xl border-b border-surface-200/50 dark:border-surface-800/50 shadow-sm py-3'
           : 'bg-transparent py-5'
         }`}
