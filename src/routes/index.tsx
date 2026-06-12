@@ -45,6 +45,9 @@ const withSuspense = (Component: React.LazyExoticComponent<React.ComponentType>)
   </Suspense>
 )
 
+const routerBasename =
+  import.meta.env.BASE_URL === '/' ? undefined : import.meta.env.BASE_URL.replace(/\/$/, '')
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -90,4 +93,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-])
+], {
+  basename: routerBasename,
+})
