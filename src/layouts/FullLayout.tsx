@@ -14,7 +14,6 @@ export function FullLayout() {
 
   const isHorizontal = config.sidebarLayout === 'horizontal'
   const isCollapsed = config.sidebarCollapsed && !isHorizontal
-  const isRtl = config.direction === 'rtl'
 
   const sidebarWidth = isHorizontal ? 0 : isCollapsed ? 80 : 260
 
@@ -58,9 +57,7 @@ export function FullLayout() {
               margin-right: 0 !important;
             }
 
-            ${isRtl
-              ? `html[dir="rtl"] main { margin-right: ${isHorizontal ? 0 : sidebarWidth}px !important; }`
-              : `html[dir="ltr"] main { margin-left: ${isHorizontal ? 0 : sidebarWidth}px !important; }`}
+            html[dir="ltr"] main { margin-left: ${isHorizontal ? 0 : sidebarWidth}px !important; }
           }
         `}</style>
         <div className="layout-container p-4 md:p-6">

@@ -1,16 +1,6 @@
 import { useState } from 'react'
 import { useTheme } from '@/hooks/useTheme'
-import type { ThemeColor } from '@/types/theme'
 import { useLocale } from '@/i18n'
-
-const THEME_COLORS: { value: ThemeColor; label: string; class: string }[] = [
-  { value: 'blue', label: 'Blue', class: 'bg-blue-500' },
-  { value: 'purple', label: 'Purple', class: 'bg-purple-500' },
-  { value: 'green', label: 'Green', class: 'bg-green-500' },
-  { value: 'orange', label: 'Orange', class: 'bg-orange-500' },
-  { value: 'red', label: 'Red', class: 'bg-red-500' },
-  { value: 'cyan', label: 'Cyan', class: 'bg-cyan-500' },
-]
 
 /**
  * Floating Theme Customizer Panel
@@ -18,19 +8,15 @@ const THEME_COLORS: { value: ThemeColor; label: string; class: string }[] = [
  */
 export function ThemeCustomizer() {
   const [isOpen, setIsOpen] = useState(false)
-  const { config, setMode, setDirection, setColor, setSidebarLayout, setContainer, setCardStyle, setSidebarCollapsed, resetTheme } = useTheme()
+  const { config, setMode, setSidebarLayout, setContainer, setCardStyle, setSidebarCollapsed, resetTheme } = useTheme()
   const { t } = useLocale()
-  const isDirectionLocked = false
-  const isRtl = config.direction === 'rtl'
 
   return (
     <>
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed top-1/2 -translate-y-1/2 z-[1080] bg-theme-primary text-white p-3 shadow-lg hover:shadow-xl transition-all ${
-          isRtl ? 'left-0 rounded-r-lg' : 'right-0 rounded-l-lg'
-        }`}
+        className="fixed top-1/2 -translate-y-1/2 z-[1080] bg-theme-primary text-white p-3 shadow-lg hover:shadow-xl transition-all right-0 rounded-l-lg"
         aria-label={t('theme.open_customizer')}
       >
         <SettingsIcon className="w-5 h-5 animate-spin-slow" />
@@ -46,10 +32,8 @@ export function ThemeCustomizer() {
 
       {/* Customizer Panel */}
       <div
-        className={`fixed top-0 h-full w-80 bg-white dark:bg-surface-900 shadow-2xl z-[1090] transform transition-transform duration-300 ${
-          isRtl ? 'left-0' : 'right-0'
-        } ${
-          isOpen ? 'translate-x-0' : (isRtl ? '-translate-x-full' : 'translate-x-full')
+        className={`fixed top-0 right-0 h-full w-80 bg-white dark:bg-surface-900 shadow-2xl z-[1090] transform transition-transform duration-300 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Header */}
@@ -83,40 +67,6 @@ export function ThemeCustomizer() {
                 icon={<MoonIcon />}
                 label={t('theme.dark')}
               />
-            </div>
-          </SettingSection>
-
-          {/* Theme Direction */}
-          <SettingSection title={t('theme.direction')}>
-            <div className="grid grid-cols-2 gap-3">
-              <OptionButton
-                active={config.direction === 'ltr'}
-                onClick={() => setDirection('ltr')}
-                label={t('theme.ltr')}
-                disabled={isDirectionLocked}
-              />
-              <OptionButton
-                active={config.direction === 'rtl'}
-                onClick={() => setDirection('rtl')}
-                label={t('theme.rtl')}
-                disabled={isDirectionLocked}
-              />
-            </div>
-          </SettingSection>
-
-          {/* Theme Colors */}
-          <SettingSection title={t('theme.colors')}>
-            <div className="grid grid-cols-6 gap-2">
-              {THEME_COLORS.map((color) => (
-                <button
-                  key={color.value}
-                  onClick={() => setColor(color.value)}
-                  className={`w-8 h-8 rounded-full ${color.class} transition-transform hover:scale-110 ${
-                    config.color === color.value ? 'ring-2 ring-offset-2 ring-secondary-400 dark:ring-offset-surface-900' : ''
-                  }`}
-                  title={t(`theme.color.${color.value}`)}
-                />
-              ))}
             </div>
           </SettingSection>
 

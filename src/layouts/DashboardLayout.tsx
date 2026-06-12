@@ -29,7 +29,6 @@ export function DashboardLayout() {
   }
 
   const isHorizontal = config.sidebarLayout === 'horizontal'
-  const isRtl = config.direction === 'rtl'
 
   return (
     <div className="min-h-screen bg-surface-100 dark:bg-surface-950">
@@ -39,9 +38,7 @@ export function DashboardLayout() {
         style={
           isHorizontal
             ? { left: 0, right: 0 }
-            : isRtl
-              ? { left: 0, right: 'var(--sidebar-width)' }
-              : { left: 'var(--sidebar-width)' }
+            : { left: 'var(--sidebar-width)' }
         }
       >
         <div className="flex items-center gap-4">
@@ -116,9 +113,7 @@ export function DashboardLayout() {
         style={
           isHorizontal
             ? { marginLeft: 0, marginRight: 0 }
-            : isRtl
-              ? { marginLeft: 0, marginRight: 'var(--sidebar-width)' }
-              : { marginLeft: 'var(--sidebar-width)' }
+            : { marginLeft: 'var(--sidebar-width)' }
         }
       >
         <div className="layout-container p-6">

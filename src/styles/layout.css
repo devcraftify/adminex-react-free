@@ -65,24 +65,6 @@
   }
 
   /* --------------------------------
-     RTL Support
-     -------------------------------- */
-  
-  [dir="rtl"] [data-sidebar-layout="vertical"] .layout-sidebar {
-    left: auto;
-    right: 0;
-  }
-
-  [dir="rtl"] [data-sidebar-layout="vertical"] .layout-main {
-    margin-left: 0;
-    margin-right: var(--sidebar-width);
-  }
-
-  [dir="rtl"] .rtl-flip {
-    transform: scaleX(-1);
-  }
-
-  /* --------------------------------
      Responsive Layout
      -------------------------------- */
   
@@ -97,18 +79,6 @@
 
     [data-sidebar-layout="vertical"] .layout-main {
       margin-left: 0;
-    }
-
-    [dir="rtl"] [data-sidebar-layout="vertical"] .layout-sidebar {
-      transform: translateX(100%);
-    }
-
-    [dir="rtl"] [data-sidebar-layout="vertical"] .layout-sidebar.open {
-      transform: translateX(0);
-    }
-
-    [dir="rtl"] [data-sidebar-layout="vertical"] .layout-main {
-      margin-right: 0;
     }
   }
 }

@@ -4,8 +4,6 @@ import { Icon, Icons, Logo } from '@/components/common'
 import type { NavGroup as NavGroupType } from './types'
 import { NavGroup } from './NavGroup'
 import { useLocale } from '@/i18n'
-import { useTheme } from '@/hooks/useTheme'
-
 interface SidebarProps {
   navGroups: NavGroupType[]
   isCollapsed: boolean
@@ -21,9 +19,6 @@ interface SidebarProps {
 export function Sidebar({ navGroups, isCollapsed, width, isMobileOpen = false, onMobileClose }: SidebarProps) {
   const [expandedMenus, setExpandedMenus] = useState<string[]>([])
   const { t } = useLocale()
-  const { config } = useTheme()
-  const isRtl = config.direction === 'rtl'
-
   const toggleMenu = (path: string) => {
     setExpandedMenus(prev => 
       prev.includes(path) 
@@ -43,10 +38,8 @@ export function Sidebar({ navGroups, isCollapsed, width, isMobileOpen = false, o
       )}
       
       <aside 
-        className={`fixed top-[var(--pro-banner-height)] bottom-0 bg-white dark:bg-surface-900 border-e border-surface-200 dark:border-surface-800 flex flex-col z-[1030] transition-all duration-300 ${
-          isRtl ? 'right-0' : 'left-0'
-        } ${
-          isMobileOpen ? 'translate-x-0' : (isRtl ? 'translate-x-full lg:translate-x-0' : '-translate-x-full lg:translate-x-0')
+        className={`fixed top-[var(--pro-banner-height)] bottom-0 left-0 bg-white dark:bg-surface-900 border-e border-surface-200 dark:border-surface-800 flex flex-col z-[1030] transition-all duration-300 ${
+          isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
         style={{ width }}
       >

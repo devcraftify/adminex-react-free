@@ -5,8 +5,8 @@
 
 @theme {
   /* Dynamic Theme Colors (overridden by ThemeContext) */
-  --theme-primary: 236, 72, 153; /* Pink 500 */
-  --theme-accent: 14, 165, 233; /* Sky 500 */
+  --theme-primary: 59, 130, 246; /* Blue 500 */
+  --theme-accent: 99, 102, 241; /* Indigo 500 */
 
   /* Primary Colors - Pink (Creative) */
   --color-primary-50: #fdf2f8;

@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Icon, Icons, Logo } from '@/components/common'
 import { useLocale } from '@/i18n'
-import { useTheme } from '@/hooks/useTheme'
 
 type HeaderProps = {
   sidebarWidth: number
@@ -70,9 +69,6 @@ function TopLink({ to, label }: { to: string; label: string }) {
 export function AppHeader({ sidebarWidth, isHorizontal, isCollapsed, onToggleSidebar, onToggleMobileSidebar }: HeaderProps) {
   const location = useLocation()
   const { t } = useLocale()
-  const { config: themeConfig } = useTheme()
-  const isRtl = themeConfig.direction === 'rtl'
-
   const [openMega, setOpenMega] = useState<string | null>(null)
   const [userOpen, setUserOpen] = useState(false)
   const [notifOpen, setNotifOpen] = useState(false)
@@ -144,9 +140,7 @@ export function AppHeader({ sidebarWidth, isHorizontal, isCollapsed, onToggleSid
             right: 0 !important;
           }
 
-          ${isHorizontal ? '' : (isRtl
-            ? `html[dir="rtl"] .layout-header { right: ${headerLeft}px !important; }`
-            : `html[dir="ltr"] .layout-header { left: ${headerLeft}px !important; }`)}
+          ${isHorizontal ? '' : `html[dir="ltr"] .layout-header { left: ${headerLeft}px !important; }`}
         }
       `}</style>
       <div className={`${isHorizontal ? 'layout-container' : 'w-full px-4'} h-full flex items-center justify-between`}>
