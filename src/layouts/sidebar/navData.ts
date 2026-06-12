@@ -18,24 +18,8 @@ export const navGroups: NavGroup[] = [
   {
     title: 'Authentication',
     items: [
-      {
-        path: '/auth/login',
-        label: 'Login',
-        icon: Icons.lock,
-        children: [
-          { path: '/auth/login', label: 'Side Login' },
-          { path: '/auth-card/login', label: 'Card Login' },
-        ],
-      },
-      {
-        path: '/auth/register',
-        label: 'Register',
-        icon: Icons.userPlus,
-        children: [
-          { path: '/auth/register', label: 'Side Register' },
-          { path: '/auth-card/register', label: 'Card Register' },
-        ],
-      },
+      { path: '/auth/login', label: 'Login', icon: Icons.lock },
+      { path: '/auth/register', label: 'Register', icon: Icons.userPlus },
       { path: '/auth/forgot-password', label: 'Forgot Password', icon: Icons.key },
     ],
   },

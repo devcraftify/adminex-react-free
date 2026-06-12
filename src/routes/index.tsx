@@ -4,7 +4,7 @@ import { lazy, Suspense } from 'react'
 import { RootLayout } from '@/layouts/RootLayout'
 import { BlankLayout } from '@/layouts/BlankLayout'
 import { FullLayout } from '@/layouts/FullLayout'
-import { AuthLayout, AuthCardLayout } from '@/layouts/AuthLayout'
+import { AuthLayout } from '@/layouts/AuthLayout'
 
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-[400px]">
@@ -61,15 +61,6 @@ export const router = createBrowserRouter([
           {
             path: 'auth',
             element: <AuthLayout />,
-            children: [
-              { path: 'login', element: withSuspense(LoginPage) },
-              { path: 'register', element: withSuspense(RegisterPage) },
-              { path: 'forgot-password', element: withSuspense(ForgotPasswordPage) },
-            ],
-          },
-          {
-            path: 'auth-card',
-            element: <AuthCardLayout />,
             children: [
               { path: 'login', element: withSuspense(LoginPage) },
               { path: 'register', element: withSuspense(RegisterPage) },

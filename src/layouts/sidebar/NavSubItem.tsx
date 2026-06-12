@@ -8,10 +8,6 @@ const NAV_SUB_ITEM_KEY_BY_LABEL: Record<string, string> = {
   Products: 'nav.ecommerce_products',
   'Add Product': 'nav.ecommerce_add_product',
   Checkout: 'nav.ecommerce_checkout',
-  'Side Login': 'nav.login_side',
-  'Card Login': 'nav.login_card',
-  'Side Register': 'nav.register_side',
-  'Card Register': 'nav.register_card',
 }
 
 interface NavSubItemProps {
