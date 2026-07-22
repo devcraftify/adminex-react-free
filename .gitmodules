@@ -1,0 +1,4 @@
+[submodule "dist"]
+	path = dist
+	url = git@github.com:devcraftify/adminex-react-free-demo.git
+	branch = main
