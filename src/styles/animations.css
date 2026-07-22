@@ -156,4 +156,28 @@
     }
   }
 
+  /* --------------------------------
+     Hero glow (landing background)
+     -------------------------------- */
+
+  .animate-hero-glow {
+    animation: hero-glow 5s ease-in-out infinite;
+  }
+
+  @keyframes hero-glow {
+    0%, 100% {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.75;
+      transform: scale(1.06);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hero-glow {
+      animation: none;
+    }
+  }
 }

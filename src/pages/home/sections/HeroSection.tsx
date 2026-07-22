@@ -8,7 +8,9 @@ export function HeroSection() {
   return (
     <section id="top" className="relative min-h-screen overflow-hidden flex items-center justify-center pt-20">
       <div className="absolute inset-0 bg-surface-50 transition-colors duration-300" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-theme-primary/10 via-transparent to-transparent opacity-50" />
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none select-none">
+        <div className="h-64 w-64 sm:h-96 sm:w-96 rounded-full bg-[rgb(var(--theme-primary)/0.2)] blur-3xl animate-hero-glow" aria-hidden="true" />
+      </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pb-20">
         <div className="animate-fade-in flex flex-col items-center">
