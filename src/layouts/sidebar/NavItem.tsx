@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 import { Icon, Icons } from '@/components/common'
 import type { NavItem as NavItemType } from './types'
 import { NavSubItem } from './NavSubItem'

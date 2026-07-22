@@ -3,8 +3,8 @@
    Font-face declarations and typography settings
    ======================================== */
 
-/* 
- * Primary Font: Rethink Sans
+/*
+ * Primary Font: DM Sans
  * A modern, clean sans-serif from Google Fonts
  * Weights: 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold), 800 (ExtraBold)
  * Supports: Latin, Latin Extended
@@ -16,13 +16,13 @@
 @layer base {
   :root {
     /* Primary font for UI */
-    --font-sans: "Rethink Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    
+    --font-sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
     /* Monospace for code */
     --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
-    
+
     /* Display font for headings (using same family with different weight) */
-    --font-display: "Rethink Sans", var(--font-sans);
+    --font-display: "DM Sans", var(--font-sans);
 
     /* -------------------------------------------------
        Typography Tokens (Phase 1)

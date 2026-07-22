@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router'
 import { useLocale } from '@/i18n'
 import { Icon, Icons } from '@/components/common'
 

@@ -39,15 +39,15 @@ export const defaultOptions = {
 
 export function getThemeColors() {
   const root = document.documentElement
-  const primary = getComputedStyle(root).getPropertyValue('--theme-primary').trim() || '59, 130, 246'
-  const accent = getComputedStyle(root).getPropertyValue('--theme-accent').trim() || '99, 102, 241'
+  const primary = getComputedStyle(root).getPropertyValue('--theme-primary').trim() || '59 130 246'
+  const accent = getComputedStyle(root).getPropertyValue('--theme-accent').trim() || '99 102 241'
 
   return {
     primary: `rgb(${primary})`,
-    primaryLight: `rgba(${primary}, 0.1)`,
-    primaryMedium: `rgba(${primary}, 0.5)`,
+    primaryLight: `rgb(${primary} / 0.1)`,
+    primaryMedium: `rgb(${primary} / 0.5)`,
     accent: `rgb(${accent})`,
-    accentLight: `rgba(${accent}, 0.1)`,
+    accentLight: `rgb(${accent} / 0.1)`,
   }
 }
 

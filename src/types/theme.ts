@@ -35,6 +35,6 @@ export const defaultThemeConfig: ThemeConfig = {
 
 /** Fixed blue theme colors */
 export const themeColors = {
-  primary: '59, 130, 246', // #3b82f6
-  accent: '99, 102, 241',  // #6366f1
+  primary: '59 130 246', // #3b82f6
+  accent: '99 102 241',  // #6366f1
 } as const

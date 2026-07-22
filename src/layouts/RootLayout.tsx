@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router'
 import { ProVersionBanner, ThemeCustomizer } from '@/components/common'
 import { ScrollToTop } from '@/routes/ScrollToTop'
 

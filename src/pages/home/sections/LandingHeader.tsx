@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 import { Icon, Icons, Logo } from '@/components/common'
 import { useLocale } from '@/i18n'
 

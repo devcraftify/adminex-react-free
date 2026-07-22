@@ -1,4 +1,4 @@
-import { Link, useRouteError, isRouteErrorResponse } from 'react-router-dom'
+import { Link, useRouteError, isRouteErrorResponse } from 'react-router'
 import { Icon, Icons } from '@/components/common'
 import { useLocale } from '@/i18n'
 

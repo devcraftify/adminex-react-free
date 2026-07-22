@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router'
 import type { NavSubItem as NavSubItemType } from './types'
 import { useLocale } from '@/i18n'
 

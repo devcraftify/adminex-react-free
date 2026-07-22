@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation } from 'react-router-dom'
+import { Outlet, Link, useLocation } from 'react-router'
 import { useTheme } from '@/hooks/useTheme'
 import { Icon, Icons, Logo } from '@/components/common'
 

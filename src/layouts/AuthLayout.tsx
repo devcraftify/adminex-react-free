@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom'
+import { Outlet, Link } from 'react-router'
 import { Logo } from '@/components/common'
 import { useLocale } from '@/i18n'
 

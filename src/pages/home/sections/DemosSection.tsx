@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import { Icon, Icons } from '@/components/common'
 import { useTheme } from '@/hooks'
 import { useLocale } from '@/i18n'

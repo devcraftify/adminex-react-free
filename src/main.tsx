@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
+import { RouterProvider } from 'react-router'
 import { ThemeProvider } from '@/context/ThemeContext'
 import { LocaleProvider } from '@/i18n'
 import { registerCharts } from '@/components/charts'
