@@ -1,14 +1,10 @@
-export interface NavSubItem {
-  path: string
-  label: string
-}
-
 export interface NavItem {
   path: string
   label: string
   icon: string
   badge?: string | number
-  children?: NavSubItem[]
+  /** Pro-only item: links out to the Pro demo instead of an in-app route */
+  isPro?: boolean
 }
 
 export interface NavGroup {

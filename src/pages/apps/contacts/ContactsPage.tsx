@@ -201,11 +201,11 @@ export function ContactsPage() {
   const getStatusStyles = (status: Contact['status']) => {
     switch (status) {
       case 'active':
-        return 'bg-success-100 text-success-700 dark:bg-success-900/30 dark:text-success-400'
+        return 'bg-success-100 text-success-700'
       case 'inactive':
-        return 'bg-secondary-100 text-secondary-600 dark:bg-secondary-800 dark:text-secondary-400'
+        return 'bg-secondary-100 text-secondary-600'
       case 'pending':
-        return 'bg-warning-100 text-warning-700 dark:bg-warning-900/30 dark:text-warning-400'
+        return 'bg-warning-100 text-warning-700'
       default:
         return 'bg-secondary-100 text-secondary-600'
     }
@@ -216,13 +216,13 @@ export function ContactsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="heading-2 text-secondary-900 dark:text-white">{t('contacts.title')}</h1>
-          <p className="text-body-sm text-secondary-500 dark:text-secondary-400 mt-1">
+          <h1 className="heading-2 text-secondary-900">{t('contacts.title')}</h1>
+          <p className="text-body-sm text-secondary-500 mt-1">
             {t('contacts.description')}
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-sm text-secondary-500 dark:text-secondary-400">
+          <span className="text-sm text-secondary-500">
             {filteredContacts.length} {t('contacts.title').toLowerCase()}
           </span>
           <button
@@ -246,7 +246,7 @@ export function ContactsPage() {
               placeholder={t('contacts.search_placeholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-lg text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+              className="w-full pl-10 pr-4 py-2.5 bg-surface-50 border border-surface-200 rounded-lg text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
             />
           </div>
           {/* Filter Button */}
@@ -256,7 +256,7 @@ export function ContactsPage() {
               className={`flex items-center justify-center gap-2 px-4 py-2.5 border rounded-lg text-sm font-medium transition-colors ${
                 activeFilterCount > 0
                   ? 'bg-theme-primary-light border-theme-primary/30 text-theme-primary'
-                  : 'bg-surface-50 dark:bg-surface-800 border-surface-200 dark:border-surface-700 text-secondary-700 dark:text-secondary-300 hover:bg-surface-100 dark:hover:bg-surface-700'
+                  : 'bg-surface-50 border-surface-200 text-secondary-700 hover:bg-surface-100'
               }`}
             >
               <Icon icon={Icons.filter} width={16} height={16} />
@@ -273,10 +273,10 @@ export function ContactsPage() {
             {isFilterOpen && (
               <>
                 <div className="fixed inset-0 z-[1040]" onClick={() => setIsFilterOpen(false)} />
-                <div className="absolute right-0 top-full mt-2 w-72 bg-white dark:bg-surface-900 rounded-xl shadow-xl border border-surface-200 dark:border-surface-700 z-[1050] animate-fade-in">
-                  <div className="p-4 border-b border-surface-200 dark:border-surface-700">
+                <div className="absolute right-0 top-full mt-2 w-72 bg-white rounded-xl shadow-xl border border-surface-200 z-[1050] animate-fade-in">
+                  <div className="p-4 border-b border-surface-200">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-semibold text-secondary-900 dark:text-white">{t('contacts.filter.filters')}</h3>
+                      <h3 className="text-sm font-semibold text-secondary-900">{t('contacts.filter.filters')}</h3>
                       {activeFilterCount > 0 && (
                         <button
                           onClick={clearFilters}
@@ -290,13 +290,13 @@ export function ContactsPage() {
                   <div className="p-4 space-y-4">
                     {/* Department Filter */}
                     <div>
-                      <label className="block text-xs font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                      <label className="block text-xs font-medium text-secondary-700 mb-2">
                         {t('contacts.filter.department')}
                       </label>
                       <select
                         value={filterDepartment}
                         onChange={(e) => setFilterDepartment(e.target.value)}
-                        className="w-full px-3 py-2 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-lg text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary"
+                        className="w-full px-3 py-2 bg-surface-50 border border-surface-200 rounded-lg text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary"
                       >
                         {departments.map((dept) => (
                           <option key={dept} value={dept}>{dept === 'All' ? t('common.all') : t(`contacts.department.${dept.toLowerCase().replace(/\s+/g, '_')}`)}</option>
@@ -305,13 +305,13 @@ export function ContactsPage() {
                     </div>
                     {/* Status Filter */}
                     <div>
-                      <label className="block text-xs font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                      <label className="block text-xs font-medium text-secondary-700 mb-2">
                         {t('contacts.filter.status')}
                       </label>
                       <select
                         value={filterStatus}
                         onChange={(e) => setFilterStatus(e.target.value)}
-                        className="w-full px-3 py-2 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-lg text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary"
+                        className="w-full px-3 py-2 bg-surface-50 border border-surface-200 rounded-lg text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary"
                       >
                         {statuses.map((status) => (
                           <option key={status} value={status}>{status === 'All' ? t('common.all') : t(`contacts.status.${status.toLowerCase()}`)}</option>
@@ -319,7 +319,7 @@ export function ContactsPage() {
                       </select>
                     </div>
                   </div>
-                  <div className="p-4 border-t border-surface-200 dark:border-surface-700">
+                  <div className="p-4 border-t border-surface-200">
                     <button
                       onClick={() => setIsFilterOpen(false)}
                       className="w-full px-4 py-2 bg-theme-primary text-white rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
@@ -339,32 +339,32 @@ export function ContactsPage() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="bg-surface-50 dark:bg-surface-800/50">
-                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">
+              <tr className="bg-surface-50">
+                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 uppercase tracking-wider">
                   {t('contacts.column.contact')}
                 </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">
+                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 uppercase tracking-wider">
                   {t('contacts.column.phone')}
                 </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">
+                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 uppercase tracking-wider">
                   {t('contacts.column.role')}
                 </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">
+                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 uppercase tracking-wider">
                   {t('contacts.column.department')}
                 </th>
-                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">
+                <th className="text-left px-6 py-4 text-xs font-semibold text-secondary-500 uppercase tracking-wider">
                   {t('contacts.column.status')}
                 </th>
-                <th className="text-right px-6 py-4 text-xs font-semibold text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">
+                <th className="text-right px-6 py-4 text-xs font-semibold text-secondary-500 uppercase tracking-wider">
                   {t('contacts.column.actions')}
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-surface-200 dark:divide-surface-700">
+            <tbody className="divide-y divide-surface-200">
               {filteredContacts.map((contact) => (
                 <tr
                   key={contact.id}
-                  className="hover:bg-surface-50 dark:hover:bg-surface-800/50 transition-colors"
+                  className="hover:bg-surface-50 transition-colors"
                 >
                   {/* Contact Info */}
                   <td className="px-6 py-4">
@@ -372,13 +372,13 @@ export function ContactsPage() {
                       <img
                         src={contact.avatar}
                         alt={contact.name}
-                        className="w-10 h-10 rounded-full object-cover ring-2 ring-surface-100 dark:ring-surface-700"
+                        className="w-10 h-10 rounded-full object-cover ring-2 ring-surface-100"
                       />
                       <div>
-                        <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                        <p className="text-sm font-medium text-secondary-900">
                           {contact.name}
                         </p>
-                        <p className="text-xs text-secondary-500 dark:text-secondary-400">
+                        <p className="text-xs text-secondary-500">
                           {contact.email}
                         </p>
                       </div>
@@ -386,19 +386,19 @@ export function ContactsPage() {
                   </td>
                   {/* Phone */}
                   <td className="px-6 py-4">
-                    <span className="text-sm text-secondary-600 dark:text-secondary-400">
+                    <span className="text-sm text-secondary-600">
                       {contact.phone}
                     </span>
                   </td>
                   {/* Role */}
                   <td className="px-6 py-4">
-                    <span className="text-sm text-secondary-900 dark:text-white">
+                    <span className="text-sm text-secondary-900">
                       {contact.role}
                     </span>
                   </td>
                   {/* Department */}
                   <td className="px-6 py-4">
-                    <span className="text-sm text-secondary-600 dark:text-secondary-400">
+                    <span className="text-sm text-secondary-600">
                       {contact.department}
                     </span>
                   </td>
@@ -415,21 +415,21 @@ export function ContactsPage() {
                     <div className="flex items-center justify-end gap-1">
                       <button
                         onClick={() => handleView(contact)}
-                        className="p-2 hover:bg-surface-100 dark:hover:bg-surface-700 rounded-lg text-secondary-500 hover:text-theme-primary transition-colors"
+                        className="p-2 hover:bg-surface-100 rounded-lg text-secondary-500 hover:text-theme-primary transition-colors"
                         title="View details"
                       >
                         <Icon icon={Icons.eye} width={16} height={16} />
                       </button>
                       <button
                         onClick={() => handleEdit(contact)}
-                        className="p-2 hover:bg-surface-100 dark:hover:bg-surface-700 rounded-lg text-secondary-500 hover:text-info-600 transition-colors"
+                        className="p-2 hover:bg-surface-100 rounded-lg text-secondary-500 hover:text-info-600 transition-colors"
                         title="Edit contact"
                       >
                         <Icon icon={Icons.edit} width={16} height={16} />
                       </button>
                       <button
                         onClick={() => handleDeleteClick(contact)}
-                        className="p-2 hover:bg-danger-50 dark:hover:bg-danger-900/20 rounded-lg text-secondary-500 hover:text-danger-600 transition-colors"
+                        className="p-2 hover:bg-danger-50 rounded-lg text-secondary-500 hover:text-danger-600 transition-colors"
                         title="Delete contact"
                       >
                         <Icon icon={Icons.trash} width={16} height={16} />
@@ -445,9 +445,9 @@ export function ContactsPage() {
         {/* Empty State */}
         {filteredContacts.length === 0 && (
           <div className="py-12 text-center">
-            <Icon icon={Icons.user} width={48} height={48} className="mx-auto text-secondary-300 dark:text-secondary-600 mb-3" />
-            <p className="text-secondary-500 dark:text-secondary-400">{t('contacts.no_contacts')}</p>
-            <p className="text-sm text-secondary-400 dark:text-secondary-500 mt-1">
+            <Icon icon={Icons.user} width={48} height={48} className="mx-auto text-secondary-300 mb-3" />
+            <p className="text-secondary-500">{t('contacts.no_contacts')}</p>
+            <p className="text-sm text-secondary-400 mt-1">
               {t('contacts.no_contacts_desc')}
             </p>
             {activeFilterCount > 0 && (
@@ -472,20 +472,20 @@ export function ContactsPage() {
           />
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-2xl bg-white dark:bg-surface-900 rounded-2xl shadow-2xl animate-fade-in overflow-hidden max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl animate-fade-in overflow-hidden max-h-[90vh] overflow-y-auto">
             {/* Header */}
-            <div className="sticky top-0 bg-white dark:bg-surface-900 px-6 py-4 border-b border-surface-200 dark:border-surface-700 flex items-center justify-between z-10">
+            <div className="sticky top-0 bg-white px-6 py-4 border-b border-surface-200 flex items-center justify-between z-10">
               <div>
-                <h2 className="text-lg font-bold text-secondary-900 dark:text-white">
+                <h2 className="text-lg font-bold text-secondary-900">
                   {isEditMode ? t('contacts.form.edit_title') : t('contacts.form.add_title')}
                 </h2>
-                <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-0.5">
+                <p className="text-sm text-secondary-500 mt-0.5">
                   {isEditMode ? t('contacts.form.edit_desc') : t('contacts.form.add_desc')}
                 </p>
               </div>
               <button
                 onClick={() => setIsFormModalOpen(false)}
-                className="p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg text-secondary-500 transition-colors"
+                className="p-2 hover:bg-surface-100 rounded-lg text-secondary-500 transition-colors"
               >
                 <Icon icon={Icons.x} width={20} height={20} />
               </button>
@@ -495,13 +495,13 @@ export function ContactsPage() {
             <form onSubmit={handleFormSubmit} className="p-6">
               {/* Avatar Upload */}
               <div className="mb-6">
-                <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-3">
+                <label className="block text-sm font-medium text-secondary-700 mb-3">
                   {t('contacts.form.profile_photo')}
                 </label>
                 <div className="flex items-start gap-4">
                   {/* Preview */}
                   <div className="relative group">
-                    <div className="w-24 h-24 rounded-2xl bg-surface-100 dark:bg-surface-800 flex items-center justify-center overflow-hidden border-2 border-dashed border-surface-300 dark:border-surface-600">
+                    <div className="w-24 h-24 rounded-2xl bg-surface-100 flex items-center justify-center overflow-hidden border-2 border-dashed border-surface-300">
                       {avatarPreview ? (
                         <img src={avatarPreview} alt="Preview" className="w-full h-full object-cover" />
                       ) : (
@@ -523,16 +523,16 @@ export function ContactsPage() {
                   {/* Upload Area */}
                   <div className="flex-1">
                     <label className="block cursor-pointer">
-                      <div className="px-4 py-3 border-2 border-dashed border-surface-300 dark:border-surface-600 rounded-xl hover:border-theme-primary dark:hover:border-theme-primary hover:bg-surface-50 dark:hover:bg-surface-800/50 transition-colors">
+                      <div className="px-4 py-3 border-2 border-dashed border-surface-300 rounded-xl hover:border-theme-primary hover:bg-surface-50 transition-colors">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-lg bg-theme-primary-light flex items-center justify-center">
                             <Icon icon={Icons.upload} width={20} height={20} className="text-theme-primary" />
                           </div>
                           <div>
-                            <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                            <p className="text-sm font-medium text-secondary-900">
                               {t('contacts.form.click_upload')}
                             </p>
-                            <p className="text-xs text-secondary-500 dark:text-secondary-400">
+                            <p className="text-xs text-secondary-500">
                               {t('contacts.form.image_format')}
                             </p>
                           </div>
@@ -556,15 +556,15 @@ export function ContactsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Name */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                  <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                     {t('contacts.form.full_name')} <span className="text-danger-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={`w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
-                      formErrors.name ? 'border-danger-500' : 'border-surface-200 dark:border-surface-700'
+                    className={`w-full px-4 py-2.5 bg-surface-50 border rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
+                      formErrors.name ? 'border-danger-500' : 'border-surface-200'
                     }`}
                     placeholder={t('contacts.form.enter_full_name')}
                   />
@@ -575,15 +575,15 @@ export function ContactsPage() {
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                  <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                     {t('contacts.form.email_address')} <span className="text-danger-500">*</span>
                   </label>
                   <input
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
-                      formErrors.email ? 'border-danger-500' : 'border-surface-200 dark:border-surface-700'
+                    className={`w-full px-4 py-2.5 bg-surface-50 border rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
+                      formErrors.email ? 'border-danger-500' : 'border-surface-200'
                     }`}
                     placeholder={t('contacts.form.enter_email')}
                   />
@@ -594,15 +594,15 @@ export function ContactsPage() {
 
                 {/* Phone */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                  <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                     {t('contacts.form.phone_number')} <span className="text-danger-500">*</span>
                   </label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className={`w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
-                      formErrors.phone ? 'border-danger-500' : 'border-surface-200 dark:border-surface-700'
+                    className={`w-full px-4 py-2.5 bg-surface-50 border rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
+                      formErrors.phone ? 'border-danger-500' : 'border-surface-200'
                     }`}
                     placeholder={t('contacts.form.phone_placeholder')}
                   />
@@ -613,15 +613,15 @@ export function ContactsPage() {
 
                 {/* Location */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                  <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                     {t('contacts.form.location')} <span className="text-danger-500">*</span>
                   </label>
                   <input
                     type="text"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className={`w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
-                      formErrors.location ? 'border-danger-500' : 'border-surface-200 dark:border-surface-700'
+                    className={`w-full px-4 py-2.5 bg-surface-50 border rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
+                      formErrors.location ? 'border-danger-500' : 'border-surface-200'
                     }`}
                     placeholder={t('contacts.form.location_placeholder')}
                   />
@@ -632,14 +632,14 @@ export function ContactsPage() {
 
                 {/* Role */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                  <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                     {t('contacts.form.role')} <span className="text-danger-500">*</span>
                   </label>
                   <select
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className={`w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
-                      formErrors.role ? 'border-danger-500' : 'border-surface-200 dark:border-surface-700'
+                    className={`w-full px-4 py-2.5 bg-surface-50 border rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
+                      formErrors.role ? 'border-danger-500' : 'border-surface-200'
                     }`}
                   >
                     <option value="">{t('contacts.form.select_role')}</option>
@@ -654,14 +654,14 @@ export function ContactsPage() {
 
                 {/* Department */}
                 <div>
-                  <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                  <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                     {t('contacts.form.department')} <span className="text-danger-500">*</span>
                   </label>
                   <select
                     value={formData.department}
                     onChange={(e) => setFormData({ ...formData, department: e.target.value })}
-                    className={`w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
-                      formErrors.department ? 'border-danger-500' : 'border-surface-200 dark:border-surface-700'
+                    className={`w-full px-4 py-2.5 bg-surface-50 border rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all ${
+                      formErrors.department ? 'border-danger-500' : 'border-surface-200'
                     }`}
                   >
                     <option value="">{t('contacts.form.select_department')}</option>
@@ -676,7 +676,7 @@ export function ContactsPage() {
 
                 {/* Status */}
                 <div className="sm:col-span-2">
-                  <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                  <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                     {t('contacts.form.status')}
                   </label>
                   <div className="flex gap-3">
@@ -688,11 +688,11 @@ export function ContactsPage() {
                         className={`flex-1 px-4 py-2.5 rounded-xl text-sm font-medium border transition-all ${
                           formData.status === status
                             ? status === 'active'
-                              ? 'bg-success-100 border-success-300 text-success-700 dark:bg-success-900/30 dark:border-success-700 dark:text-success-400'
+                              ? 'bg-success-100 border-success-300 text-success-700'
                               : status === 'inactive'
-                              ? 'bg-secondary-100 border-secondary-300 text-secondary-700 dark:bg-secondary-800 dark:border-secondary-600 dark:text-secondary-300'
-                              : 'bg-warning-100 border-warning-300 text-warning-700 dark:bg-warning-900/30 dark:border-warning-700 dark:text-warning-400'
-                            : 'bg-surface-50 dark:bg-surface-800 border-surface-200 dark:border-surface-700 text-secondary-600 dark:text-secondary-400 hover:bg-surface-100 dark:hover:bg-surface-700'
+                              ? 'bg-secondary-100 border-secondary-300 text-secondary-700'
+                              : 'bg-warning-100 border-warning-300 text-warning-700'
+                            : 'bg-surface-50 border-surface-200 text-secondary-600 hover:bg-surface-100'
                         }`}
                       >
                         {formData.status === status && (
@@ -706,25 +706,25 @@ export function ContactsPage() {
 
                 {/* Bio */}
                 <div className="sm:col-span-2">
-                  <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                  <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                     {t('contacts.form.bio')}
                   </label>
                   <textarea
                     value={formData.bio}
                     onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
                     rows={3}
-                    className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all resize-none"
+                    className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all resize-none"
                     placeholder={t('contacts.form.bio_placeholder')}
                   />
                 </div>
               </div>
 
               {/* Form Actions */}
-              <div className="flex gap-3 mt-6 pt-6 border-t border-surface-200 dark:border-surface-700">
+              <div className="flex gap-3 mt-6 pt-6 border-t border-surface-200">
                 <button
                   type="button"
                   onClick={() => setIsFormModalOpen(false)}
-                  className="flex-1 px-4 py-2.5 bg-surface-100 dark:bg-surface-800 text-secondary-700 dark:text-secondary-300 rounded-xl text-sm font-medium hover:bg-surface-200 dark:hover:bg-surface-700 transition-colors"
+                  className="flex-1 px-4 py-2.5 bg-surface-100 text-secondary-700 rounded-xl text-sm font-medium hover:bg-surface-200 transition-colors"
                 >
                   {t('contacts.form.cancel')}
                 </button>
@@ -750,7 +750,7 @@ export function ContactsPage() {
           />
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-2xl bg-white dark:bg-surface-900 rounded-2xl shadow-2xl animate-fade-in overflow-hidden">
+          <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl animate-fade-in overflow-hidden">
             {/* Header with Cover */}
             <div className="h-24 bg-gradient-to-r from-theme-primary to-theme-primary/70 relative">
               <button
@@ -768,14 +768,14 @@ export function ContactsPage() {
                 <img
                   src={selectedContact.avatar}
                   alt={selectedContact.name}
-                  className="w-24 h-24 rounded-2xl object-cover ring-4 ring-white dark:ring-surface-900 shadow-lg"
+                  className="w-24 h-24 rounded-2xl object-cover ring-4 ring-white shadow-lg"
                 />
                 <button
                   onClick={() => {
                     setIsViewModalOpen(false)
                     handleEdit(selectedContact)
                   }}
-                  className="mb-2 flex items-center gap-2 px-3 py-1.5 bg-surface-100 dark:bg-surface-800 text-secondary-700 dark:text-secondary-300 rounded-lg text-sm font-medium hover:bg-surface-200 dark:hover:bg-surface-700 transition-colors"
+                  className="mb-2 flex items-center gap-2 px-3 py-1.5 bg-surface-100 text-secondary-700 rounded-lg text-sm font-medium hover:bg-surface-200 transition-colors"
                 >
                   <Icon icon={Icons.edit} width={16} height={16} />
                   {t('contacts.view.edit')}
@@ -785,7 +785,7 @@ export function ContactsPage() {
               {/* Name and Role */}
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-1">
-                  <h2 className="text-xl font-bold text-secondary-900 dark:text-white">
+                  <h2 className="text-xl font-bold text-secondary-900">
                     {selectedContact.name}
                   </h2>
                   <span
@@ -794,61 +794,61 @@ export function ContactsPage() {
                     {t(`contacts.status.${selectedContact.status}`)}
                   </span>
                 </div>
-                <p className="text-secondary-500 dark:text-secondary-400">
+                <p className="text-secondary-500">
                   {selectedContact.role} • {selectedContact.department}
                 </p>
               </div>
 
               {/* Bio */}
-              <p className="text-sm text-secondary-600 dark:text-secondary-400 mb-6 leading-relaxed">
+              <p className="text-sm text-secondary-600 mb-6 leading-relaxed">
                 {selectedContact.bio}
               </p>
 
               {/* Contact Details Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div className="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-xl">
+                <div className="flex items-center gap-3 p-3 bg-surface-50 rounded-xl">
                   <div className="w-10 h-10 rounded-lg bg-theme-primary/10 flex items-center justify-center">
                     <Icon icon={Icons.mail} width={20} height={20} className="text-theme-primary" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs text-secondary-500 dark:text-secondary-400">{t('contacts.view.email')}</p>
-                    <p className="text-sm font-medium text-secondary-900 dark:text-white truncate">
+                    <p className="text-xs text-secondary-500">{t('contacts.view.email')}</p>
+                    <p className="text-sm font-medium text-secondary-900 truncate">
                       {selectedContact.email}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-success-100 dark:bg-success-900/30 flex items-center justify-center">
-                    <Icon icon={Icons.phone} width={20} height={20} className="text-success-600 dark:text-success-400" />
+                <div className="flex items-center gap-3 p-3 bg-surface-50 rounded-xl">
+                  <div className="w-10 h-10 rounded-lg bg-success-100 flex items-center justify-center">
+                    <Icon icon={Icons.phone} width={20} height={20} className="text-success-600" />
                   </div>
                   <div>
-                    <p className="text-xs text-secondary-500 dark:text-secondary-400">{t('contacts.view.phone')}</p>
-                    <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                    <p className="text-xs text-secondary-500">{t('contacts.view.phone')}</p>
+                    <p className="text-sm font-medium text-secondary-900">
                       {selectedContact.phone}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-warning-100 dark:bg-warning-900/30 flex items-center justify-center">
-                    <Icon icon={Icons.mapPin} width={20} height={20} className="text-warning-600 dark:text-warning-400" />
+                <div className="flex items-center gap-3 p-3 bg-surface-50 rounded-xl">
+                  <div className="w-10 h-10 rounded-lg bg-warning-100 flex items-center justify-center">
+                    <Icon icon={Icons.mapPin} width={20} height={20} className="text-warning-600" />
                   </div>
                   <div>
-                    <p className="text-xs text-secondary-500 dark:text-secondary-400">{t('contacts.view.location')}</p>
-                    <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                    <p className="text-xs text-secondary-500">{t('contacts.view.location')}</p>
+                    <p className="text-sm font-medium text-secondary-900">
                       {selectedContact.location}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-info-100 dark:bg-info-900/30 flex items-center justify-center">
-                    <Icon icon={Icons.building} width={20} height={20} className="text-info-600 dark:text-info-400" />
+                <div className="flex items-center gap-3 p-3 bg-surface-50 rounded-xl">
+                  <div className="w-10 h-10 rounded-lg bg-info-100 flex items-center justify-center">
+                    <Icon icon={Icons.building} width={20} height={20} className="text-info-600" />
                   </div>
                   <div>
-                    <p className="text-xs text-secondary-500 dark:text-secondary-400">{t('contacts.view.department')}</p>
-                    <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                    <p className="text-xs text-secondary-500">{t('contacts.view.department')}</p>
+                    <p className="text-sm font-medium text-secondary-900">
                       {selectedContact.department}
                     </p>
                   </div>
@@ -856,12 +856,12 @@ export function ContactsPage() {
               </div>
 
               {/* Additional Info */}
-              <div className="flex items-center gap-6 pt-4 border-t border-surface-200 dark:border-surface-700">
-                <div className="flex items-center gap-2 text-sm text-secondary-500 dark:text-secondary-400">
+              <div className="flex items-center gap-6 pt-4 border-t border-surface-200">
+                <div className="flex items-center gap-2 text-sm text-secondary-500">
                   <Icon icon={Icons.calendar} width={16} height={16} />
                   <span>{t('contacts.view.joined')} {new Date(selectedContact.joinedDate).toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-secondary-500 dark:text-secondary-400">
+                <div className="flex items-center gap-2 text-sm text-secondary-500">
                   <Icon icon={Icons.clock} width={16} height={16} />
                   <span>{t('contacts.view.active')} {selectedContact.lastActive}</span>
                 </div>
@@ -881,34 +881,34 @@ export function ContactsPage() {
           />
           
           {/* Dialog Content */}
-          <div className="relative w-full max-w-md bg-white dark:bg-surface-900 rounded-2xl shadow-2xl animate-fade-in p-6">
+          <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl animate-fade-in p-6">
             {/* Icon */}
-            <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-danger-100 dark:bg-danger-900/30 flex items-center justify-center">
-              <Icon icon={Icons.alertTriangle} width={28} height={28} className="text-danger-600 dark:text-danger-400" />
+            <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-danger-100 flex items-center justify-center">
+              <Icon icon={Icons.alertTriangle} width={28} height={28} className="text-danger-600" />
             </div>
 
             {/* Title */}
-            <h3 className="text-lg font-bold text-secondary-900 dark:text-white text-center mb-2">
+            <h3 className="text-lg font-bold text-secondary-900 text-center mb-2">
               {t('contacts.delete.title')}
             </h3>
 
             {/* Message */}
-            <p className="text-sm text-secondary-500 dark:text-secondary-400 text-center mb-6">
+            <p className="text-sm text-secondary-500 text-center mb-6">
               {t('contacts.delete.message').replace('{name}', contactToDelete.name)}
             </p>
 
             {/* Contact Preview */}
-            <div className="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-xl mb-6">
+            <div className="flex items-center gap-3 p-3 bg-surface-50 rounded-xl mb-6">
               <img
                 src={contactToDelete.avatar}
                 alt={contactToDelete.name}
                 className="w-12 h-12 rounded-full object-cover"
               />
               <div>
-                <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                <p className="text-sm font-medium text-secondary-900">
                   {contactToDelete.name}
                 </p>
-                <p className="text-xs text-secondary-500 dark:text-secondary-400">
+                <p className="text-xs text-secondary-500">
                   {contactToDelete.email}
                 </p>
               </div>
@@ -918,7 +918,7 @@ export function ContactsPage() {
             <div className="flex gap-3">
               <button
                 onClick={() => setIsDeleteDialogOpen(false)}
-                className="flex-1 px-4 py-2.5 bg-surface-100 dark:bg-surface-800 text-secondary-700 dark:text-secondary-300 rounded-xl text-sm font-medium hover:bg-surface-200 dark:hover:bg-surface-700 transition-colors"
+                className="flex-1 px-4 py-2.5 bg-surface-100 text-secondary-700 rounded-xl text-sm font-medium hover:bg-surface-200 transition-colors"
               >
                 {t('contacts.delete.cancel')}
               </button>

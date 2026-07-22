@@ -15,22 +15,12 @@
     scroll-behavior: smooth;
   }
 
-  html.dark {
-    color-scheme: dark;
-  }
-
   body {
     margin: 0;
     min-height: 100vh;
     background-color: var(--color-secondary-50); /* Use tinted background instead of pure white */
     color: var(--color-secondary-900);
     transition: background-color 0.2s ease, color 0.2s ease;
-  }
-
-  /* Dark mode body */
-  .dark body {
-    background-color: var(--color-secondary-950);
-    color: var(--color-secondary-50);
   }
 
   /* Focus styles for accessibility */
@@ -50,10 +40,5 @@
   ::selection {
     background-color: var(--color-primary-200);
     color: var(--color-primary-900);
-  }
-
-  .dark ::selection {
-    background-color: var(--color-primary-800);
-    color: var(--color-primary-100);
   }
 }

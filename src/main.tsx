@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router'
-import { ThemeProvider } from '@/context/ThemeContext'
 import { LocaleProvider } from '@/i18n'
 import { registerCharts } from '@/components/charts'
 import { router } from './routes'
@@ -12,10 +11,8 @@ registerCharts()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider>
-      <LocaleProvider>
-        <RouterProvider router={router} />
-      </LocaleProvider>
-    </ThemeProvider>
+    <LocaleProvider>
+      <RouterProvider router={router} />
+    </LocaleProvider>
   </StrictMode>,
 )

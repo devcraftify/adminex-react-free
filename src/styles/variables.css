@@ -4,7 +4,7 @@
    ======================================== */
 
 @theme {
-  /* Dynamic Theme Colors (overridden by ThemeContext) */
+  /* Brand accent colors */
   --theme-primary: 59 130 246; /* Blue 500 */
   --theme-accent: 99 102 241; /* Indigo 500 */
 
@@ -140,9 +140,7 @@
 
   /* Card elevation — static, no hover lift */
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -4px rgb(0 0 0 / 0.06);
-  --shadow-card-dark: 0 1px 2px rgb(0 0 0 / 0.25), 0 8px 24px -4px rgb(0 0 0 / 0.4);
   --shadow-card-ring: 0 0 0 1px rgb(0 0 0 / 0.03);
-  --shadow-card-ring-dark: 0 0 0 1px rgb(255 255 255 / 0.04);
 
   /* Button heights */
   --btn-height-xs: 1.75rem;
@@ -179,9 +177,6 @@
 
   /* Layout Dimensions */
   --pro-banner-height: 2.5rem;
-  --sidebar-width: 260px;
-  --sidebar-collapsed-width: 80px;
-  --header-height: 70px;
 
   /* Animation Durations */
   --duration-fast: 150ms;

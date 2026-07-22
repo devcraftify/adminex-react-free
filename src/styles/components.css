@@ -11,31 +11,13 @@
   .card {
     background-color: white;
     border-radius: var(--radius-xl);
+    border: none;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02); /* Softer, more modern shadow */
     transition: box-shadow var(--duration-normal), border-color var(--duration-normal);
   }
 
-  .dark .card {
-    background-color: var(--color-surface-900);
-  }
-
-  /* Shadow style (default) */
-  [data-card-style="shadow"] .card {
-    border: none;
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.02); /* Softer, more modern shadow */
-  }
-
-  [data-card-style="shadow"] .card:hover {
+  .card:hover {
     box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.02);
-  }
-
-  /* Border style */
-  [data-card-style="border"] .card {
-    box-shadow: none;
-    border: 1px solid var(--color-surface-200);
-  }
-
-  .dark [data-card-style="border"] .card {
-    border-color: var(--color-surface-700);
   }
 
   /* --------------------------------
@@ -61,12 +43,6 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .dark .glass {
-    background: rgba(17, 25, 40, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   }
 
   /* --------------------------------
@@ -154,12 +130,6 @@
     background-color: var(--color-surface-100) !important;
   }
 
-  .dark .hover\:bg-surface-100:hover {
-    /* In dark mode, avoid light hover surfaces that wash out content */
-    background-color: var(--color-surface-800) !important;
-    color: inherit;
-  }
-
   /* Hover border to theme color */
   .hover\:border-theme-primary:hover {
     border-color: rgb(var(--theme-primary));
@@ -195,17 +165,6 @@
     box-shadow: 0 0 0 3px rgb(var(--theme-primary) / 0.15);
   }
 
-  .dark .input-theme {
-    border-color: var(--color-surface-700);
-    background-color: var(--color-surface-800);
-    color: white;
-  }
-
-  .dark .input-theme:focus {
-    border-color: rgb(var(--theme-primary));
-    box-shadow: 0 0 0 3px rgb(var(--theme-primary) / 0.25);
-  }
-
   /* Custom focus ring utility for inputs */
   .focus\:ring-theme-primary\/20:focus {
     --tw-ring-color: rgb(var(--theme-primary) / 0.2);
@@ -231,19 +190,6 @@
   textarea:focus {
     border-color: rgb(var(--theme-primary)) !important;
     box-shadow: 0 0 0 3px rgb(var(--theme-primary) / 0.1) !important;
-  }
-
-  .dark input[type="text"]:focus,
-  .dark input[type="email"]:focus,
-  .dark input[type="password"]:focus,
-  .dark input[type="tel"]:focus,
-  .dark input[type="number"]:focus,
-  .dark input[type="search"]:focus,
-  .dark input[type="url"]:focus,
-  .dark select:focus,
-  .dark textarea:focus {
-    border-color: rgb(var(--theme-primary)) !important;
-    box-shadow: 0 0 0 3px rgb(var(--theme-primary) / 0.2) !important;
   }
 
   /* --------------------------------
@@ -279,19 +225,9 @@
     color: inherit;
   }
 
-  .dark .hover\:bg-surface-700:hover,
-  .dark .dark\:hover\:bg-surface-700:hover {
-    background-color: var(--color-surface-700);
-    color: inherit;
-  }
-
   /* Ensure hover on danger bg doesn't make text white */
   .hover\:bg-danger-50:hover {
     background-color: var(--color-danger-50);
-  }
-
-  .dark .dark\:hover\:bg-danger-900\/20:hover {
-    background-color: rgb(127 29 29 / 0.2);
   }
 
   /* Checkbox with theme color */
@@ -306,10 +242,6 @@
   .checkbox-theme:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgb(var(--theme-primary) / 0.15);
-  }
-
-  .dark .checkbox-theme {
-    border-color: var(--color-surface-700);
   }
 
   /* --------------------------------
@@ -344,14 +276,6 @@
     border-radius: 3px;
   }
 
-  .dark .scrollbar-thin {
-    scrollbar-color: var(--color-surface-600) transparent;
-  }
-
-  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: var(--color-surface-600);
-  }
-
   /* --------------------------------
      Skeleton Loading
      -------------------------------- */
@@ -365,16 +289,6 @@
     );
     background-size: 200% 100%;
     animation: skeleton-loading 1.5s infinite;
-  }
-
-  .dark .skeleton {
-    background: linear-gradient(
-      90deg,
-      var(--color-surface-800) 25%,
-      var(--color-surface-700) 50%,
-      var(--color-surface-800) 75%
-    );
-    background-size: 200% 100%;
   }
 
   @keyframes skeleton-loading {

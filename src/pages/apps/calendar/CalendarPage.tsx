@@ -255,11 +255,11 @@ export function CalendarPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="heading-2 text-secondary-900 dark:text-white flex items-center gap-2">
+          <h1 className="heading-2 text-secondary-900 flex items-center gap-2">
             <Icon icon={Icons.calendar} width={28} height={28} />
             {t('apps.calendar.calendar')}
           </h1>
-          <p className="text-body-sm text-secondary-500 dark:text-secondary-400 mt-1">
+          <p className="text-body-sm text-secondary-500 mt-1">
             {t('apps.calendar.manage_schedule')}
           </p>
         </div>
@@ -275,37 +275,37 @@ export function CalendarPage() {
       {/* Calendar Card */}
       <div className="card rounded-xl overflow-hidden">
         {/* Calendar Header */}
-        <div className="p-4 border-b border-surface-200 dark:border-surface-700 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-4 border-b border-surface-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <button
               onClick={() => navigate('prev')}
-              className="p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg transition-colors text-secondary-600 dark:text-secondary-400"
+              className="p-2 hover:bg-surface-100 rounded-lg transition-colors text-secondary-600"
             >
               <Icon icon={Icons.chevronLeft} width={20} height={20} />
             </button>
             <button
               onClick={() => navigate('next')}
-              className="p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg transition-colors text-secondary-600 dark:text-secondary-400"
+              className="p-2 hover:bg-surface-100 rounded-lg transition-colors text-secondary-600"
             >
               <Icon icon={Icons.chevronRight} width={20} height={20} />
             </button>
             <button
               onClick={goToToday}
-              className="px-4 py-2 ms-2 bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 rounded-lg text-sm font-medium text-secondary-700 dark:text-secondary-300 transition-colors"
+              className="px-4 py-2 ms-2 bg-surface-100 hover:bg-surface-200 rounded-lg text-sm font-medium text-secondary-700 transition-colors"
             >
               {t('apps.calendar.today')}
             </button>
-            <h2 className="text-lg font-semibold text-secondary-900 dark:text-white ms-4">{monthYear}</h2>
+            <h2 className="text-lg font-semibold text-secondary-900 ms-4">{monthYear}</h2>
           </div>
-          <div className="flex bg-surface-100 dark:bg-surface-800 rounded-xl p-1">
+          <div className="flex bg-surface-100 rounded-xl p-1">
             {(['month', 'week', 'day'] as ViewType[]).map((v) => (
               <button
                 key={v}
                 onClick={() => setView(v)}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                   view === v
-                    ? 'bg-white dark:bg-surface-900 text-theme-primary shadow-sm'
-                    : 'text-secondary-600 dark:text-secondary-400 hover:text-secondary-900 dark:hover:text-white'
+                    ? 'bg-white text-theme-primary shadow-sm'
+                    : 'text-secondary-600 hover:text-secondary-900'
                 }`}
               >
                 {t(`apps.calendar.${v}`)}
@@ -320,21 +320,21 @@ export function CalendarPage() {
             {/* Week day headers */}
             <div className="grid grid-cols-7 mb-2">
               {weekDayNames.map((day) => (
-                <div key={day} className="text-center text-sm font-semibold text-secondary-500 dark:text-secondary-400 py-3">
+                <div key={day} className="text-center text-sm font-semibold text-secondary-500 py-3">
                   {day}
                 </div>
               ))}
             </div>
             {/* Calendar grid */}
-            <div className="grid grid-cols-7 gap-px bg-surface-200 dark:bg-surface-700 rounded-xl overflow-hidden">
+            <div className="grid grid-cols-7 gap-px bg-surface-200 rounded-xl overflow-hidden">
               {days.map((day, index) => {
                 const dayEvents = getEventsForDate(day.date)
                 return (
                   <div
                     key={index}
                     onClick={() => handleDateClick(day.date)}
-                    className={`min-h-28 p-2 bg-white dark:bg-surface-900 cursor-pointer transition-colors hover:bg-surface-50 dark:hover:bg-surface-800 ${
-                      !day.isCurrentMonth ? 'bg-surface-50 dark:bg-surface-800/50' : ''
+                    className={`min-h-28 p-2 bg-white cursor-pointer transition-colors hover:bg-surface-50 ${
+                      !day.isCurrentMonth ? 'bg-surface-50' : ''
                     }`}
                   >
                     <div
@@ -342,8 +342,8 @@ export function CalendarPage() {
                         isToday(day.date)
                           ? 'bg-theme-primary text-white'
                           : day.isCurrentMonth
-                          ? 'text-secondary-900 dark:text-white'
-                          : 'text-secondary-400 dark:text-secondary-600'
+                          ? 'text-secondary-900'
+                          : 'text-secondary-400'
                       }`}
                     >
                       {day.date.getDate()}
@@ -362,7 +362,7 @@ export function CalendarPage() {
                         )
                       })}
                       {dayEvents.length > 3 && (
-                        <div className="text-xs text-secondary-500 dark:text-secondary-400 px-2 font-medium">
+                        <div className="text-xs text-secondary-500 px-2 font-medium">
                           {t('apps.calendar.more_count', { count: dayEvents.length - 3 })}
                         </div>
                       )}
@@ -379,21 +379,21 @@ export function CalendarPage() {
           <div className="overflow-x-auto">
             <div className="min-w-[800px]">
               {/* Week header */}
-              <div className="grid grid-cols-8 border-b border-surface-200 dark:border-surface-700">
-                <div className="p-3 border-e border-surface-200 dark:border-surface-700"></div>
+              <div className="grid grid-cols-8 border-b border-surface-200">
+                <div className="p-3 border-e border-surface-200"></div>
                 {weekDays.map((day, index) => (
                   <div
                     key={index}
-                    className={`p-3 text-center border-e border-surface-200 dark:border-surface-700 last:border-e-0 ${
+                    className={`p-3 text-center border-e border-surface-200 last:border-e-0 ${
                       isToday(day) ? 'bg-theme-primary/5' : ''
                     }`}
                   >
-                    <div className="text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase">
+                    <div className="text-xs font-medium text-secondary-500 uppercase">
                       {weekDayNames[day.getDay()]}
                     </div>
                     <div
                       className={`text-xl font-bold mt-1 ${
-                        isToday(day) ? 'text-theme-primary' : 'text-secondary-900 dark:text-white'
+                        isToday(day) ? 'text-theme-primary' : 'text-secondary-900'
                       }`}
                     >
                       {day.getDate()}
@@ -404,8 +404,8 @@ export function CalendarPage() {
               {/* Time grid */}
               <div className="max-h-[600px] overflow-y-auto">
                 {hours.map((hour) => (
-                  <div key={hour} className="grid grid-cols-8 border-b border-surface-100 dark:border-surface-800">
-                    <div className="p-2 text-xs font-medium text-secondary-500 dark:text-secondary-400 border-e border-surface-200 dark:border-surface-700 text-right pe-3">
+                  <div key={hour} className="grid grid-cols-8 border-b border-surface-100">
+                    <div className="p-2 text-xs font-medium text-secondary-500 border-e border-surface-200 text-right pe-3">
                       {hour.toString().padStart(2, '0')}:00
                     </div>
                     {weekDays.map((day, dayIndex) => {
@@ -422,7 +422,7 @@ export function CalendarPage() {
                         <div
                           key={dayIndex}
                           onClick={() => handleDateClick(day)}
-                          className="min-h-14 p-1 border-e border-surface-100 dark:border-surface-800 last:border-e-0 hover:bg-surface-50 dark:hover:bg-surface-800 cursor-pointer transition-colors"
+                          className="min-h-14 p-1 border-e border-surface-100 last:border-e-0 hover:bg-surface-50 cursor-pointer transition-colors"
                         >
                           {dayEvents.map((event) => {
                             const colorConfig = eventColors[event.color]
@@ -449,18 +449,18 @@ export function CalendarPage() {
         {/* Day View */}
         {view === 'day' && (
           <div className="p-4">
-            <div className="text-center mb-6 pb-4 border-b border-surface-200 dark:border-surface-700">
-              <div className="text-sm font-medium text-secondary-500 dark:text-secondary-400 uppercase">
+            <div className="text-center mb-6 pb-4 border-b border-surface-200">
+              <div className="text-sm font-medium text-secondary-500 uppercase">
                 {weekDayNames[currentDate.getDay()]}
               </div>
               <div
                 className={`heading-1 mt-1 ${
-                  isToday(currentDate) ? 'text-theme-primary' : 'text-secondary-900 dark:text-white'
+                  isToday(currentDate) ? 'text-theme-primary' : 'text-secondary-900'
                 }`}
               >
                 {currentDate.getDate()}
               </div>
-              <div className="text-sm text-secondary-500 dark:text-secondary-400 mt-1">
+              <div className="text-sm text-secondary-500 mt-1">
                 {currentDate.toLocaleDateString(locale, { month: 'long', year: 'numeric' })}
               </div>
             </div>
@@ -478,14 +478,14 @@ export function CalendarPage() {
                 return (
                   <div
                     key={hour}
-                    className="flex border-b border-surface-100 dark:border-surface-800 min-h-16"
+                    className="flex border-b border-surface-100 min-h-16"
                   >
-                    <div className="w-20 p-3 text-sm font-medium text-secondary-500 dark:text-secondary-400 border-e border-surface-200 dark:border-surface-700 flex-shrink-0 text-right pe-4">
+                    <div className="w-20 p-3 text-sm font-medium text-secondary-500 border-e border-surface-200 flex-shrink-0 text-right pe-4">
                       {hour.toString().padStart(2, '0')}:00
                     </div>
                     <div
                       onClick={() => handleDateClick(currentDate)}
-                      className="flex-1 p-2 hover:bg-surface-50 dark:hover:bg-surface-800 cursor-pointer transition-colors"
+                      className="flex-1 p-2 hover:bg-surface-50 cursor-pointer transition-colors"
                     >
                       {hourEvents.map((event) => {
                         const colorConfig = eventColors[event.color]
@@ -519,7 +519,7 @@ export function CalendarPage() {
 
       {/* Upcoming Events */}
       <div className="card rounded-xl p-5">
-        <h3 className="text-lg font-bold text-secondary-900 dark:text-white mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-secondary-900 mb-4 flex items-center gap-2">
           <Icon icon={Icons.calendarEvent} width={20} height={20} />
           {t('apps.calendar.upcoming_events')}
         </h3>
@@ -537,13 +537,13 @@ export function CalendarPage() {
                   className={`p-4 rounded-xl cursor-pointer transition-all hover:scale-[1.01] ${colorConfig.bg} border-s-4 ${colorConfig.border}`}
                 >
                   <div className={`font-semibold ${colorConfig.text}`}>{event.title}</div>
-                  <div className="text-sm text-secondary-600 dark:text-secondary-400 mt-1.5">
+                  <div className="text-sm text-secondary-600 mt-1.5">
                     {event.allDay
                       ? formatDate(event.start)
                       : `${formatShortDate(event.start)} ${t('apps.calendar.at')} ${formatTime(event.start)}`}
                   </div>
                   {event.location && (
-                    <div className="text-sm text-secondary-500 dark:text-secondary-500 flex items-center gap-1.5 mt-1.5">
+                    <div className="text-sm text-secondary-500 flex items-center gap-1.5 mt-1.5">
                       <Icon icon={Icons.mapPin} width={16} height={16} />
                       {event.location}
                     </div>
@@ -553,8 +553,8 @@ export function CalendarPage() {
             })}
           {events.filter((event) => new Date(event.start) >= new Date()).length === 0 && (
             <div className="text-center py-8">
-              <Icon icon={Icons.calendarEvent} width={48} height={48} className="mx-auto text-secondary-300 dark:text-secondary-600 mb-3" />
-              <p className="text-secondary-500 dark:text-secondary-400">{t('apps.calendar.no_upcoming')}</p>
+              <Icon icon={Icons.calendarEvent} width={48} height={48} className="mx-auto text-secondary-300 mb-3" />
+              <p className="text-secondary-500">{t('apps.calendar.no_upcoming')}</p>
               <button
                 onClick={handleAddNew}
                 className="mt-3 text-sm text-theme-primary hover:underline font-medium"
@@ -576,7 +576,7 @@ export function CalendarPage() {
           />
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-lg bg-white dark:bg-surface-900 rounded-2xl shadow-2xl animate-fade-in overflow-hidden">
+          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-fade-in overflow-hidden">
             {/* Colored Header */}
             <div className={`h-20 ${
               selectedEvent.color === 'primary' ? 'bg-gradient-to-r from-primary-500 to-primary-600' :
@@ -596,25 +596,25 @@ export function CalendarPage() {
 
             {/* Content */}
             <div className="p-6">
-              <h2 className="text-xl font-bold text-secondary-900 dark:text-white mb-2">
+              <h2 className="text-xl font-bold text-secondary-900 mb-2">
                 {selectedEvent.title}
               </h2>
               
               {selectedEvent.description && (
-                <p className="text-secondary-600 dark:text-secondary-400 mb-4">
+                <p className="text-secondary-600 mb-4">
                   {selectedEvent.description}
                 </p>
               )}
 
               {/* Event Details */}
               <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-xl">
+                <div className="flex items-center gap-3 p-3 bg-surface-50 rounded-xl">
                   <div className="w-10 h-10 rounded-lg bg-theme-primary/10 flex items-center justify-center">
                     <Icon icon={Icons.clock} width={20} height={20} className="text-theme-primary" />
                   </div>
                   <div>
-                    <p className="text-xs text-secondary-500 dark:text-secondary-400">{t('apps.calendar.date_time')}</p>
-                    <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                    <p className="text-xs text-secondary-500">{t('apps.calendar.date_time')}</p>
+                    <p className="text-sm font-medium text-secondary-900">
                       {selectedEvent.allDay 
                         ? `${t('apps.calendar.all_day')} - ${formatDate(selectedEvent.start)}`
                         : `${formatDate(selectedEvent.start)}, ${formatTime(selectedEvent.start)} - ${formatTime(selectedEvent.end)}`
@@ -624,13 +624,13 @@ export function CalendarPage() {
                 </div>
 
                 {selectedEvent.location && (
-                  <div className="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-xl">
-                    <div className="w-10 h-10 rounded-lg bg-warning-100 dark:bg-warning-900/30 flex items-center justify-center">
-                      <Icon icon={Icons.mapPin} width={20} height={20} className="text-warning-600 dark:text-warning-400" />
+                  <div className="flex items-center gap-3 p-3 bg-surface-50 rounded-xl">
+                    <div className="w-10 h-10 rounded-lg bg-warning-100 flex items-center justify-center">
+                      <Icon icon={Icons.mapPin} width={20} height={20} className="text-warning-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-secondary-500 dark:text-secondary-400">{t('apps.calendar.location')}</p>
-                      <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                      <p className="text-xs text-secondary-500">{t('apps.calendar.location')}</p>
+                      <p className="text-sm font-medium text-secondary-900">
                         {selectedEvent.location}
                       </p>
                     </div>
@@ -638,13 +638,13 @@ export function CalendarPage() {
                 )}
 
                 {selectedEvent.attendees && selectedEvent.attendees.length > 0 && (
-                  <div className="flex items-center gap-3 p-3 bg-surface-50 dark:bg-surface-800 rounded-xl">
-                    <div className="w-10 h-10 rounded-lg bg-info-100 dark:bg-info-900/30 flex items-center justify-center">
-                      <Icon icon={Icons.users} width={20} height={20} className="text-info-600 dark:text-info-400" />
+                  <div className="flex items-center gap-3 p-3 bg-surface-50 rounded-xl">
+                    <div className="w-10 h-10 rounded-lg bg-info-100 flex items-center justify-center">
+                      <Icon icon={Icons.users} width={20} height={20} className="text-info-600" />
                     </div>
                     <div>
-                      <p className="text-xs text-secondary-500 dark:text-secondary-400">{t('apps.calendar.attendees')}</p>
-                      <p className="text-sm font-medium text-secondary-900 dark:text-white">
+                      <p className="text-xs text-secondary-500">{t('apps.calendar.attendees')}</p>
+                      <p className="text-sm font-medium text-secondary-900">
                         {selectedEvent.attendees.join(', ')}
                       </p>
                     </div>
@@ -653,10 +653,10 @@ export function CalendarPage() {
               </div>
 
               {/* Actions */}
-              <div className="flex gap-3 pt-4 border-t border-surface-200 dark:border-surface-700">
+              <div className="flex gap-3 pt-4 border-t border-surface-200">
                 <button
                   onClick={() => handleDeleteClick(selectedEvent)}
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 bg-danger-50 dark:bg-danger-900/20 text-danger-600 dark:text-danger-400 rounded-xl text-sm font-medium hover:bg-danger-100 dark:hover:bg-danger-900/30 transition-colors"
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 bg-danger-50 text-danger-600 rounded-xl text-sm font-medium hover:bg-danger-100 transition-colors"
                 >
                   <Icon icon={Icons.trash} width={16} height={16} />
                   {t('common.delete')}
@@ -684,20 +684,20 @@ export function CalendarPage() {
           />
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-lg bg-white dark:bg-surface-900 rounded-2xl shadow-2xl animate-fade-in overflow-hidden max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-fade-in overflow-hidden max-h-[90vh] overflow-y-auto">
             {/* Header */}
-            <div className="sticky top-0 bg-white dark:bg-surface-900 px-6 py-4 border-b border-surface-200 dark:border-surface-700 flex items-center justify-between z-10">
+            <div className="sticky top-0 bg-white px-6 py-4 border-b border-surface-200 flex items-center justify-between z-10">
               <div>
-                <h2 className="text-lg font-bold text-secondary-900 dark:text-white">
+                <h2 className="text-lg font-bold text-secondary-900">
                   {isEditMode ? t('apps.calendar.edit_event') : t('apps.calendar.create_event')}
                 </h2>
-                <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-0.5">
+                <p className="text-sm text-secondary-500 mt-0.5">
                   {selectedDate ? formatDate(selectedDate) : t('apps.calendar.select_date')}
                 </p>
               </div>
               <button
                 onClick={() => setIsFormModalOpen(false)}
-                className="p-2 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-lg text-secondary-500 transition-colors"
+                className="p-2 hover:bg-surface-100 rounded-lg text-secondary-500 transition-colors"
               >
                 <Icon icon={Icons.close} width={20} height={20} />
               </button>
@@ -707,14 +707,14 @@ export function CalendarPage() {
             <form onSubmit={handleFormSubmit} className="p-6 space-y-4">
               {/* Title */}
               <div>
-                <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                   {t('apps.calendar.title')} <span className="text-danger-500">*</span>
                 </label>
                 <input
                   type="text"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+                  className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
                   placeholder={t('apps.calendar.event_title_placeholder')}
                   required
                 />
@@ -722,14 +722,14 @@ export function CalendarPage() {
 
               {/* Description */}
               <div>
-                <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                   {t('apps.calendar.description')}
                 </label>
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   rows={3}
-                  className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all resize-none"
+                  className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all resize-none"
                   placeholder={t('apps.calendar.event_description_placeholder')}
                 />
               </div>
@@ -740,7 +740,7 @@ export function CalendarPage() {
                   type="button"
                   onClick={() => setFormData({ ...formData, allDay: !formData.allDay })}
                   className={`relative w-11 h-6 rounded-full transition-colors ${
-                    formData.allDay ? 'bg-theme-primary' : 'bg-surface-300 dark:bg-surface-600'
+                    formData.allDay ? 'bg-theme-primary' : 'bg-surface-300'
                   }`}
                 >
                   <span
@@ -749,32 +749,32 @@ export function CalendarPage() {
                     }`}
                   />
                 </button>
-                <span className="text-sm text-secondary-700 dark:text-secondary-300">{t('apps.calendar.all_day_toggle')}</span>
+                <span className="text-sm text-secondary-700">{t('apps.calendar.all_day_toggle')}</span>
               </div>
 
               {/* Time Inputs */}
               {!formData.allDay && (
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                    <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                       {t('apps.calendar.start_time_label')}
                     </label>
                     <input
                       type="time"
                       value={formData.startTime}
                       onChange={(e) => setFormData({ ...formData, startTime: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+                      className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                    <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                       {t('apps.calendar.end_time_label')}
                     </label>
                     <input
                       type="time"
                       value={formData.endTime}
                       onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+                      className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
                     />
                   </div>
                 </div>
@@ -782,21 +782,21 @@ export function CalendarPage() {
 
               {/* Location */}
               <div>
-                <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+                <label className="block text-sm font-medium text-secondary-700 mb-1.5">
                   {t('apps.calendar.location')}
                 </label>
                 <input
                   type="text"
                   value={formData.location}
                   onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+                  className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
                   placeholder={t('apps.calendar.event_location_placeholder')}
                 />
               </div>
 
               {/* Color */}
               <div>
-                <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+                <label className="block text-sm font-medium text-secondary-700 mb-2">
                   {t('apps.calendar.color')}
                 </label>
                 <div className="flex gap-2">
@@ -806,7 +806,7 @@ export function CalendarPage() {
                       type="button"
                       onClick={() => setFormData({ ...formData, color: c })}
                       className={`w-9 h-9 rounded-full transition-all flex items-center justify-center ${
-                        formData.color === c ? 'ring-2 ring-offset-2 ring-secondary-400 dark:ring-offset-surface-900' : ''
+                        formData.color === c ? 'ring-2 ring-offset-2 ring-secondary-400' : ''
                       } ${
                         c === 'primary' ? 'bg-primary-500' :
                         c === 'success' ? 'bg-success-500' :
@@ -827,11 +827,11 @@ export function CalendarPage() {
               </div>
 
               {/* Actions */}
-              <div className="flex gap-3 pt-4 border-t border-surface-200 dark:border-surface-700">
+              <div className="flex gap-3 pt-4 border-t border-surface-200">
                 <button
                   type="button"
                   onClick={() => setIsFormModalOpen(false)}
-                  className="flex-1 px-4 py-2.5 bg-surface-100 dark:bg-surface-800 text-secondary-700 dark:text-secondary-300 rounded-xl text-sm font-medium hover:bg-surface-200 dark:hover:bg-surface-700 transition-colors"
+                  className="flex-1 px-4 py-2.5 bg-surface-100 text-secondary-700 rounded-xl text-sm font-medium hover:bg-surface-200 transition-colors"
                 >
                   {t('apps.calendar.cancel')}
                 </button>
@@ -857,19 +857,19 @@ export function CalendarPage() {
           />
           
           {/* Dialog Content */}
-          <div className="relative w-full max-w-md bg-white dark:bg-surface-900 rounded-2xl shadow-2xl animate-fade-in p-6">
+          <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl animate-fade-in p-6">
             {/* Icon */}
-            <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-danger-100 dark:bg-danger-900/30 flex items-center justify-center">
-              <Icon icon={Icons.alertTriangle} width={28} height={28} className="text-danger-600 dark:text-danger-400" />
+            <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-danger-100 flex items-center justify-center">
+              <Icon icon={Icons.alertTriangle} width={28} height={28} className="text-danger-600" />
             </div>
 
             {/* Title */}
-            <h3 className="text-lg font-bold text-secondary-900 dark:text-white text-center mb-2">
+            <h3 className="text-lg font-bold text-secondary-900 text-center mb-2">
               {t('apps.calendar.delete_event')}
             </h3>
 
             {/* Message */}
-            <p className="text-sm text-secondary-500 dark:text-secondary-400 text-center mb-6">
+            <p className="text-sm text-secondary-500 text-center mb-6">
               {t('apps.calendar.delete_confirm_message', { title: eventToDelete.title })}
             </p>
 
@@ -878,7 +878,7 @@ export function CalendarPage() {
               <div className={`font-semibold ${eventColors[eventToDelete.color].text}`}>
                 {eventToDelete.title}
               </div>
-              <div className="text-sm text-secondary-600 dark:text-secondary-400 mt-1">
+              <div className="text-sm text-secondary-600 mt-1">
                 {formatShortDate(eventToDelete.start)} {t('apps.calendar.at')} {formatTime(eventToDelete.start)}
               </div>
             </div>
@@ -887,7 +887,7 @@ export function CalendarPage() {
             <div className="flex gap-3">
               <button
                 onClick={() => setIsDeleteDialogOpen(false)}
-                className="flex-1 px-4 py-2.5 bg-surface-100 dark:bg-surface-800 text-secondary-700 dark:text-secondary-300 rounded-xl text-sm font-medium hover:bg-surface-200 dark:hover:bg-surface-700 transition-colors"
+                className="flex-1 px-4 py-2.5 bg-surface-100 text-secondary-700 rounded-xl text-sm font-medium hover:bg-surface-200 transition-colors"
               >
                 {t('apps.calendar.cancel')}
               </button>

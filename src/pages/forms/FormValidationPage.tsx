@@ -12,9 +12,9 @@ type Values = {
 type Errors = Partial<Record<keyof Values, string>>
 
 const inputClassName =
-  'w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all'
+  'w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all'
 
-const labelClassName = 'block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1'
+const labelClassName = 'block text-sm font-medium text-secondary-700 mb-1'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -88,24 +88,24 @@ export function FormValidationPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="heading-2 text-secondary-900 dark:text-white">
+        <h1 className="heading-2 text-secondary-900">
           {t('nav.form_validation')}
         </h1>
-        <p className="text-body-sm mt-1 text-secondary-500 dark:text-secondary-400">
+        <p className="text-body-sm mt-1 text-secondary-500">
           {t('forms.validation.subtitle')}
         </p>
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         <div className="card rounded-xl p-6">
-          <h2 className="heading-5 text-secondary-900 dark:text-white">{t('forms.validation.registration_title')}</h2>
-          <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-1">
+          <h2 className="heading-5 text-secondary-900">{t('forms.validation.registration_title')}</h2>
+          <p className="text-sm text-secondary-500 mt-1">
             {t('forms.validation.registration_desc')}
           </p>
 
           {success && (
-            <div className="mt-4 rounded-xl border border-success-200 bg-success-50/60 dark:bg-success-900/20 dark:border-success-800 p-4">
-              <p className="text-sm text-success-800 dark:text-success-200">
+            <div className="mt-4 rounded-xl border border-success-200 bg-success-50/60 p-4">
+              <p className="text-sm text-success-800">
                 {t('forms.validation.success')}
               </p>
             </div>
@@ -186,7 +186,7 @@ export function FormValidationPage() {
                   onBlur={() => setTouched((t) => ({ ...t, acceptTerms: true }))}
                   className="mt-1 h-4 w-4 rounded border-surface-300 text-theme-primary focus:ring-theme-primary/20"
                 />
-                <span className="text-sm text-secondary-700 dark:text-secondary-300">
+                <span className="text-sm text-secondary-700">
                   {t('forms.validation.accept_terms_label')}
                 </span>
               </label>
@@ -204,7 +204,7 @@ export function FormValidationPage() {
                   setSubmitted(false)
                   setSuccess(false)
                 }}
-                className="px-4 py-2 bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 text-secondary-700 dark:text-secondary-300 rounded-lg font-medium transition-colors"
+                className="px-4 py-2 bg-surface-100 hover:bg-surface-200 text-secondary-700 rounded-lg font-medium transition-colors"
               >
                 {t('common.clear')}
               </button>
@@ -219,14 +219,14 @@ export function FormValidationPage() {
         </div>
 
         <div className="card rounded-xl p-6">
-          <h2 className="heading-5 text-secondary-900 dark:text-white">{t('forms.validation.notes_title')}</h2>
-          <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-1">
+          <h2 className="heading-5 text-secondary-900">{t('forms.validation.notes_title')}</h2>
+          <p className="text-sm text-secondary-500 mt-1">
             {t('forms.validation.notes_subtitle')}
           </p>
 
           <div className="mt-5 space-y-4">
-            <div className="rounded-xl border border-surface-200 dark:border-surface-700 p-4">
-              <p className="text-sm text-secondary-700 dark:text-secondary-300">
+            <div className="rounded-xl border border-surface-200 p-4">
+              <p className="text-sm text-secondary-700">
                 - {t('forms.validation.notes_item_1')}
                 <br />
                 - {t('forms.validation.notes_item_2')}
@@ -235,8 +235,8 @@ export function FormValidationPage() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-surface-200 dark:border-surface-700 p-4">
-              <p className="text-sm text-secondary-700 dark:text-secondary-300">
+            <div className="rounded-xl border border-surface-200 p-4">
+              <p className="text-sm text-secondary-700">
                 {t('forms.validation.notes_library')}
               </p>
             </div>

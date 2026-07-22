@@ -1,5 +1,0 @@
-export { ChartsPage, default } from './ChartsPage'
-export { LineChartsPage } from './LineChartsPage'
-export { AreaChartsPage } from './AreaChartsPage'
-export { ColumnChartsPage } from './ColumnChartsPage'
-export { PieDoughnutChartsPage } from './PieDoughnutChartsPage'

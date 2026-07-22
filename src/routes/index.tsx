@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router'
+import { createBrowserRouter } from 'react-router'
 import { lazy, Suspense } from 'react'
 
 import { RootLayout } from '@/layouts/RootLayout'
@@ -24,11 +24,6 @@ const FormValidationPage = lazy(() => import('@/pages/forms').then(m => ({ defau
 
 const SimpleTablePage = lazy(() => import('@/pages/tables').then(m => ({ default: m.SimpleTablePage })))
 const DataTablePage = lazy(() => import('@/pages/tables').then(m => ({ default: m.DataTablePage })))
-
-const LineChartsPage = lazy(() => import('@/pages/charts').then(m => ({ default: m.LineChartsPage })))
-const AreaChartsPage = lazy(() => import('@/pages/charts').then(m => ({ default: m.AreaChartsPage })))
-const ColumnChartsPage = lazy(() => import('@/pages/charts').then(m => ({ default: m.ColumnChartsPage })))
-const PieDoughnutChartsPage = lazy(() => import('@/pages/charts').then(m => ({ default: m.PieDoughnutChartsPage })))
 
 const AccountSettingsPage = lazy(() => import('@/pages/pages').then(m => ({ default: m.AccountSettingsPage })))
 const TypographyGuidePage = lazy(() => import('@/pages/pages').then(m => ({ default: m.TypographyGuidePage })))
@@ -82,11 +77,6 @@ export const router = createBrowserRouter([
           { path: 'forms/validation', element: withSuspense(FormValidationPage) },
           { path: 'tables/simple', element: withSuspense(SimpleTablePage) },
           { path: 'tables/data', element: withSuspense(DataTablePage) },
-          { path: 'charts', element: <Navigate to="/charts/line" replace /> },
-          { path: 'charts/line', element: withSuspense(LineChartsPage) },
-          { path: 'charts/area', element: withSuspense(AreaChartsPage) },
-          { path: 'charts/columns', element: withSuspense(ColumnChartsPage) },
-          { path: 'charts/pie', element: withSuspense(PieDoughnutChartsPage) },
           { path: 'pages/account-settings', element: withSuspense(AccountSettingsPage) },
           { path: 'pages/typography', element: withSuspense(TypographyGuidePage) },
         ],

@@ -24,9 +24,9 @@ const features = [
     bg: 'bg-blue-500/10',
   },
   {
-    icon: Icons.moon,
-    titleKey: 'landing.features.items.dark_mode.title',
-    descriptionKey: 'landing.features.items.dark_mode.desc',
+    icon: Icons.heart,
+    titleKey: 'landing.features.items.free_forever.title',
+    descriptionKey: 'landing.features.items.free_forever.desc',
     color: 'text-slate-500',
     bg: 'bg-slate-500/10',
   },
@@ -64,26 +64,26 @@ export function FeaturesSection() {
   const { t } = useLocale()
 
   return (
-    <section id="features" className="py-24 px-4 bg-white dark:bg-surface-900 scroll-mt-24 relative overflow-hidden">
+    <section id="features" className="py-24 px-4 bg-white scroll-mt-24 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-theme-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-theme-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white dark:bg-surface-900 border border-surface-200 dark:border-surface-800 shadow-sm mb-6">
+          <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white border border-surface-200 shadow-sm mb-6">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-theme-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-theme-primary"></span>
             </span>
-            <span className="text-sm font-semibold text-secondary-600 dark:text-secondary-300">
+            <span className="text-sm font-semibold text-secondary-600">
               {t('landing.features.badge')}
             </span>
           </div>
-          <h2 className="text-display-section text-secondary-900 dark:text-white mb-6">
+          <h2 className="text-display-section text-secondary-900 mb-6">
             {t('landing.features.title_prefix')} <span className="text-gradient">{t('landing.features.title_emphasis')}</span>
           </h2>
-          <p className="text-lead text-secondary-600 dark:text-secondary-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-lead text-secondary-600 mt-4 max-w-2xl mx-auto">
             {t('landing.features.subtitle')}
           </p>
         </div>
@@ -92,15 +92,15 @@ export function FeaturesSection() {
           {features.map((f) => (
             <div
               key={f.titleKey}
-              className="group p-8 rounded-[2rem] bg-surface-50 dark:bg-surface-950 border border-surface-100 dark:border-surface-800 hover:border-theme-primary/20 hover:shadow-xl hover:shadow-theme-primary/5 transition-all duration-300 hover:-translate-y-1"
+              className="group p-8 rounded-[2rem] bg-surface-50 border border-surface-100 hover:border-theme-primary/20 hover:shadow-xl hover:shadow-theme-primary/5 transition-all duration-300 hover:-translate-y-1"
             >
               <div className={`w-14 h-14 rounded-2xl ${f.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 <Icon icon={f.icon} className={`w-7 h-7 ${f.color}`} />
               </div>
-              <h3 className="heading-5 text-secondary-900 dark:text-white mb-3 group-hover:text-theme-primary transition-colors">
+              <h3 className="heading-5 text-secondary-900 mb-3 group-hover:text-theme-primary transition-colors">
                 {t(f.titleKey)}
               </h3>
-              <p className="text-body-sm text-secondary-600 dark:text-secondary-400 leading-relaxed">
+              <p className="text-body-sm text-secondary-600 leading-relaxed">
                 {t(f.descriptionKey)}
               </p>
             </div>

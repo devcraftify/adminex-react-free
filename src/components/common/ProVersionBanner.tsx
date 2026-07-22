@@ -1,8 +1,6 @@
 import { Icon, Icons } from './Icon'
 import { useLocale } from '@/i18n'
-
-const PRO_VERSION_URL =
-  'https://devcraftify.com/products/adminex-react-19-admin-dashboard-template'
+import { PRO_PURCHASE_URL } from '@/config/pro'
 
 export function ProVersionBanner() {
   const { t } = useLocale()
@@ -17,7 +15,7 @@ export function ProVersionBanner() {
         {t('pro_banner.message')}
       </p>
       <a
-        href={PRO_VERSION_URL}
+        href={PRO_PURCHASE_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white text-secondary-900 text-xs sm:text-sm font-semibold hover:bg-surface-100 transition-colors"

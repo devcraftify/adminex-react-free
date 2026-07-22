@@ -81,10 +81,6 @@
     color: var(--color-secondary-900);
   }
 
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-    color: var(--color-surface-50);
-  }
-
   h1 {
     font-size: var(--text-h1);
     font-weight: 700;
@@ -126,11 +122,6 @@
     color: var(--color-secondary-900);
   }
 
-  .dark strong,
-  .dark b {
-    color: var(--color-surface-50);
-  }
-
   /* Small text */
   small, .text-sm {
     font-size: var(--text-body-sm);
@@ -167,10 +158,6 @@
     background-color: var(--color-surface-100);
     border-radius: var(--radius-sm);
     font-weight: 500;
-  }
-
-  .dark code {
-    background-color: var(--color-surface-800);
   }
 
   pre {

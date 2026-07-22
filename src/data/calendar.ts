@@ -121,10 +121,10 @@ export const calendarEvents: CalendarEvent[] = [
 
 // Event color configurations
 export const eventColors: Record<CalendarEvent['color'], { bg: string; text: string; border: string }> = {
-  primary: { bg: 'bg-primary-100 dark:bg-primary-900/30', text: 'text-primary-700 dark:text-primary-300', border: 'border-primary-500' },
-  success: { bg: 'bg-success-100 dark:bg-success-900/30', text: 'text-success-700 dark:text-success-300', border: 'border-success-500' },
-  warning: { bg: 'bg-warning-100 dark:bg-warning-900/30', text: 'text-warning-700 dark:text-warning-300', border: 'border-warning-500' },
-  danger: { bg: 'bg-danger-100 dark:bg-danger-900/30', text: 'text-danger-700 dark:text-danger-300', border: 'border-danger-500' },
-  info: { bg: 'bg-info-100 dark:bg-info-900/30', text: 'text-info-700 dark:text-info-300', border: 'border-info-500' },
-  purple: { bg: 'bg-purple-100 dark:bg-purple-900/30', text: 'text-purple-700 dark:text-purple-300', border: 'border-purple-500' },
+  primary: { bg: 'bg-primary-100', text: 'text-primary-700', border: 'border-primary-500' },
+  success: { bg: 'bg-success-100', text: 'text-success-700', border: 'border-success-500' },
+  warning: { bg: 'bg-warning-100', text: 'text-warning-700', border: 'border-warning-500' },
+  danger: { bg: 'bg-danger-100', text: 'text-danger-700', border: 'border-danger-500' },
+  info: { bg: 'bg-info-100', text: 'text-info-700', border: 'border-info-500' },
+  purple: { bg: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-500' },
 }

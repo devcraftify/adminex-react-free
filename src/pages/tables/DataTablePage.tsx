@@ -14,15 +14,15 @@ type Row = {
 }
 
 const inputClassName =
-  'w-full pl-10 pr-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all'
+  'w-full pl-10 pr-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all'
 
 const selectClassName =
-  'w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all'
+  'w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all'
 
 const tableHeadClass =
-  'text-left text-xs font-semibold uppercase tracking-wide text-secondary-500 dark:text-secondary-400'
+  'text-left text-xs font-semibold uppercase tracking-wide text-secondary-500'
 
-const cellClass = 'py-3 px-4 text-sm text-secondary-800 dark:text-secondary-200'
+const cellClass = 'py-3 px-4 text-sm text-secondary-800'
 
 const allRows: Row[] = [
   { id: 'U-1001', name: 'Ava Johnson', email: 'ava@example.com', team: 'Operations', createdAt: '2025-11-12', status: 'Active' },
@@ -48,12 +48,12 @@ type SortState = {
 
 function statusPill(status: Status) {
   if (status === 'Active') {
-    return 'bg-success-50 text-success-700 border-success-200 dark:bg-success-900/20 dark:text-success-200 dark:border-success-800'
+    return 'bg-success-50 text-success-700 border-success-200'
   }
   if (status === 'Invited') {
-    return 'bg-surface-50 text-secondary-700 border-surface-200 dark:bg-surface-900/30 dark:text-secondary-200 dark:border-surface-700'
+    return 'bg-surface-50 text-secondary-700 border-surface-200'
   }
-  return 'bg-danger-50 text-danger-700 border-danger-200 dark:bg-danger-900/20 dark:text-danger-200 dark:border-danger-800'
+  return 'bg-danger-50 text-danger-700 border-danger-200'
 }
 
 function compare(a: string, b: string) {
@@ -116,10 +116,10 @@ export function DataTablePage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="heading-2 text-secondary-900 dark:text-white">
+        <h1 className="heading-2 text-secondary-900">
           {t('tables.data_table')}
         </h1>
-        <p className="text-body-sm mt-1 text-secondary-500 dark:text-secondary-400">
+        <p className="text-body-sm mt-1 text-secondary-500">
           {t('tables.data_table_desc')}
         </p>
       </div>
@@ -156,17 +156,17 @@ export function DataTablePage() {
           </div>
         </div>
 
-        <div className="mt-5 rounded-xl overflow-hidden border border-surface-200 dark:border-surface-700">
+        <div className="mt-5 rounded-xl overflow-hidden border border-surface-200">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-surface-50 dark:bg-surface-900/30">
+              <thead className="bg-surface-50">
                 <tr>
                   <th className={`${tableHeadClass} py-3 px-4`}>{t('tables.column.id')}</th>
                   <th className={`${tableHeadClass} py-3 px-4`}>
                     <button
                       type="button"
                       onClick={() => toggleSort('name')}
-                      className="inline-flex items-center gap-1 hover:text-secondary-700 dark:hover:text-secondary-200"
+                      className="inline-flex items-center gap-1 hover:text-secondary-700"
                     >
                       {t('tables.column.name')}
                       <Icon
@@ -180,7 +180,7 @@ export function DataTablePage() {
                     <button
                       type="button"
                       onClick={() => toggleSort('email')}
-                      className="inline-flex items-center gap-1 hover:text-secondary-700 dark:hover:text-secondary-200"
+                      className="inline-flex items-center gap-1 hover:text-secondary-700"
                     >
                       {t('tables.column.email')}
                       <Icon
@@ -194,7 +194,7 @@ export function DataTablePage() {
                     <button
                       type="button"
                       onClick={() => toggleSort('team')}
-                      className="inline-flex items-center gap-1 hover:text-secondary-700 dark:hover:text-secondary-200"
+                      className="inline-flex items-center gap-1 hover:text-secondary-700"
                     >
                       {t('tables.column.team')}
                       <Icon
@@ -208,7 +208,7 @@ export function DataTablePage() {
                     <button
                       type="button"
                       onClick={() => toggleSort('createdAt')}
-                      className="inline-flex items-center gap-1 hover:text-secondary-700 dark:hover:text-secondary-200"
+                      className="inline-flex items-center gap-1 hover:text-secondary-700"
                     >
                       {t('tables.column.created')}
                       <Icon
@@ -222,12 +222,12 @@ export function DataTablePage() {
                 </tr>
               </thead>
 
-              <tbody className="divide-y divide-surface-200 dark:divide-surface-700">
+              <tbody className="divide-y divide-surface-200">
                 {pageRows.map((r) => (
-                  <tr key={r.id} className="hover:bg-surface-50 dark:hover:bg-surface-900/20 transition-colors">
+                  <tr key={r.id} className="hover:bg-surface-50 transition-colors">
                     <td className={cellClass}>{r.id}</td>
                     <td className={cellClass}>
-                      <div className="font-medium text-secondary-900 dark:text-white">{r.name}</div>
+                      <div className="font-medium text-secondary-900">{r.name}</div>
                     </td>
                     <td className={cellClass}>{r.email}</td>
                     <td className={cellClass}>{r.team}</td>
@@ -246,7 +246,7 @@ export function DataTablePage() {
 
                 {pageRows.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="py-10 px-4 text-center text-sm text-secondary-500 dark:text-secondary-400">
+                    <td colSpan={6} className="py-10 px-4 text-center text-sm text-secondary-500">
                       {t('tables.no_results')}
                     </td>
                   </tr>
@@ -257,7 +257,7 @@ export function DataTablePage() {
         </div>
 
         <div className="mt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-          <p className="text-sm text-secondary-500 dark:text-secondary-400">
+          <p className="text-sm text-secondary-500">
             {t('tables.showing_results', { shown: pageRows.length, total: sorted.length })}
           </p>
 
@@ -266,18 +266,18 @@ export function DataTablePage() {
               type="button"
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page <= 1}
-              className="px-3 py-2 rounded-lg border border-surface-200 dark:border-surface-700 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-surface-50 dark:hover:bg-surface-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-2 rounded-lg border border-surface-200 text-sm text-secondary-700 hover:bg-surface-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {t('tables.prev')}
             </button>
-            <div className="px-3 py-2 text-sm text-secondary-700 dark:text-secondary-300">
+            <div className="px-3 py-2 text-sm text-secondary-700">
               {t('tables.page_of', { page: Math.min(page, totalPages), totalPages })}
             </div>
             <button
               type="button"
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page >= totalPages}
-              className="px-3 py-2 rounded-lg border border-surface-200 dark:border-surface-700 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-surface-50 dark:hover:bg-surface-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-3 py-2 rounded-lg border border-surface-200 text-sm text-secondary-700 hover:bg-surface-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {t('tables.next')}
             </button>

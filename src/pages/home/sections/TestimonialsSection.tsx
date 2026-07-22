@@ -15,7 +15,7 @@ export function TestimonialsSection() {
 	return (
 		<section
 			id="testimonials"
-			className="py-24 px-4 bg-surface-50 dark:bg-surface-950 scroll-mt-24 overflow-hidden relative"
+			className="py-24 px-4 bg-surface-50 scroll-mt-24 overflow-hidden relative"
 		>
 			{/* Background - Grid Pattern matching WidgetsSection */}
 			<div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
@@ -26,16 +26,16 @@ export function TestimonialsSection() {
 
 			<div className="max-w-7xl mx-auto relative z-10">
 				<div className="text-center mb-20">
-					<div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white dark:bg-surface-900 border border-surface-200 dark:border-surface-800 shadow-sm mb-6">
+					<div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white border border-surface-200 shadow-sm mb-6">
 						<Icon icon={Icons.heartFilled} className="w-4 h-4 text-rose-500" />
-						<span className="text-sm font-semibold text-secondary-600 dark:text-secondary-300">
+						<span className="text-sm font-semibold text-secondary-600">
 							{t('landing.testimonials.badge')}
 						</span>
 					</div>
-					<h2 className="text-display-section text-secondary-900 dark:text-white mb-6">
+					<h2 className="text-display-section text-secondary-900 mb-6">
 						{t('landing.testimonials.title_prefix')} <span className="text-theme-primary">{t('landing.testimonials.title_emphasis')}</span> {t('landing.testimonials.title_suffix')}
 					</h2>
-					<p className="text-lead text-secondary-600 dark:text-secondary-400 max-w-2xl mx-auto leading-relaxed">
+					<p className="text-lead text-secondary-600 max-w-2xl mx-auto leading-relaxed">
 						{t('landing.testimonials.subtitle')}
 					</p>
 				</div>
@@ -58,8 +58,8 @@ export function TestimonialsSection() {
 				>
 					{testimonials.map((testimonial, index) => (
 						<SwiperSlide key={index} className="h-auto">
-							<div className="group h-full rounded-[2rem] bg-white dark:bg-surface-900 border border-surface-100 dark:border-surface-800 p-8 flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
-								<div className="absolute top-8 right-8 text-surface-100 dark:text-surface-800 group-hover:text-theme-primary/10 transition-colors duration-300 transform group-hover:scale-110">
+							<div className="group h-full rounded-[2rem] bg-white border border-surface-100 p-8 flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+								<div className="absolute top-8 right-8 text-surface-100 group-hover:text-theme-primary/10 transition-colors duration-300 transform group-hover:scale-110">
 									<Icon icon={Icons.quote} className="w-20 h-20 rotate-12" />
 								</div>
 
@@ -71,20 +71,20 @@ export function TestimonialsSection() {
 									</div>
 
 									<div className="flex-grow mb-8">
-										<p className="text-body font-medium text-secondary-700 dark:text-secondary-200 leading-relaxed font-display">
+										<p className="text-body font-medium text-secondary-700 leading-relaxed font-display">
 											"{t(testimonial.quoteKey)}"
 										</p>
 									</div>
 
-									<div className="flex items-center gap-4 mt-auto border-t border-surface-100 dark:border-surface-800 pt-6">
+									<div className="flex items-center gap-4 mt-auto border-t border-surface-100 pt-6">
 										<img 
 											src={testimonial.avatar} 
 											alt={testimonial.name}
-											className="w-12 h-12 rounded-full object-cover ring-4 ring-surface-50 dark:ring-surface-900"
+											className="w-12 h-12 rounded-full object-cover ring-4 ring-surface-50"
 										/>
 										<div>
-											<p className="font-bold text-secondary-900 dark:text-white text-sm">{testimonial.name}</p>
-											<p className="text-xs text-secondary-500 dark:text-secondary-400 font-medium bg-surface-100 dark:bg-surface-800 px-2 py-0.5 rounded-full inline-block mt-1">
+											<p className="font-bold text-secondary-900 text-sm">{testimonial.name}</p>
+											<p className="text-xs text-secondary-500 font-medium bg-surface-100 px-2 py-0.5 rounded-full inline-block mt-1">
 												{t(testimonial.roleKey)}
 											</p>
 										</div>

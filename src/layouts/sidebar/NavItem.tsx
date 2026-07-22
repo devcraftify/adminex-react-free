@@ -1,146 +1,112 @@
 import { Link, useLocation } from 'react-router'
-import { Icon, Icons } from '@/components/common'
+import { Icon } from '@/components/common'
 import type { NavItem as NavItemType } from './types'
-import { NavSubItem } from './NavSubItem'
 import { useLocale } from '@/i18n'
+import { PRO_DEMO_BASE_URL } from '@/config/pro'
 
 const NAV_ITEM_KEY_BY_LABEL: Record<string, string> = {
   Overview: 'nav.overview',
+  Analytics: 'nav.analytics',
+  eCommerce: 'nav.ecommerce',
+  CRM: 'nav.crm',
+  Email: 'nav.email',
+  Chat: 'nav.chat',
   Calendar: 'nav.calendar',
   Contacts: 'nav.contacts',
+  Blog: 'nav.blog',
+  'E-commerce': 'nav.ecommerce_title',
+  Notes: 'nav.notes',
+  'Kanban Board': 'nav.kanban_board',
+  'Rule Engine': 'nav.rule_engine',
+  'Query Builder': 'nav.query_builder',
+  'Real-Time Simulation': 'nav.simulation',
+  'Smart Insights': 'nav.smart_insights',
+  'Workflow Builder': 'nav.workflow_builder',
+  'Task Scheduler': 'nav.task_scheduler',
   Login: 'nav.login',
   Register: 'nav.register',
   'Forgot Password': 'nav.forgot_password',
+  Pricing: 'nav.pricing',
   'Account Settings': 'nav.account_settings',
+  Gallery: 'nav.gallery',
+  FAQ: 'nav.faq',
   Typography: 'nav.typography',
   'Form Layout': 'nav.form_layout',
   'Form Validation': 'nav.form_validation',
+  Editor: 'nav.editor',
   'Simple Table': 'nav.simple_table',
   'Data Table': 'nav.data_table',
+  'CRUD Table': 'nav.crud_table',
   Line: 'nav.chart_line',
   Area: 'nav.chart_area',
   Columns: 'nav.chart_columns',
   'Pie & Doughnut': 'nav.chart_pie_doughnut',
+  Radar: 'nav.chart_radar',
+  Candlestick: 'nav.chart_candlestick',
 }
 
 interface NavItemProps {
   item: NavItemType
-  isCollapsed: boolean
-  isExpanded: boolean
-  onToggle: () => void
 }
 
-export function NavItem({ item, isCollapsed, isExpanded, onToggle }: NavItemProps) {
+export function NavItem({ item }: NavItemProps) {
   const location = useLocation()
   const { t } = useLocale()
 
   const label = NAV_ITEM_KEY_BY_LABEL[item.label] ? t(NAV_ITEM_KEY_BY_LABEL[item.label]) : item.label
 
-  const isActive = (path: string) => {
-    if (path === '/dashboard') {
-      return location.pathname === '/dashboard'
-    }
-    return location.pathname === path || location.pathname.startsWith(path + '/')
-  }
+  const isActive = !item.isPro && (
+    item.path === '/dashboard'
+      ? location.pathname === '/dashboard'
+      : location.pathname === item.path || location.pathname.startsWith(item.path + '/')
+  )
 
-  const isParentActive = () => {
-    if (item.children) {
-      return item.children.some(child =>
-        location.pathname === child.path || location.pathname.startsWith(child.path + '/'),
-      )
-    }
-    return isActive(item.path)
-  }
+  const proBadge = item.isPro && (
+    <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide rounded bg-theme-primary/10 text-theme-primary">
+      PRO
+    </span>
+  )
 
-  if (item.children) {
+  const content = (
+    <>
+      <Icon icon={item.icon} className="w-5 h-5 flex-shrink-0" />
+      <span className="flex-1">{label}</span>
+      {proBadge}
+      {!item.isPro && item.badge && (
+        <span className={`
+          px-2 py-0.5 text-xs font-medium rounded-full
+          ${isActive
+            ? 'bg-white/20 text-white'
+            : typeof item.badge === 'number'
+              ? 'bg-danger-100 text-danger-600'
+              : 'bg-theme-primary-light text-theme-primary'
+          }
+        `}>
+          {item.badge}
+        </span>
+      )}
+    </>
+  )
+
+  const className = `
+    group relative flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
+    ${isActive
+      ? 'bg-theme-primary text-white'
+      : 'text-secondary-600 hover:bg-surface-100'
+    }
+  `
+
+  if (item.isPro) {
     return (
-      <div>
-        <button
-          onClick={onToggle}
-          className={`
-            w-full group relative flex items-center gap-3 rounded-xl text-sm font-medium transition-all duration-200
-            ${isCollapsed ? 'justify-center p-3' : 'px-4 py-2.5'}
-            ${isParentActive()
-              ? 'bg-theme-primary text-white'
-              : 'text-secondary-600 dark:text-secondary-400 hover:bg-surface-100 dark:hover:bg-surface-800'
-            }
-          `}
-          title={isCollapsed ? label : undefined}
-        >
-          <Icon icon={item.icon} className="w-5 h-5 flex-shrink-0" />
-
-          {!isCollapsed && (
-            <>
-              <span className="flex-1 text-start">{label}</span>
-              <Icon
-                icon={Icons.chevronDown}
-                className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
-              />
-            </>
-          )}
-
-          {isCollapsed && (
-            <div className="absolute left-full ml-2 px-2 py-1 bg-surface-900 dark:bg-surface-700 text-white text-xs rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50">
-              {label}
-            </div>
-          )}
-        </button>
-
-        {!isCollapsed && isExpanded && (
-          <div className="mt-1 ms-4 ps-4 border-s border-surface-200 dark:border-surface-700 space-y-1">
-            {item.children.map((child) => (
-              <NavSubItem key={child.path} item={child} />
-            ))}
-          </div>
-        )}
-      </div>
+      <a href={`${PRO_DEMO_BASE_URL}${item.path}`} target="_blank" rel="noopener noreferrer" className={className}>
+        {content}
+      </a>
     )
   }
 
   return (
-    <Link
-      to={item.path}
-      className={`
-        group relative flex items-center gap-3 rounded-xl text-sm font-medium transition-all duration-200
-        ${isCollapsed ? 'justify-center p-3' : 'px-4 py-2.5'}
-        ${isActive(item.path)
-          ? 'bg-theme-primary text-white'
-          : 'text-secondary-600 dark:text-secondary-400 hover:bg-surface-100 dark:hover:bg-surface-800'
-        }
-      `}
-      title={isCollapsed ? label : undefined}
-    >
-      <Icon icon={item.icon} className="w-5 h-5 flex-shrink-0" />
-
-      {!isCollapsed && (
-        <>
-          <span className="flex-1">{label}</span>
-          {item.badge && (
-            <span className={`
-              px-2 py-0.5 text-xs font-medium rounded-full
-              ${isActive(item.path)
-                ? 'bg-white/20 text-white'
-                : typeof item.badge === 'number'
-                  ? 'bg-danger-100 text-danger-600 dark:bg-danger-900/30 dark:text-danger-400'
-                  : 'bg-theme-primary-light text-theme-primary'
-              }
-            `}>
-              {item.badge}
-            </span>
-          )}
-        </>
-      )}
-
-      {isCollapsed && (
-        <div className="absolute left-full ml-2 px-2 py-1 bg-surface-900 dark:bg-surface-700 text-white text-xs rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap z-50">
-          {label}
-          {item.badge && (
-            <span className="ms-1 px-1.5 py-0.5 bg-white/20 rounded text-ui-2xs">
-              {item.badge}
-            </span>
-          )}
-        </div>
-      )}
+    <Link to={item.path} className={className}>
+      {content}
     </Link>
   )
 }

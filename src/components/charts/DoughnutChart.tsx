@@ -38,12 +38,12 @@ export function DoughnutChart({ data, options, height = 250, centerText, centerS
       {(centerText || centerSubtext) && (
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
           {centerText && (
-            <span className="heading-3 text-secondary-900 dark:text-white">
+            <span className="heading-3 text-secondary-900">
               {centerText}
             </span>
           )}
           {centerSubtext && (
-            <span className="text-sm text-secondary-500 dark:text-secondary-400">
+            <span className="text-sm text-secondary-500">
               {centerSubtext}
             </span>
           )}

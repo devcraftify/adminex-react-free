@@ -18,20 +18,20 @@ export function ActivityItem({
   subtitle,
   time,
   icon,
-  iconBg = 'bg-primary-100 dark:bg-primary-900/40',
-  iconColor = 'text-primary-600 dark:text-primary-400',
+  iconBg = 'bg-primary-100',
+  iconColor = 'text-primary-600',
 }: ActivityItemProps) {
   return (
-    <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-50 dark:hover:bg-surface-800/50 transition-colors">
+    <div className="flex items-start gap-3 p-3 rounded-xl hover:bg-surface-50 transition-colors">
       <div className={`w-10 h-10 rounded-xl ${iconBg} flex items-center justify-center flex-shrink-0`}>
         <Icon icon={icon} className={`w-5 h-5 ${iconColor}`} />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-label text-secondary-900 dark:text-white">
+        <p className="text-label text-secondary-900">
           {title}
         </p>
         {subtitle && (
-          <p className="text-caption text-secondary-500 dark:text-secondary-400 mt-0.5">
+          <p className="text-caption text-secondary-500 mt-0.5">
             {subtitle}
           </p>
         )}

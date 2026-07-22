@@ -20,10 +20,10 @@ export function LandingHeader() {
       to: '/dashboard',
       icon: Icons.dashboard,
       accent: 'from-blue-500/20 to-indigo-500/20',
-      iconColor: 'text-blue-600 dark:text-blue-400',
+      iconColor: 'text-blue-600',
       badge: t('landing.header.badge.popular'),
       badgeKind: 'popular',
-      bg: 'bg-blue-50 dark:bg-blue-900/10',
+      bg: 'bg-blue-50',
     },
     {
       title: t('nav.calendar'),
@@ -31,10 +31,10 @@ export function LandingHeader() {
       to: '/app/calendar',
       icon: Icons.calendar,
       accent: 'from-pink-500/20 to-rose-500/20',
-      iconColor: 'text-pink-600 dark:text-pink-400',
+      iconColor: 'text-pink-600',
       badge: t('landing.header.badge.new'),
       badgeKind: 'new',
-      bg: 'bg-pink-50 dark:bg-pink-900/10',
+      bg: 'bg-pink-50',
     },
     {
       title: t('nav.contacts'),
@@ -42,10 +42,10 @@ export function LandingHeader() {
       to: '/app/contacts',
       icon: Icons.contacts,
       accent: 'from-emerald-500/20 to-teal-500/20',
-      iconColor: 'text-emerald-600 dark:text-emerald-400',
+      iconColor: 'text-emerald-600',
       badge: undefined,
       badgeKind: undefined,
-      bg: 'bg-emerald-50 dark:bg-emerald-900/10',
+      bg: 'bg-emerald-50',
     },
   ] as const
 
@@ -118,7 +118,7 @@ export function LandingHeader() {
   return (
     <header
       className={`fixed top-[var(--pro-banner-height)] inset-x-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-white/80 dark:bg-surface-950/80 backdrop-blur-xl border-b border-surface-200/50 dark:border-surface-800/50 shadow-sm py-3'
+          ? 'bg-white/80 backdrop-blur-xl border-b border-surface-200/50 shadow-sm py-3'
           : 'bg-transparent py-5'
         }`}
     >
@@ -130,12 +130,12 @@ export function LandingHeader() {
           </Link>
 
           {/* Desktop Nav - Floating Island */}
-          <nav className="hidden md:flex items-center p-1.5 rounded-full bg-surface-100/50 dark:bg-surface-900/50 border border-surface-200/50 dark:border-surface-800/50 backdrop-blur-md shadow-sm">
+          <nav className="hidden md:flex items-center p-1.5 rounded-full bg-surface-100/50 border border-surface-200/50 backdrop-blur-md shadow-sm">
             {sectionLinks.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="px-4 py-2 rounded-full text-sm font-medium text-secondary-600 dark:text-secondary-300 hover:text-secondary-900 dark:hover:text-white hover:bg-white dark:hover:bg-surface-800 transition-all duration-200"
+                className="px-4 py-2 rounded-full text-sm font-medium text-secondary-600 hover:text-secondary-900 hover:bg-white transition-all duration-200"
               >
                 {l.label}
               </a>
@@ -151,8 +151,8 @@ export function LandingHeader() {
                 className={`
                   px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 inline-flex items-center gap-1.5
                   ${megaOpen
-                    ? 'bg-white dark:bg-surface-800 text-secondary-900 dark:text-white shadow-sm'
-                    : 'text-secondary-600 dark:text-secondary-300 hover:text-secondary-900 dark:hover:text-white hover:bg-white dark:hover:bg-surface-800'
+                    ? 'bg-white text-secondary-900 shadow-sm'
+                    : 'text-secondary-600 hover:text-secondary-900 hover:bg-white'
                   }
                 `}
                 aria-haspopup="menu"
@@ -176,27 +176,27 @@ export function LandingHeader() {
                 onMouseEnter={openMega}
                 onMouseLeave={scheduleCloseMega}
               >
-                <div className="rounded-[2rem] border border-surface-200 dark:border-surface-700 bg-white dark:bg-surface-900 shadow-2xl shadow-theme-primary/10 overflow-hidden p-2">
+                <div className="rounded-[2rem] border border-surface-200 bg-white shadow-2xl shadow-theme-primary/10 overflow-hidden p-2">
                   <div className="grid grid-cols-12 gap-2">
                     {/* Main Content */}
-                    <div className="col-span-8 p-6 bg-surface-50/50 dark:bg-surface-950/50 rounded-[1.5rem]">
+                    <div className="col-span-8 p-6 bg-surface-50/50 rounded-[1.5rem]">
                       <div className="flex items-center justify-between mb-6">
                         <div className="flex items-center gap-2">
                           <div className="p-2 rounded-lg bg-theme-primary/10 text-theme-primary">
                             <Icon icon={Icons.sparkles} className="w-4 h-4" />
                           </div>
                           <div>
-                            <h3 className="text-sm font-bold text-secondary-900 dark:text-white">
+                            <h3 className="text-sm font-bold text-secondary-900">
                               {t('landing.header.mega.title')}
                             </h3>
-                            <p className="text-xs text-secondary-500 dark:text-secondary-400">
+                            <p className="text-xs text-secondary-500">
                               {t('landing.header.mega.subtitle')}
                             </p>
                           </div>
                         </div>
                         <Link
                           to="/dashboard"
-                          className="text-xs font-bold text-theme-primary hover:text-theme-primary-dark transition-colors flex items-center gap-1 bg-white dark:bg-surface-800 px-3 py-1.5 rounded-full shadow-sm border border-surface-200 dark:border-surface-700"
+                          className="text-xs font-bold text-theme-primary hover:text-theme-primary-dark transition-colors flex items-center gap-1 bg-white px-3 py-1.5 rounded-full shadow-sm border border-surface-200"
                           onClick={() => setMegaOpen(false)}
                         >
                           {t('landing.header.mega.view_all')}
@@ -210,24 +210,24 @@ export function LandingHeader() {
                             key={d.title}
                             to={d.to}
                             onClick={() => setMegaOpen(false)}
-                            className="group relative flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-surface-800 border border-surface-200 dark:border-surface-700 hover:border-theme-primary/50 hover:shadow-lg hover:shadow-theme-primary/5 transition-all duration-300"
+                            className="group relative flex items-start gap-4 p-4 rounded-2xl bg-white border border-surface-200 hover:border-theme-primary/50 hover:shadow-lg hover:shadow-theme-primary/5 transition-all duration-300"
                           >
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${d.bg || 'bg-surface-100 dark:bg-surface-700'} ${d.iconColor} group-hover:scale-110 transition-transform`}>
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${d.bg || 'bg-surface-100'} ${d.iconColor} group-hover:scale-110 transition-transform`}>
                               <Icon icon={d.icon} className="w-6 h-6" />
                             </div>
 
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 mb-1">
-                                <h4 className="text-sm font-bold text-secondary-900 dark:text-white truncate">
+                                <h4 className="text-sm font-bold text-secondary-900 truncate">
                                   {d.title}
                                 </h4>
                                 {d.badge && (
-                                  <span className={`px-1.5 py-0.5 rounded text-ui-2xs font-bold uppercase tracking-wider ${d.badgeKind === 'new' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : 'bg-surface-100 text-secondary-600 dark:bg-surface-700 dark:text-secondary-400'}`}>
+                                  <span className={`px-1.5 py-0.5 rounded text-ui-2xs font-bold uppercase tracking-wider ${d.badgeKind === 'new' ? 'bg-emerald-100 text-emerald-700' : 'bg-surface-100 text-secondary-600'}`}>
                                     {d.badge}
                                   </span>
                                 )}
                               </div>
-                              <p className="text-xs text-secondary-500 dark:text-secondary-400 line-clamp-2 leading-relaxed">
+                              <p className="text-xs text-secondary-500 line-clamp-2 leading-relaxed">
                                 {d.description}
                               </p>
                             </div>
@@ -239,8 +239,8 @@ export function LandingHeader() {
                     {/* Sidebar */}
                     <div className="col-span-4 flex flex-col gap-2">
                       {/* Quick Links */}
-                      <div className="p-6 rounded-[1.5rem] bg-surface-50/50 dark:bg-surface-950/50 h-full">
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-secondary-500 dark:text-secondary-400 mb-4 px-2">
+                      <div className="p-6 rounded-[1.5rem] bg-surface-50/50 h-full">
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-secondary-500 mb-4 px-2">
                           {t('landing.header.quick_links.title')}
                         </h3>
                         <div className="space-y-1">
@@ -254,10 +254,10 @@ export function LandingHeader() {
                               key={l.label}
                               to={l.to}
                               onClick={() => setMegaOpen(false)}
-                              className="flex items-center gap-3 p-2 rounded-xl hover:bg-white dark:hover:bg-surface-800 transition-all hover:shadow-sm group"
+                              className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-all hover:shadow-sm group"
                             >
                               <Icon icon={l.icon} className="w-4 h-4 text-secondary-400 group-hover:text-theme-primary transition-colors" />
-                              <span className="text-sm font-medium text-secondary-700 dark:text-secondary-200 group-hover:text-secondary-900 dark:group-hover:text-white">
+                              <span className="text-sm font-medium text-secondary-700 group-hover:text-secondary-900">
                                 {l.label}
                               </span>
                             </Link>
@@ -290,7 +290,7 @@ export function LandingHeader() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               to="/auth/login"
-              className="px-4 py-2.5 rounded-xl text-sm font-semibold text-secondary-700 dark:text-secondary-200 border border-surface-200 dark:border-surface-800 hover:border-theme-primary hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"
+              className="px-4 py-2.5 rounded-xl text-sm font-semibold text-secondary-700 border border-surface-200 hover:border-theme-primary hover:bg-surface-100 transition-colors"
             >
               {t('landing.header.actions.login')}
             </Link>
@@ -306,7 +306,7 @@ export function LandingHeader() {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="md:hidden relative z-50 w-10 h-10 rounded-full bg-surface-100 dark:bg-surface-800 flex items-center justify-center text-secondary-900 dark:text-white"
+            className="md:hidden relative z-50 w-10 h-10 rounded-full bg-surface-100 flex items-center justify-center text-secondary-900"
             onClick={() => setIsOpen((v) => !v)}
           >
             {isOpen ? <Icon icon={Icons.x} className="w-5 h-5" /> : <Icon icon={Icons.menu} className="w-5 h-5" />}
@@ -317,7 +317,7 @@ export function LandingHeader() {
       {/* Mobile Menu Overlay */}
       <div
         className={`
-          fixed inset-0 z-40 bg-white/95 dark:bg-surface-950/95 backdrop-blur-xl transition-all duration-300 md:hidden
+          fixed inset-0 z-40 bg-white/95 backdrop-blur-xl transition-all duration-300 md:hidden
           ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}
         `}
       >
@@ -328,7 +328,7 @@ export function LandingHeader() {
                 key={l.href}
                 href={l.href}
                 onClick={() => setIsOpen(false)}
-                className="heading-3 text-secondary-900 dark:text-white py-3 border-b border-surface-100 dark:border-surface-800"
+                className="heading-3 text-secondary-900 py-3 border-b border-surface-100"
               >
                 {l.label}
               </a>
@@ -336,7 +336,7 @@ export function LandingHeader() {
           </div>
 
           <div className="mt-8">
-            <p className="text-xs font-bold uppercase tracking-wider text-secondary-500 dark:text-secondary-400 mb-4">
+            <p className="text-xs font-bold uppercase tracking-wider text-secondary-500 mb-4">
               {t('landing.header.nav.dashboards')}
             </p>
             <div className="grid gap-3">
@@ -345,14 +345,14 @@ export function LandingHeader() {
                   key={d.title}
                   to={d.to}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-surface-50 dark:bg-surface-900 border border-surface-100 dark:border-surface-800"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-surface-50 border border-surface-100"
                 >
-                  <div className={`w-10 h-10 rounded-xl bg-white dark:bg-surface-800 flex items-center justify-center ${d.iconColor} shadow-sm`}>
+                  <div className={`w-10 h-10 rounded-xl bg-white flex items-center justify-center ${d.iconColor} shadow-sm`}>
                     <Icon icon={d.icon} className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-secondary-900 dark:text-white">{d.title}</h4>
-                    <p className="text-xs text-secondary-500 dark:text-secondary-400">{d.description}</p>
+                    <h4 className="text-base font-bold text-secondary-900">{d.title}</h4>
+                    <p className="text-xs text-secondary-500">{d.description}</p>
                   </div>
                 </Link>
               ))}
@@ -363,7 +363,7 @@ export function LandingHeader() {
             <Link
               to="/auth/login"
               onClick={() => setIsOpen(false)}
-              className="w-full py-3 rounded-xl border border-surface-200 dark:border-surface-800 text-center font-bold text-secondary-900 dark:text-white hover:border-theme-primary transition-colors"
+              className="w-full py-3 rounded-xl border border-surface-200 text-center font-bold text-secondary-900 hover:border-theme-primary transition-colors"
             >
               {t('landing.header.actions.login')}
             </Link>

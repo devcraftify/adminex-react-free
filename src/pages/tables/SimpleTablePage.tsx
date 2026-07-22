@@ -1,9 +1,9 @@
 import { useLocale } from '@/i18n'
 
 const tableHeadClass =
-  'text-left text-xs font-semibold uppercase tracking-wide text-secondary-500 dark:text-secondary-400'
+  'text-left text-xs font-semibold uppercase tracking-wide text-secondary-500'
 
-const cellClass = 'py-3 px-4 text-sm text-secondary-800 dark:text-secondary-200'
+const cellClass = 'py-3 px-4 text-sm text-secondary-800'
 
 type Row = {
   id: string
@@ -23,12 +23,12 @@ const rows: Row[] = [
 
 function statusPill(status: Row['status']) {
   if (status === 'Active') {
-    return 'bg-success-50 text-success-700 border-success-200 dark:bg-success-900/20 dark:text-success-200 dark:border-success-800'
+    return 'bg-success-50 text-success-700 border-success-200'
   }
   if (status === 'Invited') {
-    return 'bg-surface-50 text-secondary-700 border-surface-200 dark:bg-surface-900/30 dark:text-secondary-200 dark:border-surface-700'
+    return 'bg-surface-50 text-secondary-700 border-surface-200'
   }
-  return 'bg-danger-50 text-danger-700 border-danger-200 dark:bg-danger-900/20 dark:text-danger-200 dark:border-danger-800'
+  return 'bg-danger-50 text-danger-700 border-danger-200'
 }
 
 function statusLabel(status: Row['status'], t: (key: string) => string) {
@@ -42,10 +42,10 @@ export function SimpleTablePage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="heading-2 text-secondary-900 dark:text-white">
+        <h1 className="heading-2 text-secondary-900">
           {t('tables.simple_table')}
         </h1>
-        <p className="text-body-sm mt-1 text-secondary-500 dark:text-secondary-400">
+        <p className="text-body-sm mt-1 text-secondary-500">
           {t('tables.simple_table_desc')}
         </p>
       </div>
@@ -53,7 +53,7 @@ export function SimpleTablePage() {
       <div className="card rounded-xl p-0 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-surface-50 dark:bg-surface-900/30">
+            <thead className="bg-surface-50">
               <tr>
                 <th className={`${tableHeadClass} py-3 px-4`}>{t('tables.column.id')}</th>
                 <th className={`${tableHeadClass} py-3 px-4`}>{t('tables.column.name')}</th>
@@ -62,12 +62,12 @@ export function SimpleTablePage() {
                 <th className={`${tableHeadClass} py-3 px-4`}>{t('tables.column.status')}</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-surface-200 dark:divide-surface-700">
+            <tbody className="divide-y divide-surface-200">
               {rows.map((r) => (
-                <tr key={r.id} className="hover:bg-surface-50 dark:hover:bg-surface-900/20 transition-colors">
+                <tr key={r.id} className="hover:bg-surface-50 transition-colors">
                   <td className={cellClass}>{r.id}</td>
                   <td className={cellClass}>
-                    <div className="font-medium text-secondary-900 dark:text-white">{r.name}</div>
+                    <div className="font-medium text-secondary-900">{r.name}</div>
                   </td>
                   <td className={cellClass}>{r.email}</td>
                   <td className={cellClass}>{r.role}</td>

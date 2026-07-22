@@ -18,10 +18,10 @@ export function ForgotPasswordPage() {
   return (
     <div className="animate-fade-in">
       <div className="mb-8">
-        <h1 className="heading-2 text-secondary-900 dark:text-white mb-2">
+        <h1 className="heading-2 text-secondary-900 mb-2">
           {t('auth.forgot_password.title')} 🔒
         </h1>
-        <p className="text-body-sm text-secondary-500 dark:text-secondary-400">
+        <p className="text-body-sm text-secondary-500">
           {t('auth.forgot_password.subtitle')}
         </p>
       </div>
@@ -30,7 +30,7 @@ export function ForgotPasswordPage() {
         <div>
           <label 
             htmlFor="email" 
-            className="block text-sm font-semibold text-secondary-900 dark:text-secondary-200 mb-2"
+            className="block text-sm font-semibold text-secondary-900 mb-2"
           >
             {t('auth.email_address')}
           </label>
@@ -54,7 +54,7 @@ export function ForgotPasswordPage() {
       <div className="mt-8 text-center">
         <Link 
           to="/auth/login" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-secondary-600 dark:text-secondary-400 hover:text-secondary-900 dark:hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-secondary-600 hover:text-secondary-900 transition-colors"
         >
           <Icon icon={Icons.chevronLeft} width={16} height={16} />
           {t('auth.forgot_password.back_to_login')}

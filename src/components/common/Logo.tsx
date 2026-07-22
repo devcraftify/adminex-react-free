@@ -1,5 +1,3 @@
-import { useTheme } from '@/hooks/useTheme'
-
 interface LogoProps {
   className?: string
   width?: number
@@ -9,27 +7,19 @@ interface LogoProps {
 
 /**
  * Logo Component
- * Displays the Adminex logo with automatic theme switching
+ * Displays the Adminex logo
  */
-export function Logo({ 
-  className = '', 
-  width = 125, 
+export function Logo({
+  className = '',
+  width = 125,
   height = 24,
   showText = true
 }: LogoProps) {
-  const { config } = useTheme()
-  const isDark = config.mode === 'dark'
-  
-  // Use dark logo for dark theme, light logo for light theme
-  const logoSrc = isDark 
-    ? '/assets/logo/logo-dark.svg' 
-    : '/assets/logo/logo.svg'
-
   if (showText) {
     return (
-      <img 
-        src={logoSrc} 
-        alt="Adminex" 
+      <img
+        src="/assets/logo/logo.svg"
+        alt="Adminex"
         className={className}
         style={{ width, height }}
       />
@@ -38,9 +28,9 @@ export function Logo({
 
   // Icon only version - use logomark.svg
   return (
-    <img 
-      src="/assets/logo/logomark.svg" 
-      alt="Adminex" 
+    <img
+      src="/assets/logo/logomark.svg"
+      alt="Adminex"
       className={className}
       style={{ width: height, height }}
     />

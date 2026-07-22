@@ -205,6 +205,14 @@ export const Icons = {
   sent: 'solar:plain-2-linear',
   drafts: 'solar:document-text-linear',
   spam: 'solar:shield-warning-linear',
+
+  // Complex Logic Features (Pro)
+  ruleEngine: 'solar:tuning-2-linear',
+  queryBuilder: 'solar:filter-linear',
+  simulation: 'solar:pulse-2-linear',
+  insights: 'solar:lightbulb-bolt-linear',
+  workflowBuilder: 'solar:diagram-up-linear',
+  taskScheduler: 'solar:calendar-date-linear',
 } as const
 
 // Helper function to create icon component

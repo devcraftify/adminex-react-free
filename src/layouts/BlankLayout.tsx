@@ -7,7 +7,7 @@ import { Outlet } from 'react-router'
  */
 export function BlankLayout() {
   return (
-    <div className="min-h-screen bg-white dark:bg-surface-950 pt-[var(--pro-banner-height)]">
+    <div className="min-h-screen bg-white pt-[var(--pro-banner-height)]">
       <Outlet />
     </div>
   )

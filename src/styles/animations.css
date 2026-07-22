@@ -156,25 +156,4 @@
     }
   }
 
-  /* --------------------------------
-     Orbit Animation
-     -------------------------------- */
-
-  .animate-orbit {
-    animation: orbit var(--duration-orbit, 20s) linear infinite;
-  }
-
-  .animate-orbit-reverse {
-    animation: orbit-reverse var(--duration-orbit, 20s) linear infinite;
-  }
-
-  @keyframes orbit {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes orbit-reverse {
-    from { transform: rotate(360deg); }
-    to { transform: rotate(0deg); }
-  }
 }

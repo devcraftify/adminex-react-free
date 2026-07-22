@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { useLocale } from '@/i18n'
 
 const inputClassName =
-  'w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all'
+  'w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all'
 
-const labelClassName = 'block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1'
+const labelClassName = 'block text-sm font-medium text-secondary-700 mb-1'
 
 export function FormLayoutPage() {
   const { t } = useLocale()
@@ -19,25 +19,25 @@ export function FormLayoutPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="heading-2 text-secondary-900 dark:text-white">
+        <h1 className="heading-2 text-secondary-900">
           {t('nav.form_layout')}
         </h1>
-        <p className="text-body-sm mt-1 text-secondary-500 dark:text-secondary-400">
+        <p className="text-body-sm mt-1 text-secondary-500">
           {t('forms.layout.subtitle')}
         </p>
       </div>
 
       {lastSubmit && (
-        <div className="card rounded-xl p-4 border border-success-200 bg-success-50/60 dark:bg-success-900/20 dark:border-success-800">
-          <p className="text-sm text-success-800 dark:text-success-200">{lastSubmit}</p>
+        <div className="card rounded-xl p-4 border border-success-200 bg-success-50/60">
+          <p className="text-sm text-success-800">{lastSubmit}</p>
         </div>
       )}
 
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
         <div className="card rounded-xl p-6">
           <div className="mb-5">
-            <h2 className="heading-5 text-secondary-900 dark:text-white">{t('forms.layout.stacked_title')}</h2>
-            <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-1">
+            <h2 className="heading-5 text-secondary-900">{t('forms.layout.stacked_title')}</h2>
+            <p className="text-sm text-secondary-500 mt-1">
               {t('forms.layout.stacked_desc')}
             </p>
           </div>
@@ -71,7 +71,7 @@ export function FormLayoutPage() {
             <div className="flex items-center justify-end gap-2 pt-1">
               <button
                 type="button"
-                className="px-4 py-2 bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 text-secondary-700 dark:text-secondary-300 rounded-lg font-medium transition-colors"
+                className="px-4 py-2 bg-surface-100 hover:bg-surface-200 text-secondary-700 rounded-lg font-medium transition-colors"
               >
                 {t('common.cancel')}
               </button>
@@ -87,8 +87,8 @@ export function FormLayoutPage() {
 
         <div className="card rounded-xl p-6">
           <div className="mb-5">
-            <h2 className="heading-5 text-secondary-900 dark:text-white">{t('forms.layout.two_column_title')}</h2>
-            <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-1">
+            <h2 className="heading-5 text-secondary-900">{t('forms.layout.two_column_title')}</h2>
+            <p className="text-sm text-secondary-500 mt-1">
               {t('forms.layout.two_column_desc')}
             </p>
           </div>
@@ -139,7 +139,7 @@ export function FormLayoutPage() {
             <div className="flex items-center justify-end gap-2 pt-1">
               <button
                 type="button"
-                className="px-4 py-2 bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 text-secondary-700 dark:text-secondary-300 rounded-lg font-medium transition-colors"
+                className="px-4 py-2 bg-surface-100 hover:bg-surface-200 text-secondary-700 rounded-lg font-medium transition-colors"
               >
                 {t('common.reset')}
               </button>
@@ -156,8 +156,8 @@ export function FormLayoutPage() {
 
       <div className="card rounded-xl p-6">
         <div className="mb-5">
-          <h2 className="heading-5 text-secondary-900 dark:text-white">{t('forms.layout.inline_title')}</h2>
-          <p className="text-sm text-secondary-500 dark:text-secondary-400 mt-1">
+          <h2 className="heading-5 text-secondary-900">{t('forms.layout.inline_title')}</h2>
+          <p className="text-sm text-secondary-500 mt-1">
             {t('forms.layout.inline_desc')}
           </p>
         </div>

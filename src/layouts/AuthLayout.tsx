@@ -10,7 +10,7 @@ export function AuthLayout() {
   const year = new Date().getFullYear()
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-surface-100 dark:bg-surface-950 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-surface-100 relative overflow-hidden">
       {/* Background Decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div 
@@ -33,13 +33,13 @@ export function AuthLayout() {
         </div>
 
         {/* Auth Card */}
-        <div className="bg-white dark:bg-surface-900 rounded-[2rem] p-8 md:p-10 shadow-xl border border-surface-200 dark:border-surface-800">
+        <div className="bg-white rounded-[2rem] p-8 md:p-10 shadow-xl border border-surface-200">
           <Outlet />
         </div>
 
         {/* Footer */}
         <div className="text-center mt-8 space-y-2">
-          <p className="text-sm text-secondary-500 dark:text-secondary-400">
+          <p className="text-sm text-secondary-500">
             {t('footer.copyright_all_rights', { year })}
           </p>
           <div className="flex justify-center gap-4 text-sm">

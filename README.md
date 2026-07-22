@@ -6,13 +6,11 @@ A free, open-source React admin dashboard template built with React 19, TypeScri
 
 - Overview dashboard with KPI widgets
 - Calendar and Contacts demo apps
-- Authentication pages (side + card layouts)
+- Authentication pages
 - Form layout and validation examples
 - Simple and data tables
-- Line, area, column, and pie charts
 - Account settings and typography guide
-- Dark mode with 6 color themes
-- Responsive sidebar and horizontal layouts
+- Responsive vertical sidebar with a full Pro menu preview (Pro-only pages link to the live Pro demo)
 
 ## Quick Start
 

@@ -20,8 +20,8 @@ export default function AccountSettingsPage() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="heading-2 text-secondary-900 dark:text-white">{t('account.title')}</h1>
-        <p className="text-body-sm mt-1 text-secondary-500 dark:text-secondary-400">
+        <h1 className="heading-2 text-secondary-900">{t('account.title')}</h1>
+        <p className="text-body-sm mt-1 text-secondary-500">
           {t('account.description')}
         </p>
       </div>
@@ -37,7 +37,7 @@ export default function AccountSettingsPage() {
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors ${
                   activeTab === tab.id
                     ? 'bg-theme-primary text-white'
-                    : 'text-secondary-700 dark:text-secondary-300 hover:bg-surface-100 dark:hover:bg-surface-800'
+                    : 'text-secondary-700 hover:bg-surface-100'
                 }`}
               >
                 <Icon icon={tab.icon} width={20} height={20} />
@@ -67,17 +67,17 @@ function AccountTab() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="heading-4 text-secondary-900 dark:text-white mb-1">
+        <h2 className="heading-4 text-secondary-900 mb-1">
           {t('account.personal_info')}
         </h2>
-        <p className="text-sm text-secondary-500 dark:text-secondary-400">
+        <p className="text-sm text-secondary-500">
           {t('account.personal_info_desc')}
         </p>
       </div>
 
       {/* Profile Photo */}
       <div>
-        <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-2">
+        <label className="block text-sm font-medium text-secondary-700 mb-2">
           {t('account.profile_photo')}
         </label>
         <div className="flex items-center gap-4">
@@ -96,49 +96,49 @@ function AccountTab() {
       {/* Form Fields */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+          <label className="block text-sm font-medium text-secondary-700 mb-1.5">
             {t('account.first_name')}
           </label>
           <input
             type="text"
             defaultValue="John"
-            className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+            className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+          <label className="block text-sm font-medium text-secondary-700 mb-1.5">
             {t('account.last_name')}
           </label>
           <input
             type="text"
             defaultValue="Doe"
-            className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+            className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
           />
         </div>
         <div className="md:col-span-2">
-          <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+          <label className="block text-sm font-medium text-secondary-700 mb-1.5">
             {t('account.email_address')}
           </label>
           <input
             type="email"
             defaultValue="john.doe@example.com"
-            className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+            className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
           />
         </div>
         <div className="md:col-span-2">
-          <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+          <label className="block text-sm font-medium text-secondary-700 mb-1.5">
             {t('account.bio')}
           </label>
           <textarea
             rows={3}
             defaultValue="Software developer and tech enthusiast"
-            className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all resize-none"
+            className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all resize-none"
           />
         </div>
       </div>
 
-      <div className="flex justify-end gap-3 pt-4 border-t border-surface-200 dark:border-surface-700">
-        <button className="px-4 py-2 bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 text-secondary-700 dark:text-secondary-300 rounded-lg font-medium transition-colors">
+      <div className="flex justify-end gap-3 pt-4 border-t border-surface-200">
+        <button className="px-4 py-2 bg-surface-100 hover:bg-surface-200 text-secondary-700 rounded-lg font-medium transition-colors">
           {t('account.cancel')}
         </button>
         <button className="px-4 py-2 bg-theme-primary hover:bg-theme-primary-dark text-white rounded-lg font-medium transition-colors">
@@ -163,28 +163,28 @@ function NotificationsTab() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="heading-4 text-secondary-900 dark:text-white mb-1">
+        <h2 className="heading-4 text-secondary-900 mb-1">
           {t('account.notification_preferences')}
         </h2>
-        <p className="text-sm text-secondary-500 dark:text-secondary-400">
+        <p className="text-sm text-secondary-500">
           {t('account.notification_desc')}
         </p>
       </div>
 
       <div className="space-y-4">
         {settings.map((setting) => (
-          <div key={setting.id} className="flex items-start justify-between py-3 border-b border-surface-200 dark:border-surface-700 last:border-0">
+          <div key={setting.id} className="flex items-start justify-between py-3 border-b border-surface-200 last:border-0">
             <div className="flex-1">
-              <h5 className="font-medium text-secondary-900 dark:text-white mb-0.5">
+              <h5 className="font-medium text-secondary-900 mb-0.5">
                 {setting.label}
               </h5>
-              <p className="text-sm text-secondary-600 dark:text-secondary-400">
+              <p className="text-sm text-secondary-600">
                 {setting.description}
               </p>
             </div>
             <label className="relative inline-flex items-center cursor-pointer ml-4">
               <input type="checkbox" defaultChecked className="sr-only peer" />
-              <div className="w-11 h-6 bg-surface-200 rounded-full peer dark:bg-surface-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-theme-primary"></div>
+              <div className="w-11 h-6 bg-surface-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-theme-primary"></div>
             </label>
           </div>
         ))}
@@ -198,43 +198,43 @@ function BillingTab() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="heading-4 text-secondary-900 dark:text-white mb-1">
+        <h2 className="heading-4 text-secondary-900 mb-1">
           {t('account.billing_subscription')}
         </h2>
-        <p className="text-sm text-secondary-500 dark:text-secondary-400">
+        <p className="text-sm text-secondary-500">
           {t('account.billing_desc')}
         </p>
       </div>
 
       {/* Current Plan */}
-      <div className="p-6 bg-gradient-to-r from-theme-primary/10 to-theme-primary/5 dark:from-theme-primary/20 dark:to-theme-primary/10 border border-theme-primary/20 rounded-xl">
+      <div className="p-6 bg-gradient-to-r from-theme-primary/10 to-theme-primary/5 border border-theme-primary/20 rounded-xl">
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="heading-4 text-secondary-900 dark:text-white mb-1">
+            <h3 className="heading-4 text-secondary-900 mb-1">
               {t('account.free_plan')}
             </h3>
-            <p className="text-sm text-secondary-500 dark:text-secondary-400">
+            <p className="text-sm text-secondary-500">
               {t('account.free_plan_desc')}
             </p>
           </div>
           <div className="text-right">
-            <div className="heading-3 text-secondary-900 dark:text-white">$0</div>
-            <div className="text-sm text-secondary-500 dark:text-secondary-400">{t('account.per_month')}</div>
+            <div className="heading-3 text-secondary-900">$0</div>
+            <div className="text-sm text-secondary-500">{t('account.per_month')}</div>
           </div>
         </div>
       </div>
 
       {/* Payment Method */}
       <div>
-        <h3 className="font-semibold text-secondary-900 dark:text-white mb-3">{t('account.payment_method')}</h3>
-        <div className="p-4 border border-surface-200 dark:border-surface-700 rounded-xl flex items-center justify-between">
+        <h3 className="font-semibold text-secondary-900 mb-3">{t('account.payment_method')}</h3>
+        <div className="p-4 border border-surface-200 rounded-xl flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Icon icon={Icons.creditCard} width={24} height={24} className="text-secondary-600 dark:text-secondary-400" />
+            <Icon icon={Icons.creditCard} width={24} height={24} className="text-secondary-600" />
             <div>
-              <div className="font-medium text-secondary-900 dark:text-white">
+              <div className="font-medium text-secondary-900">
                 •••• •••• •••• 4242
               </div>
-              <div className="text-sm text-secondary-600 dark:text-secondary-400">
+              <div className="text-sm text-secondary-600">
                 {t('account.expires')}
               </div>
             </div>
@@ -247,50 +247,50 @@ function BillingTab() {
 
       {/* Billing History */}
       <div>
-        <h3 className="font-semibold text-secondary-900 dark:text-white mb-3">{t('account.billing_history')}</h3>
-        <div className="border border-surface-200 dark:border-surface-700 rounded-xl overflow-hidden">
+        <h3 className="font-semibold text-secondary-900 mb-3">{t('account.billing_history')}</h3>
+        <div className="border border-surface-200 rounded-xl overflow-hidden">
           <table className="w-full">
-            <thead className="bg-surface-50 dark:bg-surface-800">
+            <thead className="bg-surface-50">
               <tr>
-                <th className="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400">
+                <th className="px-4 py-3 text-left text-xs font-medium text-secondary-500">
                   {t('account.date')}
                 </th>
-                <th className="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400">
+                <th className="px-4 py-3 text-left text-xs font-medium text-secondary-500">
                   {t('account.description_col')}
                 </th>
-                <th className="px-4 py-3 text-right text-xs font-medium text-secondary-500 dark:text-secondary-400">
+                <th className="px-4 py-3 text-right text-xs font-medium text-secondary-500">
                   {t('account.amount')}
                 </th>
-                <th className="px-4 py-3 text-right text-xs font-medium text-secondary-500 dark:text-secondary-400">
+                <th className="px-4 py-3 text-right text-xs font-medium text-secondary-500">
                   {t('account.status_col')}
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-surface-200 dark:divide-surface-700">
+            <tbody className="divide-y divide-surface-200">
               <tr>
-                <td className="px-4 py-3 text-sm text-secondary-900 dark:text-white">Dec 14, 2025</td>
-                <td className="px-4 py-3 text-sm text-secondary-600 dark:text-secondary-400">
+                <td className="px-4 py-3 text-sm text-secondary-900">Dec 14, 2025</td>
+                <td className="px-4 py-3 text-sm text-secondary-600">
                   {t('account.free_plan')}
                 </td>
-                <td className="px-4 py-3 text-sm text-secondary-900 dark:text-white text-right">
+                <td className="px-4 py-3 text-sm text-secondary-900 text-right">
                   $0.00
                 </td>
                 <td className="px-4 py-3 text-right">
-                  <span className="px-2 py-1 bg-success-100 dark:bg-success-900/30 text-success-700 dark:text-success-400 text-xs rounded-full">
+                  <span className="px-2 py-1 bg-success-100 text-success-700 text-xs rounded-full">
                     {t('account.active')}
                   </span>
                 </td>
               </tr>
               <tr>
-                <td className="px-4 py-3 text-sm text-secondary-900 dark:text-white">Nov 14, 2025</td>
-                <td className="px-4 py-3 text-sm text-secondary-600 dark:text-secondary-400">
+                <td className="px-4 py-3 text-sm text-secondary-900">Nov 14, 2025</td>
+                <td className="px-4 py-3 text-sm text-secondary-600">
                   {t('account.free_plan')}
                 </td>
-                <td className="px-4 py-3 text-sm text-secondary-900 dark:text-white text-right">
+                <td className="px-4 py-3 text-sm text-secondary-900 text-right">
                   $0.00
                 </td>
                 <td className="px-4 py-3 text-right">
-                  <span className="px-2 py-1 bg-success-100 dark:bg-success-900/30 text-success-700 dark:text-success-400 text-xs rounded-full">
+                  <span className="px-2 py-1 bg-success-100 text-success-700 text-xs rounded-full">
                     {t('account.paid')}
                   </span>
                 </td>
@@ -308,46 +308,46 @@ function SecurityTab() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="heading-4 text-secondary-900 dark:text-white mb-1">
+        <h2 className="heading-4 text-secondary-900 mb-1">
           {t('account.security_settings')}
         </h2>
-        <p className="text-sm text-secondary-500 dark:text-secondary-400">
+        <p className="text-sm text-secondary-500">
           {t('account.security_desc')}
         </p>
       </div>
 
       {/* Change Password */}
       <div>
-        <h3 className="font-semibold text-secondary-900 dark:text-white mb-3 flex items-center gap-2">
+        <h3 className="font-semibold text-secondary-900 mb-3 flex items-center gap-2">
           <Icon icon={Icons.key} width={20} height={20} />
           {t('account.change_password')}
         </h3>
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+            <label className="block text-sm font-medium text-secondary-700 mb-1.5">
               {t('account.current_password')}
             </label>
             <input
               type="password"
-              className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+              className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+            <label className="block text-sm font-medium text-secondary-700 mb-1.5">
               {t('account.new_password')}
             </label>
             <input
               type="password"
-              className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+              className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-secondary-700 dark:text-secondary-300 mb-1.5">
+            <label className="block text-sm font-medium text-secondary-700 mb-1.5">
               {t('account.confirm_new_password')}
             </label>
             <input
               type="password"
-              className="w-full px-4 py-2.5 bg-surface-50 dark:bg-surface-800 border border-surface-200 dark:border-surface-700 rounded-xl text-sm text-secondary-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
+              className="w-full px-4 py-2.5 bg-surface-50 border border-surface-200 rounded-xl text-sm text-secondary-900 focus:outline-none focus:ring-2 focus:ring-theme-primary/20 focus:border-theme-primary transition-all"
             />
           </div>
           <button className="px-4 py-2 bg-theme-primary hover:bg-theme-primary-dark text-white rounded-lg font-medium transition-colors">
@@ -357,34 +357,34 @@ function SecurityTab() {
       </div>
 
       {/* Two-Factor Authentication */}
-      <div className="pt-6 border-t border-surface-200 dark:border-surface-700">
+      <div className="pt-6 border-t border-surface-200">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <h3 className="font-semibold text-secondary-900 dark:text-white mb-1 flex items-center gap-2">
+            <h3 className="font-semibold text-secondary-900 mb-1 flex items-center gap-2">
               <Icon icon={Icons.shield} width={20} height={20} />
               {t('account.two_factor_auth')}
             </h3>
-            <p className="text-sm text-secondary-500 dark:text-secondary-400">
+            <p className="text-sm text-secondary-500">
               {t('account.two_factor_desc')}
             </p>
           </div>
-          <button className="px-4 py-2 bg-surface-100 dark:bg-surface-800 hover:bg-surface-200 dark:hover:bg-surface-700 text-secondary-700 dark:text-secondary-300 rounded-lg font-medium transition-colors">
+          <button className="px-4 py-2 bg-surface-100 hover:bg-surface-200 text-secondary-700 rounded-lg font-medium transition-colors">
             {t('account.enable')}
           </button>
         </div>
       </div>
 
       {/* Active Sessions */}
-      <div className="pt-6 border-t border-surface-200 dark:border-surface-700">
-        <h3 className="font-semibold text-secondary-900 dark:text-white mb-3">{t('account.active_sessions')}</h3>
+      <div className="pt-6 border-t border-surface-200">
+        <h3 className="font-semibold text-secondary-900 mb-3">{t('account.active_sessions')}</h3>
         <div className="space-y-3">
-          <div className="p-4 border border-surface-200 dark:border-surface-700 rounded-xl flex items-center justify-between">
+          <div className="p-4 border border-surface-200 rounded-xl flex items-center justify-between">
             <div>
-              <div className="font-medium text-secondary-900 dark:text-white flex items-center gap-2">
+              <div className="font-medium text-secondary-900 flex items-center gap-2">
                 <Icon icon={Icons.check} width={16} height={16} className="text-success-600" />
                 {t('account.current_session')}
               </div>
-              <div className="text-sm text-secondary-600 dark:text-secondary-400 mt-1">
+              <div className="text-sm text-secondary-600 mt-1">
                 Chrome on MacOS • {t('account.last_active_now')}
               </div>
             </div>
@@ -406,10 +406,10 @@ function DevicesTab() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="heading-4 text-secondary-900 dark:text-white mb-1">
+        <h2 className="heading-4 text-secondary-900 mb-1">
           {t('account.connected_devices')}
         </h2>
-        <p className="text-sm text-secondary-500 dark:text-secondary-400">
+        <p className="text-sm text-secondary-500">
           {t('account.devices_desc')}
         </p>
       </div>
@@ -418,25 +418,25 @@ function DevicesTab() {
         {devices.map((device, index) => (
           <div
             key={index}
-            className="p-4 border border-surface-200 dark:border-surface-700 rounded-xl flex items-center justify-between"
+            className="p-4 border border-surface-200 rounded-xl flex items-center justify-between"
           >
             <div className="flex items-start gap-3">
-              <div className="p-2 bg-surface-100 dark:bg-surface-800 rounded-lg">
-                <Icon icon={Icons.devices} width={20} height={20} className="text-secondary-600 dark:text-secondary-400" />
+              <div className="p-2 bg-surface-100 rounded-lg">
+                <Icon icon={Icons.devices} width={20} height={20} className="text-secondary-600" />
               </div>
               <div>
-                <div className="font-medium text-secondary-900 dark:text-white flex items-center gap-2">
+                <div className="font-medium text-secondary-900 flex items-center gap-2">
                   {device.name}
                   {device.current && (
-                    <span className="px-2 py-0.5 bg-success-100 dark:bg-success-900/30 text-success-700 dark:text-success-400 text-xs rounded-full">
+                    <span className="px-2 py-0.5 bg-success-100 text-success-700 text-xs rounded-full">
                       {t('account.current')}
                     </span>
                   )}
                 </div>
-                <div className="text-sm text-secondary-600 dark:text-secondary-400 mt-1">
+                <div className="text-sm text-secondary-600 mt-1">
                   {device.type} • {device.location}
                 </div>
-                <div className="text-xs text-secondary-500 dark:text-secondary-400 mt-0.5">
+                <div className="text-xs text-secondary-500 mt-0.5">
                   {t('account.last_active', { time: device.lastActive })}
                 </div>
               </div>

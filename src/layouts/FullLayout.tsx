@@ -1,65 +1,36 @@
 import { Outlet } from 'react-router'
 import { useState } from 'react'
-import { useTheme } from '@/hooks/useTheme'
-import { Sidebar, HorizontalNav, navGroups } from './sidebar'
+import { Sidebar, navGroups } from './sidebar'
 import { AppHeader } from './header'
+
+const SIDEBAR_WIDTH = 260
 
 /**
  * Full Layout Component
- * Admin layout with collapsible sidebar (mini/full modes)
+ * Admin layout with a fixed vertical sidebar
  */
 export function FullLayout() {
-  const { config, toggleSidebar } = useTheme()
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
 
-  const isHorizontal = config.sidebarLayout === 'horizontal'
-  const isCollapsed = config.sidebarCollapsed && !isHorizontal
-
-  const sidebarWidth = isHorizontal ? 0 : isCollapsed ? 80 : 260
-
   return (
-    <div className="min-h-screen bg-surface-50 dark:bg-surface-950">
+    <div className="min-h-screen bg-surface-50">
       <AppHeader
-        sidebarWidth={sidebarWidth}
-        isHorizontal={isHorizontal}
-        isCollapsed={isCollapsed}
-        onToggleSidebar={toggleSidebar}
         isMobileSidebarOpen={isMobileSidebarOpen}
         onToggleMobileSidebar={() => setIsMobileSidebarOpen(!isMobileSidebarOpen)}
       />
 
-      {/* Horizontal Nav */}
-      {isHorizontal && <HorizontalNav navGroups={navGroups} />}
-
-      {/* Vertical Sidebar */}
-      {!isHorizontal && (
-        <Sidebar 
-          navGroups={navGroups} 
-          isCollapsed={isCollapsed} 
-          width={sidebarWidth}
-          isMobileOpen={isMobileSidebarOpen}
-          onMobileClose={() => setIsMobileSidebarOpen(false)}
-        />
-      )}
+      <Sidebar
+        navGroups={navGroups}
+        width={SIDEBAR_WIDTH}
+        isMobileOpen={isMobileSidebarOpen}
+        onMobileClose={() => setIsMobileSidebarOpen(false)}
+      />
 
       {/* Main Content */}
-      <main 
-        className="transition-all duration-300 lg:ms-0" 
-        style={{ 
-          marginLeft: undefined,
-          paddingTop: isHorizontal ? 'calc(7rem + var(--pro-banner-height))' : 'calc(4rem + var(--pro-banner-height))'
-        }}
+      <main
+        className="transition-all duration-300 lg:ml-[260px]"
+        style={{ paddingTop: 'calc(4rem + var(--pro-banner-height))' }}
       >
-        <style>{`
-          @media (min-width: 1024px) {
-            main {
-              margin-left: 0 !important;
-              margin-right: 0 !important;
-            }
-
-            html[dir="ltr"] main { margin-left: ${isHorizontal ? 0 : sidebarWidth}px !important; }
-          }
-        `}</style>
         <div className="layout-container p-4 md:p-6">
           <Outlet />
         </div>
