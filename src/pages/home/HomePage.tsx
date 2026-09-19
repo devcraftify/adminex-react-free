@@ -1,10 +1,10 @@
 import {
   LandingHeader,
   HeroSection,
+  CapabilitiesMarqueeSection,
   DemosSection,
   FeaturesSection,
   WidgetsSection,
-  TestimonialsSection,
   CtaSection,
   LandingFooter,
 } from './sections'
@@ -14,10 +14,10 @@ export function HomePage() {
     <div className="min-h-screen">
       <LandingHeader />
       <HeroSection />
+      <CapabilitiesMarqueeSection />
       <DemosSection />
       <FeaturesSection />
       <WidgetsSection />
-      <TestimonialsSection />
       <CtaSection />
       <LandingFooter />
     </div>

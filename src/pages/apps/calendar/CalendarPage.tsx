@@ -576,30 +576,39 @@ export function CalendarPage() {
           />
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-fade-in overflow-hidden">
+          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-fade-in overflow-y-auto overflow-x-hidden max-h-[90vh]">
             {/* Colored Header */}
-            <div className={`h-20 ${
+            <div className={`px-6 pt-6 pb-5 relative ${
               selectedEvent.color === 'primary' ? 'bg-gradient-to-r from-primary-500 to-primary-600' :
               selectedEvent.color === 'success' ? 'bg-gradient-to-r from-success-500 to-success-600' :
               selectedEvent.color === 'warning' ? 'bg-gradient-to-r from-warning-500 to-warning-600' :
               selectedEvent.color === 'danger' ? 'bg-gradient-to-r from-danger-500 to-danger-600' :
               selectedEvent.color === 'info' ? 'bg-gradient-to-r from-info-500 to-info-600' :
               'bg-gradient-to-r from-purple-500 to-purple-600'
-            } relative`}>
+            }`}>
               <button
                 onClick={() => setIsViewModalOpen(false)}
                 className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-lg text-white transition-colors"
               >
                 <Icon icon={Icons.close} width={20} height={20} />
               </button>
+              <div className="flex items-center gap-3 pr-12">
+                <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                  <Icon icon={Icons.calendarEvent} width={22} height={22} className="text-white" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-ui-xs font-semibold uppercase tracking-wider text-white/70">
+                    {t('apps.calendar.event')}
+                  </p>
+                  <h2 className="text-lg font-bold text-white truncate">
+                    {selectedEvent.title}
+                  </h2>
+                </div>
+              </div>
             </div>
 
             {/* Content */}
             <div className="p-6">
-              <h2 className="text-xl font-bold text-secondary-900 mb-2">
-                {selectedEvent.title}
-              </h2>
-              
               {selectedEvent.description && (
                 <p className="text-secondary-600 mb-4">
                   {selectedEvent.description}
@@ -684,7 +693,7 @@ export function CalendarPage() {
           />
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-fade-in overflow-hidden max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-fade-in overflow-y-auto overflow-x-hidden max-h-[90vh]">
             {/* Header */}
             <div className="sticky top-0 bg-white px-6 py-4 border-b border-surface-200 flex items-center justify-between z-10">
               <div>

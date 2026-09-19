@@ -28,17 +28,17 @@ export function DemosSection() {
 
   return (
     <section id="demos" className="py-24 px-4 bg-surface-50 scroll-mt-24 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-theme-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-theme-accent/8 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" aria-hidden />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex items-end justify-between gap-6 flex-wrap mb-16">
+        <div className="flex items-end justify-between gap-6 flex-wrap mb-14">
           <div>
-            <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white border border-surface-200 shadow-sm mb-6">
+            <div className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white border border-surface-200 shadow-xs mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-theme-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-theme-primary"></span>
               </span>
-              <span className="text-sm font-semibold text-secondary-600">
+              <span className="text-body-sm font-semibold text-secondary-600">
                 {t('landing.demos.badge')}
               </span>
             </div>
@@ -55,14 +55,14 @@ export function DemosSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {demos.map((d) => (
             <Link
               key={d.titleKey}
               to={d.to}
-              className="group relative rounded-[1rem] overflow-hidden border border-surface-200 bg-white hover:shadow-xl hover:shadow-theme-primary/10 transition-all duration-500 hover:-translate-y-1"
+              className="group relative rounded-xl overflow-hidden border border-surface-200 bg-white transition-colors duration-300 hover:border-theme-primary/40"
             >
-              <div className="relative overflow-hidden bg-surface-100 group-hover:opacity-100 transition-opacity h-[310px]">
+              <div className="relative overflow-hidden bg-surface-100 aspect-[16/12]">
                 <div className="absolute inset-0 bg-gradient-to-br from-surface-50 to-surface-100 flex items-center justify-center text-secondary-300">
                   <Icon icon={d.icon} className="w-12 h-12 opacity-10 group-hover:opacity-20 transition-opacity duration-500 transform group-hover:scale-110" />
                 </div>
@@ -84,7 +84,7 @@ export function DemosSection() {
                     <h3 className="font-bold text-secondary-900 group-hover:text-theme-primary transition-colors text-base">
                       {t(d.titleKey)}
                     </h3>
-                    <p className="text-body text-secondary-500 mt-1 leading-snug">
+                    <p className="text-body-sm text-secondary-500 mt-1 leading-snug">
                       {t(d.descriptionKey)}
                     </p>
                   </div>
@@ -92,8 +92,8 @@ export function DemosSection() {
 
                 <div className="mt-4 pt-3 border-t border-surface-100 flex items-center justify-between">
                   <span className="text-ui-xs font-bold text-secondary-400 uppercase tracking-wider">{t('landing.demos.view_demo')}</span>
-                  <div className="w-7 h-7 rounded-full bg-surface-100 flex items-center justify-center text-secondary-500 group-hover:bg-theme-primary group-hover:text-white transition-all duration-300">
-                    <Icon icon={Icons.arrowRight} width={12} height={12} />
+                  <div className="w-7 h-7 rounded-full bg-surface-100 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
+                    <Icon icon={Icons.arrowRight} className="w-3 h-3 text-secondary-500" />
                   </div>
                 </div>
               </div>

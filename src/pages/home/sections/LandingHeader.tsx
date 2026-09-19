@@ -1,7 +1,33 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Icon, Icons, Logo } from '@/components/common'
+import { AreaChart } from '@/components/charts'
+import '@/components/charts/chartConfig'
+import type { ChartOptions } from 'chart.js'
 import { useLocale } from '@/i18n'
+
+const featuredChartData = {
+  labels: ['1', '2', '3', '4', '5', '6', '7'],
+  datasets: [
+    {
+      fill: true,
+      data: [20, 34, 28, 42, 38, 52, 58],
+      borderColor: '#3B82F6',
+      backgroundColor: 'rgba(59, 130, 246, 0.1)',
+      borderWidth: 2,
+      tension: 0.4,
+      pointRadius: 0,
+    },
+  ],
+}
+
+const miniChartOptions: ChartOptions<'line'> = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: { legend: { display: false }, tooltip: { enabled: false } },
+  scales: { x: { display: false }, y: { display: false } },
+  layout: { padding: 0 },
+}
 
 export function LandingHeader() {
   const { t } = useLocale()
@@ -10,7 +36,6 @@ export function LandingHeader() {
     { label: t('landing.header.nav.demos'), href: '#demos' },
     { label: t('landing.header.nav.features'), href: '#features' },
     { label: t('landing.header.nav.widgets'), href: '#widgets' },
-    { label: t('landing.header.nav.testimonials'), href: '#testimonials' },
   ] as const
 
   const dashboards = [
@@ -19,7 +44,6 @@ export function LandingHeader() {
       description: t('landing.demos.items.overview_light.desc'),
       to: '/dashboard',
       icon: Icons.dashboard,
-      accent: 'from-blue-500/20 to-indigo-500/20',
       iconColor: 'text-blue-600',
       badge: t('landing.header.badge.popular'),
       badgeKind: 'popular',
@@ -30,7 +54,6 @@ export function LandingHeader() {
       description: t('landing.demos.items.calendar.desc'),
       to: '/app/calendar',
       icon: Icons.calendar,
-      accent: 'from-pink-500/20 to-rose-500/20',
       iconColor: 'text-pink-600',
       badge: t('landing.header.badge.new'),
       badgeKind: 'new',
@@ -41,12 +64,20 @@ export function LandingHeader() {
       description: t('header.apps.contacts_desc'),
       to: '/app/contacts',
       icon: Icons.contacts,
-      accent: 'from-emerald-500/20 to-teal-500/20',
       iconColor: 'text-emerald-600',
       badge: undefined,
       badgeKind: undefined,
       bg: 'bg-emerald-50',
     },
+  ] as const
+
+  const [featured, ...otherDashboards] = dashboards
+
+  const quickLinks = [
+    { label: t('nav.calendar'), to: '/app/calendar', icon: Icons.calendar },
+    { label: t('nav.contacts'), to: '/app/contacts', icon: Icons.contacts },
+    { label: t('nav.form_layout'), to: '/forms/layout', icon: Icons.layoutGrid },
+    { label: t('landing.header.quick_links.user_profile'), to: '/pages/account-settings', icon: Icons.user },
   ] as const
 
   const location = useLocation()
@@ -116,26 +147,26 @@ export function LandingHeader() {
   }
 
   return (
-    <header
-      className={`fixed top-[var(--pro-banner-height)] inset-x-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-white/80 backdrop-blur-xl border-b border-surface-200/50 shadow-sm py-3'
-          : 'bg-transparent py-5'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-0">
+    <header className="fixed top-[calc(var(--pro-banner-height)+0.75rem)] sm:top-[calc(var(--pro-banner-height)+1rem)] inset-x-3 sm:inset-x-6 z-50">
+      <div
+        className={`max-w-7xl mx-auto rounded-2xl border transition-all duration-300 px-4 sm:px-6 ${scrolled
+          ? 'bg-white/90 backdrop-blur-xl border-surface-200/70 shadow-[0_8px_30px_-8px_rgba(15,23,42,0.15)] py-2.5'
+          : 'bg-white/70 backdrop-blur-lg border-surface-200/50 shadow-[0_4px_20px_-8px_rgba(15,23,42,0.08)] py-3.5'
+          }`}
+      >
         <div className="flex items-center justify-between" ref={megaContainerRef}>
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <Logo className="group-hover:scale-105 transition-transform duration-300" width={140} height={28} />
+            <Logo className="transition-transform duration-300 group-hover:scale-105" width={140} height={28} />
           </Link>
 
-          {/* Desktop Nav - Floating Island */}
-          <nav className="hidden md:flex items-center p-1.5 rounded-full bg-surface-100/50 border border-surface-200/50 backdrop-blur-md shadow-sm">
+          {/* Desktop Nav — plain inline links, no boxed pill */}
+          <nav className="hidden md:flex items-center gap-1">
             {sectionLinks.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="px-4 py-2 rounded-full text-sm font-medium text-secondary-600 hover:text-secondary-900 hover:bg-white transition-all duration-200"
+                className="px-3.5 py-2 rounded-lg text-sm font-medium text-secondary-600 hover:text-secondary-900 hover:bg-surface-100 transition-all duration-200"
               >
                 {l.label}
               </a>
@@ -149,10 +180,10 @@ export function LandingHeader() {
               <button
                 type="button"
                 className={`
-                  px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 inline-flex items-center gap-1.5
+                  px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-200 inline-flex items-center gap-1.5
                   ${megaOpen
-                    ? 'bg-white text-secondary-900 shadow-sm'
-                    : 'text-secondary-600 hover:text-secondary-900 hover:bg-white'
+                    ? 'bg-surface-100 text-secondary-900'
+                    : 'text-secondary-600 hover:text-secondary-900 hover:bg-surface-100'
                   }
                 `}
                 aria-haspopup="menu"
@@ -169,115 +200,133 @@ export function LandingHeader() {
               {/* Mega Menu */}
               <div
                 className={`
-                  absolute left-1/2 -translate-x-1/2 top-full mt-6 w-[800px]
+                  absolute left-1/2 -translate-x-1/2 top-full mt-4 w-[880px]
                   transition-all duration-300 origin-top-right
                   ${megaOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-2 invisible'}
                 `}
                 onMouseEnter={openMega}
                 onMouseLeave={scheduleCloseMega}
               >
-                <div className="rounded-[2rem] border border-surface-200 bg-white shadow-2xl shadow-theme-primary/10 overflow-hidden p-2">
-                  <div className="grid grid-cols-12 gap-2">
-                    {/* Main Content */}
-                    <div className="col-span-8 p-6 bg-surface-50/50 rounded-[1.5rem]">
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="flex items-center gap-2">
-                          <div className="p-2 rounded-lg bg-theme-primary/10 text-theme-primary">
-                            <Icon icon={Icons.sparkles} className="w-4 h-4" />
+                <div className="rounded-2xl border border-surface-200/70 bg-white shadow-[0_20px_50px_-12px_rgba(15,23,42,0.18)] overflow-hidden">
+                  <div className="grid grid-cols-12">
+                    {/* Featured dashboard — live stat preview, no screenshot */}
+                    <div className="col-span-5 p-5 bg-surface-50/70 border-r border-surface-200/70">
+                      <Link to={featured.to} onClick={() => setMegaOpen(false)} className="group block h-full">
+                        <div className="rounded-xl border border-surface-200 bg-white p-4 mb-4 transition-colors group-hover:border-theme-primary/40">
+                          <div className="flex items-center justify-between mb-4">
+                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${featured.bg} ${featured.iconColor}`}>
+                              <Icon icon={featured.icon} className="w-5 h-5" />
+                            </div>
+                            <span className="px-2 py-0.5 rounded text-ui-2xs font-bold uppercase tracking-wider bg-blue-100 text-blue-700">
+                              {featured.badge}
+                            </span>
                           </div>
-                          <div>
-                            <h3 className="text-sm font-bold text-secondary-900">
-                              {t('landing.header.mega.title')}
-                            </h3>
-                            <p className="text-xs text-secondary-500">
-                              {t('landing.header.mega.subtitle')}
-                            </p>
+
+                          <div className="h-[70px] -mx-1 mb-3">
+                            <AreaChart data={featuredChartData} options={miniChartOptions} height={70} />
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-3 pt-3 border-t border-surface-100">
+                            <div>
+                              <p className="text-ui-2xs font-semibold uppercase tracking-wider text-secondary-400">{t('landing.header.mega.visitors')}</p>
+                              <p className="text-body-sm font-bold text-secondary-900">12.8K</p>
+                            </div>
+                            <div>
+                              <p className="text-ui-2xs font-semibold uppercase tracking-wider text-secondary-400">{t('landing.header.mega.growth')}</p>
+                              <p className="text-body-sm font-bold text-emerald-600">+18.2%</p>
+                            </div>
                           </div>
                         </div>
+
+                        <h3 className="heading-5 text-secondary-900 group-hover:text-theme-primary transition-colors">
+                          {featured.title}
+                        </h3>
+                        <p className="text-body-sm text-secondary-500 mt-1 leading-relaxed">
+                          {featured.description}
+                        </p>
+                        <span className="inline-flex items-center gap-1 text-theme-primary text-sm font-semibold mt-3">
+                          {t('landing.header.mega.explore')}
+                          <Icon icon={Icons.arrowRight} className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                        </span>
+                      </Link>
+                    </div>
+
+                    {/* Everything else */}
+                    <div className="col-span-7 p-5">
+                      <div className="flex items-center justify-between mb-2 px-1">
+                        <p className="text-ui-xs font-bold uppercase tracking-wider text-secondary-400">
+                          {t('landing.header.mega.title')}
+                        </p>
                         <Link
                           to="/dashboard"
-                          className="text-xs font-bold text-theme-primary hover:text-theme-primary-dark transition-colors flex items-center gap-1 bg-white px-3 py-1.5 rounded-full shadow-sm border border-surface-200"
                           onClick={() => setMegaOpen(false)}
+                          className="text-ui-xs font-bold text-theme-primary flex items-center gap-1"
                         >
                           {t('landing.header.mega.view_all')}
                           <Icon icon={Icons.arrowRight} className="w-3 h-3" />
                         </Link>
                       </div>
-
-                      <div className="grid grid-cols-2 gap-4">
-                        {dashboards.map((d) => (
+                      <div className="space-y-0.5 mb-5">
+                        {otherDashboards.map((d) => (
                           <Link
                             key={d.title}
                             to={d.to}
                             onClick={() => setMegaOpen(false)}
-                            className="group relative flex items-start gap-4 p-4 rounded-2xl bg-white border border-surface-200 hover:border-theme-primary/50 hover:shadow-lg hover:shadow-theme-primary/5 transition-all duration-300"
+                            className="group flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-50 transition-colors"
                           >
-                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${d.bg || 'bg-surface-100'} ${d.iconColor} group-hover:scale-110 transition-transform`}>
-                              <Icon icon={d.icon} className="w-6 h-6" />
+                            <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${d.bg} ${d.iconColor}`}>
+                              <Icon icon={d.icon} className="w-4.5 h-4.5" />
                             </div>
-
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2 mb-1">
-                                <h4 className="text-sm font-bold text-secondary-900 truncate">
-                                  {d.title}
-                                </h4>
+                              <div className="flex flex-wrap items-center gap-x-2">
+                                <span className="text-body-sm font-semibold text-secondary-900">{d.title}</span>
                                 {d.badge && (
-                                  <span className={`px-1.5 py-0.5 rounded text-ui-2xs font-bold uppercase tracking-wider ${d.badgeKind === 'new' ? 'bg-emerald-100 text-emerald-700' : 'bg-surface-100 text-secondary-600'}`}>
+                                  <span className={`shrink-0 px-1.5 py-0.5 rounded text-ui-2xs font-bold uppercase tracking-wider ${d.badgeKind === 'new' ? 'bg-emerald-100 text-emerald-700' : 'bg-surface-100 text-secondary-600'}`}>
                                     {d.badge}
                                   </span>
                                 )}
                               </div>
-                              <p className="text-xs text-secondary-500 line-clamp-2 leading-relaxed">
-                                {d.description}
-                              </p>
+                              <p className="text-caption text-secondary-500 truncate">{d.description}</p>
                             </div>
+                            <Icon icon={Icons.arrowRight} className="w-3.5 h-3.5 text-secondary-300 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all shrink-0" />
                           </Link>
                         ))}
                       </div>
-                    </div>
 
-                    {/* Sidebar */}
-                    <div className="col-span-4 flex flex-col gap-2">
-                      {/* Quick Links */}
-                      <div className="p-6 rounded-[1.5rem] bg-surface-50/50 h-full">
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-secondary-500 mb-4 px-2">
-                          {t('landing.header.quick_links.title')}
-                        </h3>
-                        <div className="space-y-1">
-                          {[
-                            { label: t('nav.calendar'), to: '/app/calendar', icon: Icons.calendar },
-                            { label: t('nav.contacts'), to: '/app/contacts', icon: Icons.contacts },
-                            { label: t('nav.form_layout'), to: '/forms/layout', icon: Icons.layoutGrid },
-                            { label: t('landing.header.quick_links.user_profile'), to: '/pages/account-settings', icon: Icons.user },
-                          ].map((l) => (
-                            <Link
-                              key={l.label}
-                              to={l.to}
-                              onClick={() => setMegaOpen(false)}
-                              className="flex items-center gap-3 p-2 rounded-xl hover:bg-white transition-all hover:shadow-sm group"
-                            >
-                              <Icon icon={l.icon} className="w-4 h-4 text-secondary-400 group-hover:text-theme-primary transition-colors" />
-                              <span className="text-sm font-medium text-secondary-700 group-hover:text-secondary-900">
-                                {l.label}
-                              </span>
-                            </Link>
-                          ))}
-                        </div>
+                      <p className="text-ui-xs font-bold uppercase tracking-wider text-secondary-400 mb-2 px-1">
+                        {t('landing.header.quick_links.title')}
+                      </p>
+                      <div className="grid grid-cols-2 gap-2 mb-5">
+                        {quickLinks.map((l) => (
+                          <Link
+                            key={l.label}
+                            to={l.to}
+                            onClick={() => setMegaOpen(false)}
+                            className="flex items-center gap-2 p-2.5 rounded-xl border border-surface-200/70 hover:border-theme-primary/40 transition-colors"
+                          >
+                            <Icon icon={l.icon} className="w-4 h-4 text-secondary-400" />
+                            <span className="text-body-sm font-medium text-secondary-700 truncate">
+                              {l.label}
+                            </span>
+                          </Link>
+                        ))}
                       </div>
 
-                      {/* CTA */}
                       <Link
                         to="/components/all"
-                        className="p-6 rounded-[1.5rem] bg-theme-primary text-white shadow-lg shadow-theme-primary/30 hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-center items-center gap-3"
                         onClick={() => setMegaOpen(false)}
+                        className="flex items-center justify-between gap-3 p-4 rounded-xl bg-theme-primary text-white transition-transform hover:scale-[1.01]"
                       >
-                        <div className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
-                          <Icon icon={Icons.layoutGrid} className="w-6 h-6" />
+                        <div className="flex items-center gap-3">
+                          <div className="p-2 rounded-lg bg-white/20">
+                            <Icon icon={Icons.layoutGrid} className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <p className="text-body-sm font-bold leading-tight text-white">{t('landing.header.components_cta.title')}</p>
+                            <p className="text-ui-xs font-medium text-white/80">{t('landing.header.components_cta.subtitle')}</p>
+                          </div>
                         </div>
-                        <div className="text-center">
-                          <p className="text-base font-bold leading-tight text-white">{t('landing.header.components_cta.title')}</p>
-                          <p className="text-xs opacity-90 font-medium mt-1 text-white">{t('landing.header.components_cta.subtitle')}</p>
-                        </div>
+                        <Icon icon={Icons.arrowRight} className="w-4 h-4 shrink-0" />
                       </Link>
                     </div>
                   </div>
@@ -299,7 +348,7 @@ export function LandingHeader() {
               className="btn-theme-primary px-6 py-2.5 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2 shadow-lg shadow-theme-primary/20 hover:shadow-xl transition-all"
             >
               {t('home.get_started')}
-              <Icon icon={Icons.chevronDown} className="w-4 h-4 -rotate-90" />
+              <Icon icon={Icons.arrowRight} className="w-4 h-4" />
             </Link>
           </div>
 

@@ -175,8 +175,82 @@
     }
   }
 
+  /* --------------------------------
+     Drifting blob (animated hero background)
+     Solid blurred fills that slowly move — no gradients.
+     -------------------------------- */
+
+  .animate-blob {
+    animation: blob 18s ease-in-out infinite;
+  }
+
+  .animate-blob-delay {
+    animation: blob 18s ease-in-out infinite;
+    animation-delay: -6s;
+  }
+
+  .animate-blob-delay-2 {
+    animation: blob 18s ease-in-out infinite;
+    animation-delay: -12s;
+  }
+
+  @keyframes blob {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(6%, 8%) scale(1.1);
+    }
+    66% {
+      transform: translate(-6%, -4%) scale(0.95);
+    }
+  }
+
+  /* --------------------------------
+     Marquee (continuous horizontal loop)
+     -------------------------------- */
+
+  .animate-marquee {
+    animation: marquee var(--marquee-duration, 32s) linear infinite;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* --------------------------------
+     Float (gentle bob, decorative icons)
+     -------------------------------- */
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delay {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -2s;
+  }
+
+  .animate-float-delay-2 {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .animate-hero-glow {
+    .animate-hero-glow,
+    .animate-blob,
+    .animate-blob-delay,
+    .animate-blob-delay-2,
+    .animate-float,
+    .animate-float-delay,
+    .animate-float-delay-2,
+    .animate-marquee {
       animation: none;
     }
   }

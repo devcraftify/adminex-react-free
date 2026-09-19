@@ -160,6 +160,12 @@ function NotificationsTab() {
     { id: 'updates', label: t('account.product_updates'), description: t('account.product_updates_desc') },
   ]
 
+  const [enabled, setEnabled] = useState<Record<string, boolean>>(
+    () => Object.fromEntries(settings.map((s) => [s.id, true])),
+  )
+
+  const toggle = (id: string) => setEnabled((prev) => ({ ...prev, [id]: !prev[id] }))
+
   return (
     <div className="space-y-6">
       <div>
@@ -172,22 +178,36 @@ function NotificationsTab() {
       </div>
 
       <div className="space-y-4">
-        {settings.map((setting) => (
-          <div key={setting.id} className="flex items-start justify-between py-3 border-b border-surface-200 last:border-0">
-            <div className="flex-1">
-              <h5 className="font-medium text-secondary-900 mb-0.5">
-                {setting.label}
-              </h5>
-              <p className="text-sm text-secondary-600">
-                {setting.description}
-              </p>
+        {settings.map((setting) => {
+          const isOn = enabled[setting.id]
+          return (
+            <div key={setting.id} className="flex items-start justify-between py-3 border-b border-surface-200 last:border-0">
+              <div className="flex-1">
+                <h5 className="font-medium text-secondary-900 mb-0.5">
+                  {setting.label}
+                </h5>
+                <p className="text-sm text-secondary-600">
+                  {setting.description}
+                </p>
+              </div>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={isOn}
+                onClick={() => toggle(setting.id)}
+                className={`relative ml-4 inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors ${
+                  isOn ? 'bg-theme-primary' : 'bg-surface-200'
+                }`}
+              >
+                <span
+                  className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
+                    isOn ? 'translate-x-[22px]' : 'translate-x-[2px]'
+                  }`}
+                />
+              </button>
             </div>
-            <label className="relative inline-flex items-center cursor-pointer ml-4">
-              <input type="checkbox" defaultChecked className="sr-only peer" />
-              <div className="w-11 h-6 bg-surface-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-theme-primary"></div>
-            </label>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   )

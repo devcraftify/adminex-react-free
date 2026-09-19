@@ -472,7 +472,7 @@ export function ContactsPage() {
           />
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl animate-fade-in overflow-hidden max-h-[90vh] overflow-y-auto">
+          <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl animate-fade-in overflow-y-auto overflow-x-hidden max-h-[90vh]">
             {/* Header */}
             <div className="sticky top-0 bg-white px-6 py-4 border-b border-surface-200 flex items-center justify-between z-10">
               <div>
@@ -750,25 +750,38 @@ export function ContactsPage() {
           />
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl animate-fade-in overflow-hidden">
+          <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl animate-fade-in overflow-y-auto overflow-x-hidden max-h-[90vh]">
             {/* Header with Cover */}
-            <div className="h-24 bg-gradient-to-r from-theme-primary to-theme-primary/70 relative">
+            <div className="relative px-6 pt-6 pb-5 bg-gradient-to-r from-theme-primary to-theme-primary/70">
               <button
                 onClick={() => setIsViewModalOpen(false)}
                 className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-lg text-white transition-colors"
               >
                 <Icon icon={Icons.x} width={20} height={20} />
               </button>
+              <div className="flex items-center gap-3 pr-12">
+                <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                  <Icon icon={Icons.user} width={22} height={22} className="text-white" />
+                </div>
+                <div className="min-w-0">
+                  <h2 className="text-lg font-bold text-white truncate">
+                    {t('contacts.view.profile')}
+                  </h2>
+                  <p className="text-body-sm text-white/70 truncate">
+                    {selectedContact.name}
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Profile Section */}
-            <div className="px-6 pb-6">
+            <div className="px-6 pt-5 pb-6">
               {/* Avatar */}
-              <div className="-mt-12 mb-4 flex items-end gap-4">
+              <div className="mb-4 flex items-end gap-4">
                 <img
                   src={selectedContact.avatar}
                   alt={selectedContact.name}
-                  className="w-24 h-24 rounded-2xl object-cover ring-4 ring-white shadow-lg"
+                  className="w-20 h-20 rounded-full object-cover ring-4 ring-white shadow-lg shrink-0"
                 />
                 <button
                   onClick={() => {

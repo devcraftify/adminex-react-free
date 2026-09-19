@@ -258,7 +258,11 @@ export function DataTablePage() {
 
         <div className="mt-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <p className="text-sm text-secondary-500">
-            {t('tables.showing_results', { shown: pageRows.length, total: sorted.length })}
+            {t('tables.showing_results', {
+              start: sorted.length === 0 ? 0 : (Math.min(page, totalPages) - 1) * pageSize + 1,
+              end: Math.min(Math.min(page, totalPages) * pageSize, sorted.length),
+              total: sorted.length,
+            })}
           </p>
 
           <div className="flex items-center gap-2">
@@ -271,7 +275,7 @@ export function DataTablePage() {
               {t('tables.prev')}
             </button>
             <div className="px-3 py-2 text-sm text-secondary-700">
-              {t('tables.page_of', { page: Math.min(page, totalPages), totalPages })}
+              {t('tables.page_of', { page: Math.min(page, totalPages), total: totalPages })}
             </div>
             <button
               type="button"
